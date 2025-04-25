@@ -47,9 +47,9 @@ p {
 }
 
 .logo-img {
-  height: 100px;
+  height: 90px;
   width: auto;
-  max-width: 270px;
+  max-width: 250px;
   object-fit: contain;
 }
 
