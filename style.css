@@ -10,9 +10,12 @@
   z-index: 999;
   .logo-img {
   height: 40px;
-  width: auto;}
-
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
 }
+}
+
 
 .nav-container {
   max-width: 1100px;
