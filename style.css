@@ -236,4 +236,27 @@ p {
     width: 100%;
     height: auto;
   }
+
+  /* ===== Overlap Section (Stat + Video) ===== */
+.overlap-section {
+  background: #ffffff;
+  margin-top: -100px;
+  padding: 80px 20px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.overlap-section h2 {
+  margin-top: 0;
+}
+
+.video-wrapper iframe {
+  border-radius: 12px;
+}
+
 }
