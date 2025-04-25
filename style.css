@@ -40,6 +40,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .logo a {
@@ -47,9 +48,9 @@ p {
 }
 
 .logo-img {
-  height: 50px;
+  height: 52px;
   width: auto;
-  max-width: 250px;
+  max-width: 240px;
   object-fit: contain;
 }
 
@@ -67,14 +68,18 @@ p {
 }
 
 .header-guarantee {
-  font-size: 16px;
+  flex: 2;
+  font-size: 15px;
   font-weight: 600;
   color: #4d6a3d;
   text-align: center;
+  line-height: 1.2;
 }
 
 .header-buttons {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   gap: 16px;
 }
 
