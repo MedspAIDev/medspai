@@ -17,7 +17,8 @@ h1, h2, h3 {
 p {
   font-size: 18px;
   max-width: 700px;
-  margin: 0 auto 1.5em;
+  margin: 20px auto 1.5em;
+  line-height: 1.6;
 }
 
 /* ===== Hero Section ===== */
@@ -33,7 +34,8 @@ p {
 }
 
 .hero h1 {
-  font-size: 56px;
+  font-size: 60px;
+  line-height: 1.1;
   margin-bottom: 0.5em;
 }
 
@@ -45,13 +47,19 @@ p {
   flex-wrap: wrap;
 }
 
+.video-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
 /* ===== Buttons ===== */
 .btn {
   text-decoration: none;
   padding: 14px 28px;
   font-size: 16px;
   border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, transform 0.2s ease;
   font-weight: 600;
   display: inline-block;
 }
@@ -65,6 +73,8 @@ p {
 .primary-btn:hover {
   background-color: #5c8a4b;
   color: #ffffff;
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .secondary-btn {
@@ -77,6 +87,8 @@ p {
   background-color: #c7e9a8;
   color: #1f2e1d;
   border-color: #c7e9a8;
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* ===== Responsive Typography ===== */
@@ -102,5 +114,10 @@ p {
   .hero-buttons {
     flex-direction: column;
     gap: 15px;
+  }
+
+  .video-wrapper iframe {
+    width: 100%;
+    height: auto;
   }
 }
