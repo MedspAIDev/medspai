@@ -12,19 +12,21 @@ h1, h2, h3 {
   color: #1f2e1d;
   font-weight: 700;
   margin-bottom: 0.5em;
+  text-align: center;
 }
 
 p {
-  font-size: 18px;
+  font-size: 20px;
   max-width: 700px;
   margin: 20px auto 1.5em;
   line-height: 1.6;
+  text-align: center;
 }
 
 /* ===== Hero Section ===== */
 .hero {
   background-color: #f9f9f9;
-  padding: 100px 20px;
+  padding: 140px 20px;
   text-align: center;
 }
 
@@ -34,9 +36,16 @@ p {
 }
 
 .hero h1 {
-  font-size: 60px;
+  font-size: 64px;
   line-height: 1.1;
-  margin-bottom: 0.5em;
+  margin-bottom: 20px;
+}
+
+.hero-stat h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 50px auto 20px;
+  color: #1f2e1d;
 }
 
 .hero-buttons {
@@ -47,19 +56,13 @@ p {
   flex-wrap: wrap;
 }
 
-.video-wrapper {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-}
-
 /* ===== Buttons ===== */
 .btn {
   text-decoration: none;
-  padding: 14px 28px;
-  font-size: 16px;
+  padding: 16px 32px;
+  font-size: 18px;
   border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   font-weight: 600;
   display: inline-block;
 }
@@ -73,8 +76,8 @@ p {
 .primary-btn:hover {
   background-color: #5c8a4b;
   color: #ffffff;
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.04);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .secondary-btn {
@@ -87,28 +90,53 @@ p {
   background-color: #c7e9a8;
   color: #1f2e1d;
   border-color: #c7e9a8;
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.04);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Highlighted Text ===== */
+.highlight {
+  color: #c7e9a8;
+}
+
+/* ===== Video Section ===== */
+.video-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.video-wrapper iframe {
+  border-radius: 12px;
 }
 
 /* ===== Responsive Typography ===== */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 42px;
+    font-size: 48px;
+  }
+
+  .hero-stat h2 {
+    font-size: 28px;
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .btn {
-    padding: 12px 20px;
+    padding: 14px 28px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 32px;
+    font-size: 36px;
+  }
+
+  .hero-stat h2 {
+    font-size: 24px;
   }
 
   .hero-buttons {
