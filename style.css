@@ -4,14 +4,14 @@ body {
   padding: 0;
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
-  color: #333333;
+  color: #555555; /* Lightened body text for softer look */
   line-height: 1.6;
 }
 
 h1, h2, h3 {
   color: #1f2e1d;
   font-weight: 700;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.
   text-align: center;
 }
 
