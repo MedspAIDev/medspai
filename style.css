@@ -66,6 +66,46 @@ p {
   color: #5c8a4b;
 }
 
+.header-guarantee {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4d6a3d;
+  text-align: center;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-btn {
+  background-color: #4d6a3d;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: #5c8a4b;
+  transform: scale(1.05);
+}
+
+.nav-btn.secondary {
+  background-color: #ffffff;
+  color: #4d6a3d;
+  border: 2px solid #4d6a3d;
+}
+
+.nav-btn.secondary:hover {
+  background-color: #c7e9a8;
+  color: #1f2e1d;
+}
+
+
 /* ===== Hero Section ===== */
 .hero {
   background-color: #f9f9f9;
