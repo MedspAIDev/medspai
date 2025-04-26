@@ -110,9 +110,9 @@ p {
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* change from center to flex-start */
   align-items: center;
-  padding: 0 20px;
+  padding: 100px 20px 40px; /* top, sides, bottom */
   text-align: center;
   z-index: 1;
 }
@@ -173,7 +173,7 @@ p {
 /* ===== Overlap Section ===== */
 .overlap-section {
   background: #d0e8db; 
-  margin-top: -100px;
+  margin-top: -60px;
   padding: 80px 20px 60px;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
