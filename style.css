@@ -115,12 +115,14 @@ p {
 .hero {
   background-color: #f9f9f9;
   min-height: 100vh;
-  padding: 80px 20px 80px;
-  text-align: center;
+  padding: 100px 20px 140px; /* Top, sides, bottom */
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -207,7 +209,7 @@ p {
 /* ===== Overlap Section (Stat + Video) ===== */
 .overlap-section {
   background: #ffffff;
-  margin-top: -100px;
+  margin-top: -120px;
   padding: 80px 20px 40px;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
