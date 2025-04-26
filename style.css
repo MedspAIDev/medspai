@@ -32,7 +32,7 @@ p {
 }
 
 .highlight-red {
-  color: #8b0000; /* Strong, professional, slightly dark red */
+  color: #8b0000 !important; /* Strong, professional, slightly dark red */
 }
 
 
