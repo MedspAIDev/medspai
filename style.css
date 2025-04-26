@@ -172,8 +172,8 @@ p {
 
 /* ===== Overlap Section ===== */
 .overlap-section {
-  background: #d0e8db; 
-  margin-top: -60px;
+  background: #355e3b; /* Deep green */
+  margin-top: 60px;
   padding: 80px 20px 60px;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -182,6 +182,7 @@ p {
   margin-right: auto;
   position: relative;
   z-index: 10;
+  color: #ffffff; /* Set text color inside this section to white */
 }
 
 .hero-stat h2 {
