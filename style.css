@@ -31,11 +31,6 @@ p {
   color: #4d6a3d;
 }
 
-.highlight-red {
-  color: #8b0000 !important; /* Strong, professional, slightly dark red */
-}
-
-
 /* ===== Header ===== */
 .site-header {
   position: sticky;
