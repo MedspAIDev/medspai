@@ -10,7 +10,10 @@
   text-align: center;
   position: relative;
   z-index: 1;
+  background-attachment: fixed;
+  background-size: cover;
 }
+
 
 .hero-container {
   max-width: 900px;
