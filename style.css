@@ -254,4 +254,27 @@ p {
   text-align: center;
 }
 
+  .hero-subheadline-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.hero-subheadline-main {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.hero-subheadline-support {
+  font-size: 20px;
+  font-weight: 400;
+  color: #555555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+
 }
