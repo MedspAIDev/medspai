@@ -64,11 +64,13 @@ p {
 
 .header-guarantee {
   flex: 2;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 18px; 
+  font-weight: 700; 
   color: #4d6a3d;
   text-align: center;
+  line-height: 1.4; 
 }
+
 
 .header-buttons {
   flex: 1;
