@@ -276,5 +276,18 @@ p {
   line-height: 1.5;
 }
 
+  .color-fade {
+  color: #8b0000; /* Start dark red */
+  animation: colorFadeAnimation 2s ease forwards;
+}
+
+@keyframes colorFadeAnimation {
+  0% {
+    color: #8b0000; /* Dark Red Start */
+  }
+  100% {
+    color: #4d6a3d; /* Olive Green End */
+  }
+}
 
 }
