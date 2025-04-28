@@ -174,7 +174,7 @@ p {
 
 /* ===== Overlap Section ===== */
 .overlap-section {
-  background: linear-gradient(135deg, #FFD700 0%, #FFC300 50%, #FFB300 100%);
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #cdaa7d 100%);
   margin-top: 40px;
   padding: 40px 20px 60px;
   border-radius: 16px;
