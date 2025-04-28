@@ -109,7 +109,7 @@ p {
 /* ===== Hero Background Sticky Section ===== */
 .hero-background {
   height: 130vh;
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* change from center to flex-start */
