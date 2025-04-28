@@ -171,17 +171,8 @@ p {
   transform: scale(1.05);
 }
 
-.stats-intro {
-  font-size: 18px;
-  font-weight: 400;
-  color: #555555;
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 40px;
-}
-
 .stats-section {
-  background-color: #ffffff;
+  background-color: transparent;
   padding: 40px 0;
 }
 
@@ -195,27 +186,33 @@ p {
 }
 
 .stat-box {
-  background: #f9f9f9;
-  border: 2px solid #e0e0e0;
+  background: none;
+  border: none;
   border-radius: 12px;
-  padding: 30px 20px;
-  width: 220px;
+  padding: 20px 10px;
+  width: 180px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
-.stat-box h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #4d6a3d;
+.stat-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .stat-box p {
-  font-size: 32px;
-  font-weight: 700;
-  color: #1f2e1d;
+  font-size: 40px;
+  font-weight: 800;
+  color: #4d6a3d;
+  margin: 0 0 8px 0;
+}
+
+.stat-box h3 {
+  font-size: 18px;
+  color: #555555;
   margin: 0;
 }
+
 
 /* ===== Overlap Section ===== */
 .overlap-section {
