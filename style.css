@@ -143,6 +143,7 @@ p {
   border-radius: 8px;
   font-size: 18px;
   font-weight: 600;
+  margin-bottom: 60px;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -174,6 +175,16 @@ p {
 .stats-section {
   background-color: transparent;
   padding: 40px 0;
+}
+
+.stats-header p {
+  font-size: 16px;
+  font-weight: 700;
+  color: #4d6a3d;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .stats-container {
