@@ -489,6 +489,52 @@ p {
   justify-content: center;
 }
 
+.demo-landing-hero {
+  padding: 80px 20px 40px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.demo-landing-hero h1 {
+  font-size: 48px;
+  color: #1f2e1d;
+  margin-bottom: 10px;
+}
+
+.demo-landing-hero p {
+  font-size: 20px;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.calendly-wrapper {
+  padding: 40px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-block {
+  background-color: #f0f0f0;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.testimonial-block .quote {
+  font-size: 22px;
+  font-weight: 500;
+  color: #4d6a3d;
+  max-width: 800px;
+  margin: 0 auto 10px;
+}
+
+.testimonial-block .attribution {
+  font-size: 16px;
+  color: #777;
+}
+
+
 /* ===== Responsive Typography (Mobile Only) ===== */
 @media (max-width: 768px) {
   .hero-background h1 {
