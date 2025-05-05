@@ -253,7 +253,7 @@ p {
   flex: 1 1 500px;
   position: relative;
   padding-top: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
+  height: 320px;
 }
 
 .demo-video iframe {
