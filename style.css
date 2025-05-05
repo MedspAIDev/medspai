@@ -230,10 +230,27 @@ p {
 }
 
 .stats-cta {
-  margin-top: 20px; /* reduce as needed (default might be 60px+) */
   text-align: center;
+  margin-top: 20px;
 }
 
+.stats-btn {
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #4d6a3d;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 60px;
+}
+
+.stats-btn:hover {
+  background-color: #5c8a4b;
+  transform: scale(1.05);
+}
 
 
 /* ===== Overlap Section ===== */
