@@ -232,39 +232,88 @@ p {
 
 /* ===== Overlap Section ===== */
 
-.email-capture-form {
+<style>
+.demo-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+}
+
+.demo-wrapper {
   display: flex;
-  gap: 12px;
-  margin-top: 20px;
-  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
   flex-wrap: wrap;
 }
 
-.email-capture-form input[type="email"] {
-  padding: 14px 20px;
-  border: 2px solid #4d6a3d;
-  border-radius: 8px;
-  font-size: 16px;
-  flex: 1;
-  min-width: 250px;
+.demo-video iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.email-capture-form button {
-  padding: 14px 24px;
+.demo-email {
+  flex: 1;
+  min-width: 280px;
+}
+
+.demo-email h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #1f2e1d;
+}
+
+.demo-email p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.email-form input[type="email"] {
+  padding: 12px 16px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.email-form button {
+  padding: 12px 24px;
   background-color: #4d6a3d;
-  color: #ffffff;
+  color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
-.email-capture-form button:hover {
+.email-form button:hover {
   background-color: #5c8a4b;
-  transform: scale(1.05);
 }
+
+/* Responsive stack for mobile */
+@media (max-width: 768px) {
+  .demo-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .demo-video, .demo-email {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .email-form input[type="email"] {
+    max-width: 100%;
+  }
+}
+</style>
 
 
 .overlap-section {
