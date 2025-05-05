@@ -371,7 +371,27 @@ p {
 }
 
 /* ========FEATURES SECTION======== */
-  
+
+  .features-content {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.features-content h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #1f2e1d;
+  margin-bottom: 16px;
+}
+
+.features-content p {
+  font-size: 20px;
+  font-weight: 400;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
   .features-grid {
   display: flex;
   flex-wrap: wrap;
