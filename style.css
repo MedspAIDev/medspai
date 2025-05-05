@@ -172,6 +172,24 @@ p {
   transform: scale(1.05);
 }
 
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background-color: #4d6a3d;
+  margin: 60px auto 20px;
+  border-radius: 2px;
+}
+
+.stats-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 30px;
+  color: #1f2e1d;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 .stats-section {
   background-color: #b8b8b8;
   border-top-left-radius: 24px;
