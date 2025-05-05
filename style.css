@@ -232,14 +232,8 @@ p {
 .stats-cta {
   margin-top: 20px; /* reduce as needed (default might be 60px+) */
   text-align: center;
-  background-color: #4d6a3d
-  color: #ffffff
 }
 
-.stats-cta:hover {
-  background-color: #5c8a4b;
-  transform: scale(1.05);
-}
 
 
 /* ===== Overlap Section ===== */
