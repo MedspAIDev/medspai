@@ -510,17 +510,24 @@ p {
 }
 
 .calendly-wrapper {
-  padding: 40px 20px;
+  padding: 60px 30px;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
 }
 
-.calendly-wrapper iframe {
+.calendly-box {
+  background: #f9f9f9;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 900px; /* Adjust this value if needed */
-  border: none;
-  border-radius: 12px;
+  max-width: 1000px;
+}
+
+.calendly-inline-widget {
+  width: 100%;
+  min-height: 750px;
 }
 
 .testimonial-block {
