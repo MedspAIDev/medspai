@@ -173,9 +173,13 @@ p {
 }
 
 .stats-section {
-  background-color: transparent;
-  padding: 40px 0;
+  background-color: #b8b8b8;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 60px 0 40px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 }
+
 
 .stats-intro {
   font-size: 13px;
