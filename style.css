@@ -436,36 +436,22 @@ p {
   margin-bottom: 10px;
 }
 
-/* Default Button */
 .feature-btn {
   display: inline-block;
   padding: 12px 20px;
-  font-size: 16px;
+  background-color: #ffffff;
+  color: #4d6a3d;
   font-weight: 600;
   text-decoration: none;
+  border: 2px solid #4d6a3d;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Odd (1st, 3rd, 5th...) */
-.feature-box:nth-child(odd) .feature-btn {
-  background-color: #4d6a3d;
-  color: #ffffff;
-  border: none;
-}
-.feature-box:nth-child(odd) .feature-btn:hover {
-  background-color: #5c8a4b;
-  transform: scale(1.05);
-}
-
-/* Even (2nd, 4th, 6th...) */
-.feature-box:nth-child(even) .feature-btn {
-  background-color: #5c8a4b;
-  color: #ffffff;
-  border: none;
-}
-.feature-box:nth-child(even) .feature-btn:hover {
-  background-color: #4d6a3d;
+.feature-btn:hover {
+  background-color: #c7e9a8;
+  color: #1f2e1d;
+  border-color: #c7e9a8;
   transform: scale(1.05);
 }
 
