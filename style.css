@@ -445,6 +445,28 @@ p {
   transform: scale(1.05);
 }
 
+.back-home-cta {
+  text-align: center;
+  margin: 60px 0 80px;
+}
+
+.back-home-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: #4d6a3d;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #5c8a4b;
+  transform: scale(1.05);
+}
+
 
 /* ===== Responsive Typography (Mobile Only) ===== */
 @media (max-width: 768px) {
