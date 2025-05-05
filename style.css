@@ -467,6 +467,17 @@ p {
   transform: scale(1.05);
 }
 
+.email-form-wrapper {
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.email-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 /* ===== Responsive Typography (Mobile Only) ===== */
 @media (max-width: 768px) {
