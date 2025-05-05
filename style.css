@@ -231,6 +231,42 @@ p {
 
 
 /* ===== Overlap Section ===== */
+
+.email-capture-form {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.email-capture-form input[type="email"] {
+  padding: 14px 20px;
+  border: 2px solid #4d6a3d;
+  border-radius: 8px;
+  font-size: 16px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.email-capture-form button {
+  padding: 14px 24px;
+  background-color: #4d6a3d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.email-capture-form button:hover {
+  background-color: #5c8a4b;
+  transform: scale(1.05);
+}
+
+
 .overlap-section {
   background: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #cdaa7d 100%);
   margin-top: 40px;
