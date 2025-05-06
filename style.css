@@ -401,6 +401,7 @@ p {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  text-align: center;
 }
 
 .overlap-section {
