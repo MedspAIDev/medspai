@@ -685,6 +685,10 @@ p {
   margin: 0 auto;
 }
 
+.thank-you-page {
+  padding-top: 10px !important;
+  height: auto !important;
+}
 
 /* ===== Responsive Typography (Mobile Only) ===== */
 @media (max-width: 768px) {
