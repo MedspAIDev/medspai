@@ -395,6 +395,13 @@ p {
   background-color: #5c8a4b;
 }
 
+.demo-text {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
 
 .overlap-section {
   background: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #cdaa7d 100%);
