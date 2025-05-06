@@ -266,6 +266,14 @@ p {
   margin-bottom: 60px;
 }
 
+.dual-btn {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+
 .stats-btn:hover {
   background-color: #5c8a4b;
   transform: scale(1.05);
