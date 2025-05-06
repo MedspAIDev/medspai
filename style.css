@@ -760,6 +760,19 @@ p {
   height: auto !important;
 }
 
+
+/*======= HOW IT WORKS SECTION =======*/
+.stats-container .stat-box {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.stats-container .stat-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
 /* ===== Responsive Typography (Mobile Only) ===== */
 @media (max-width: 768px) {
   .hero-background h1 {
