@@ -668,6 +668,29 @@ p {
   margin: 0;
 }
 
+.blog-date {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 16px;
+  color: #4d6a3d;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 16px;
+}
+
+.read-more:hover {
+  color: #5c8a4b;
+  text-decoration: underline;
+}
+
 
 
 /*======= FOOTER =======*/
