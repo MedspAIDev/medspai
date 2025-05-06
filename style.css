@@ -505,6 +505,10 @@ p {
   margin-top: 0px;
 }
 
+.highlighted-text {
+  color: #4d6a3d; /* Or choose a color that contrasts well with white */
+}
+
 .demo-landing-hero p {
   font-size: 15px;
   color: #555;
