@@ -39,6 +39,12 @@
     </div>
   </section>
 
+  
+  <div id="hidden-offer-banner" style="display: none; background-color: #f0f8ec; border: 1px solid #c7e9a8; padding: 15px 20px; border-radius: 8px; font-size: 16px; color: #2e4b2e; margin: 30px auto; max-width: 600px; text-align: center;">
+  🎉 You found our hidden offer! Use code <strong>HIDDENFREE</strong> in your message when booking to get your first month free.
+</div>
+
+  
   <!-- Calendly Embed -->
   <div class="calendly-wrapper">
   <div class="calendly-box">
@@ -68,5 +74,15 @@
     </div>
   </footer>
 
+<script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('offer') === 'hiddenfree') {
+    const banner = document.getElementById('hidden-offer-banner');
+    if (banner) banner.style.display = 'block';
+  }
+</script>
+
+
+  
 </body>
 </html>
