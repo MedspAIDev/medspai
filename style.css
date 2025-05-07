@@ -474,14 +474,14 @@ p {
   border-radius: 12px;
   padding: 30px;
   width: 260px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(77,106,61,0.1);
   text-align: center;
   transition: transform 0.3s ease;
 }
 
 .feature-box:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(77,106,61,0.15);
 }
 
 .feature-box h3 {
