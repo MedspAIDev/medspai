@@ -310,9 +310,11 @@ p {
 
 /* ===== Curved Divider ===== */
 .curve-divider {
-  margin-top: 40px;
-  line-height: 0;
+  position: relative;
+  width: 100%;
   overflow: hidden;
+  line-height: 0;
+  margin-top: -10px;
 }
 
 .curve-divider svg {
