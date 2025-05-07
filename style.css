@@ -788,6 +788,7 @@ p {
 .flip-card {
   perspective: 1000px;
   cursor: pointer;
+  height: 180px;
 }
 
 .flip-card-inner {
@@ -813,15 +814,17 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
-  text-align: center;
 }
+
 
 
 
