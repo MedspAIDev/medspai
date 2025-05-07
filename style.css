@@ -308,6 +308,21 @@ p {
 }
 
 
+/* ===== Bottom of hero ===== */
+.hero-hero {
+  background-color: #f2f2f2;
+  padding: 60px 20px 40px;
+  text-align: center;
+}
+
+.hero-results {
+  background-color: #ffffff; /* matches current default */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+
+
 /* ===== Overlap Section ===== */
 .demo-section {
   background: #f9f9f9;
@@ -830,9 +845,6 @@ p {
 .flip-card-back {
   transform: rotateY(180deg);
 }
-
-
-
 
 
 /* ===== Responsive Typography (Mobile Only) ===== */
