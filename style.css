@@ -310,13 +310,13 @@ p {
 
 /* ===== Bottom of hero ===== */
 .hero-hero {
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   padding: 60px 20px 40px;
   text-align: center;
 }
 
 .hero-results {
-  background-color: #ffffff; /* matches current default */
+  background-color: #f2f2f2; /* matches current default */
   padding: 40px 20px;
   text-align: center;
 }
