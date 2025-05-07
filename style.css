@@ -114,7 +114,7 @@ p {
   flex-direction: column;
   justify-content: flex-start; /* change from center to flex-start */
   align-items: center;
-  padding: 30px 20px 5px; /* top, sides, bottom */
+  padding: 20px 20px 5px; /* top, sides, bottom */
   text-align: center;
   z-index: 1;
 }
