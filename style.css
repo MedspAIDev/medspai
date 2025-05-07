@@ -719,6 +719,18 @@ p {
   text-decoration: underline;
 }
 
+.site-footer a {
+  color: #4d6a3d;         /* Olive green */
+  font-weight: 600;       /* Bold */
+  text-decoration: none;  /* Remove underline */
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+  color: #5c8a4b;         /* Optional hover shade */
+}
+
+
 
 /*======= BLOG SECTION =======*/
 .blog-page {
