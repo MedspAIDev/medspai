@@ -308,6 +308,19 @@ p {
 }
 
 
+/* ===== Curved Divider ===== */
+.curve-divider {
+  margin-top: 40px;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.curve-divider svg {
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+
 /* ===== Bottom of hero ===== */
 .hero-hero {
   background-color: #ffffff;
