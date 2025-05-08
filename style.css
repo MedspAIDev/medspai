@@ -363,11 +363,6 @@ p {
   line-height: 1.2;
 }
 
-.demo-text {
-  flex: 1 1 400px;
-  max-width: 500px;
-}
-
 .demo-text p {
   font-size: 18px;
   color: #555;
@@ -400,6 +395,7 @@ p {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .email-form input {
@@ -428,12 +424,15 @@ p {
 
 .demo-text {
   flex: 1 1 400px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;  /* centers everything inside */
   height: 100%;
   text-align: center;
 }
+
 
 .overlap-section {
   background: linear-gradient(135deg, #d4af37 0%, #b8860b 50%, #cdaa7d 100%);
