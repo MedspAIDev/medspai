@@ -752,6 +752,19 @@ p {
   background-color: #b3d690;
 }
 
+.blog-post-content ul {
+  padding-left: 1.5rem;
+  margin-left: 0;
+  list-style-position: inside;
+}
+
+.blog-post-content li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+
+
 
 /*======= FOOTER =======*/
 .site-footer {
