@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.medspai.com/</loc>
+  </url>
+
+  <!-- Main Pages -->
+  <url>
+    <loc>https://www.medspai.com/features/</loc>
+  </url>
+  <url>
+    <loc>https://www.medspai.com/demo/</loc>
+  </url>
+  <url>
+    <loc>https://www.medspai.com/case-study/</loc>
+  </url>
+  <url>
+    <loc>https://www.medspai.com/blog/</loc>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://www.medspai.com/blog/how-we-booked-23k/</loc>
+  </url>
+  <url>
+    <loc>https://www.medspai.com/blog/missing-leads/</loc>
+  </url>
+  <url>
+    <loc>https://www.medspai.com/blog/the-always-employee/</loc>
+  </url>
+
+  <!-- Thank You Page (Optional) -->
+  <url>
+    <loc>https://www.medspai.com/thank-you.html</loc>
+  </url>
+
+</urlset>
