@@ -381,6 +381,7 @@ p {
   max-width: 480px;
   position: relative;
   aspect-ratio: 16 / 9;
+  min-height: 100%;
 }
 
 .demo-video iframe {
@@ -429,7 +430,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;  /* centers everything inside */
-  height: 100%;
+  min-height: 100%;
   text-align: center;
 }
 
