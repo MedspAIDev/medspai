@@ -984,5 +984,92 @@ p {
   .color-fade {
   color: #8b0000; /* Start dark red */
 }
+
+
+  @media (max-width: 768px) {
+  .hero-background {
+    height: auto;
+    padding: 40px 20px 40px;
+  }
+
+  .hero-background h1 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .hero-subheadline-main {
+    font-size: 28px;
+  }
+
+  .hero-subheadline-support {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .stat-box {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .demo-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .demo-text,
+  .demo-video {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .features-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature-box {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .email-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .email-form input,
+  .email-form button {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .site-header {
+    flex-direction: column;
+    padding: 12px 20px;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .header-buttons {
+    justify-content: center;
+  }
+
+  .footer-link {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
   
 }
