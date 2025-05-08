@@ -753,15 +753,17 @@ p {
 }
 
 .blog-post-content ul {
-  padding-left: 1.5rem;
-  margin-left: 0;
-  list-style-position: inside;
+  margin: 1.5rem auto;
+  padding-left: 1.25rem;
+  max-width: 700px;
+  list-style-type: disc;
 }
 
 .blog-post-content li {
   margin-bottom: 0.75rem;
   line-height: 1.6;
 }
+
 
 
 
