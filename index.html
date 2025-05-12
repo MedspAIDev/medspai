@@ -88,9 +88,13 @@
 
       <form class="email-form" action="https://script.google.com/macros/s/AKfycbxum5hmjxrhE4gUxbbXAo-lUu3zXIMFmaSOVf--0JnpAyZICt6jtZrWPMmxtRIgf9UK/exec" method="POST">
         <input type="email" name="email" placeholder="Enter your email" required>
-        <button type="submit">Request My Free Agent</button>
+  
+  <!-- Honeypot Field -->
+      <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+      <button type="submit">Request My Free Agent</button>
       </form>
-    </div>
+</div>
 
     <div class="demo-video responsive-video">
       <iframe 
