@@ -11,6 +11,7 @@ body {
   background-color: #ffffff;
   color: #555555;
   line-height: 1.6;
+  position: relative;
 }
 
 h1, h2, h3 {
