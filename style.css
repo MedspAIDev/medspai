@@ -39,7 +39,7 @@ p {
 
 /* ===== Header ===== */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   background: linear-gradient(90deg, #ffffff 0%, #f9f9f9 100%);
