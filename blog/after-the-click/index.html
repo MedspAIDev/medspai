@@ -1,0 +1,114 @@
+# Generating the blog HTML code for the topic: “What Happens After the Click? How Most Med Spas Lose Leads Right on Their Website”
+
+from datetime import datetime
+
+blog_title = "What Happens After the Click? How Most Med Spas Lose Leads Right on Their Website"
+meta_description = "Med spas spend time and money driving traffic, but most websites drop the ball after the click. Here's how to fix that gap and convert more visitors."
+blog_date = datetime.today().strftime("%B %d, %Y")
+
+blog_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{meta_description}" />
+  <title>{blog_title} | MedspAI</title>
+  <link rel="stylesheet" href="/style.css?v=1" />
+  <link rel="icon" href="/favicon.png" type="image/png">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="/">
+          <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI Logo" class="logo-img" />
+        </a>
+      </div>
+
+      <div class="header-guarantee">
+        Guaranteed to Pay for Itself — Or You Don’t Pay
+      </div>
+
+      <div class="header-buttons">
+        <a href="/features/" class="nav-btn">Features</a>
+        <a href="/demo/" class="nav-btn secondary">Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="blog-post-wrapper">
+    <article class="blog-post-content">
+      <p class="blog-date">{blog_date}</p>
+      <h1 class="blog-title">{blog_title}</h1>
+
+      <p class="blog-intro">
+        You’ve invested in ads. Your SEO is solid. People are clicking into your site. But if your website isn’t built to convert, you’re wasting all that traffic.
+      </p>
+
+      <h2>Clicks Don’t Equal Clients</h2>
+      <p>
+        Most med spas think traffic is the goal. It’s not. The goal is booked appointments. But what happens after someone clicks on your site? If they land on a static page, they’re left with two choices: hunt for information or leave.
+      </p>
+
+      <p>
+        That’s where most med spas lose 50% or more of their leads—right at the moment of interest.
+      </p>
+
+      <h2>The Real Problem: Static Sites Can’t Hold a Conversation</h2>
+      <p>
+        Your website isn’t bad—it’s just passive. It doesn’t respond. It doesn’t guide. And it definitely doesn’t book. So even if a visitor is interested, they may leave without ever filling out a form.
+      </p>
+
+      <h2>The Fix: Make Your Website Talk</h2>
+      <p>
+        MedspAI turns your site into a booking engine. Instead of making visitors do the work, it greets them, answers their questions, and walks them right to your calendar. It's like having your best front desk person on every page—ready to engage, not just inform.
+      </p>
+
+      <h2>Results You Can Measure</h2>
+      <p>
+        In one case, a med spa using MedspAI converted 78% of its leads without running a single ad. That’s not just traffic. That’s revenue. And if the AI doesn’t pay for itself in bookings, you don’t pay. It’s that simple.
+      </p>
+
+      <p>
+        <strong>Your website is already getting attention. Now it’s time to turn that attention into action.</strong>
+      </p>
+
+      <p class="cta-container">
+        <a href="/demo/" class="cta-button">Book a Free Demo</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer" style="background-color: #f9f9f9; padding: 40px 20px;">
+    <div class="footer-container" style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px;">
+      <div class="footer-logo" style="flex: 1 1 250px;">
+        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI Logo" style="height: 100px; width: auto;" />
+      </div>
+      <div class="footer-links" style="flex: 1 1 200px;">
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li><a href="/">Home</a></li>
+          <li><a href="/features/">Features</a></li>
+          <li><a href="/case-study/">Case Study</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/demo/">Book Demo</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact" style="flex: 1 1 200px;">
+        <p style="margin: 4px 0; font-size: 14px; color: #555;">team@medspai.com</p>
+        <p style="margin: 4px 0; font-size: 14px; color: #555;">Houston, TX</p>
+      </div>
+      <div class="footer-legal" style="flex: 1 1 200px; text-align: right;">
+        <p style="margin: 4px 0; font-size: 14px; color: #555;">© 2025 MedspAI</p>
+        <p style="margin: 4px 0; font-size: 13px; color: #4d6a3d;">
+          <a href="/privacy/" style="color: #4d6a3d; text-decoration: none;">Privacy Policy</a> |
+          <a href="/terms/" style="color: #4d6a3d; text-decoration: none;">Terms</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+"""
+
+blog_html.strip()
