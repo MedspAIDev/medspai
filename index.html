@@ -205,13 +205,14 @@
         }
       });
 
-      // Wait until VF is available and then open the widget
-      const waitForVF = setInterval(() => {
-        if (window.VF && typeof window.VF.open === 'function') {
-          window.VF.open();
-          clearInterval(waitForVF);
+      // Wait for the chat widget button to appear, then trigger a click
+      const tryOpen = setInterval(() => {
+        const button = document.querySelector('button[data-testid="launcher-button"]');
+        if (button) {
+          button.click();
+          clearInterval(tryOpen);
         }
-      }, 100); // checks every 100ms
+      }, 200); // check every 200ms
     };
 
     v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
