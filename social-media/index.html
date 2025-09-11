@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MedspAI | Client Portal</title>
+  <style>
+    :root { --bg:#0b0f10; --card:#12181b; --fg:#e8f0f2; --muted:#9fb0b7; --accent:#14b8a6; }
+    * { box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+    body { margin:0; background:linear-gradient(180deg,#0b0f10,#0e1417 60%,#0b0f10); color:var(--fg); display:grid; min-height:100dvh; place-items:center; padding:24px; }
+    .card { width:100%; max-width:520px; background:var(--card); border:1px solid #1e2a2f; border-radius:18px; padding:24px; box-shadow:0 10px 30px rgba(0,0,0,.35); }
+    h1 { margin:0 0 4px; font-size:22px; }
+    p.sub { margin:0 0 20px; color:var(--muted); font-size:14px; }
+    label { display:block; font-size:14px; margin:14px 0 6px; color:#cfe3ea; }
+    input, button { width:100%; padding:12px 14px; border-radius:12px; border:1px solid #26343a; background:#0f1518; color:var(--fg); }
+    input::placeholder { color:#6f838b; }
+    button { margin-top:14px; background:var(--accent); border:none; color:#052224; font-weight:600; cursor:pointer; }
+    .error { color:#ff6b6b; font-size:13px; margin-top:10px; display:none; }
+    .hide { display:none; }
+    .footer { margin-top:16px; font-size:12px; color:var(--muted); text-align:center; }
+    .embed { height:70vh; min-height:520px; width:100%; }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN CARD -->
+  <div id="login-card" class="card">
+    <h1>MedspAI Client Login</h1>
+    <p class="sub">Access your AI Agent. If you need help, contact team@medspai.com.</p>
+
+    <label for="email">Work Email</label>
+    <input id="email" type="email" placeholder="owner@yourmedspa.com" autocomplete="email" />
+
+    <label for="code">Access Code</label>
+    <input id="code" type="password" placeholder="Enter code" autocomplete="current-password" />
+
+    <button id="login-btn" type="button">Continue</button>
+    <div id="error" class="error">Invalid email or access code.</div>
+
+    <div class="footer">By continuing you agree not to share credentials.</div>
+  </div>
+
+  <!-- EMBED CARD (hidden until login passes) -->
+  <div id="embed-card" class="card hide">
+    <h1>Client Agent</h1>
+    <p class="sub" id="welcome">Welcome!</p>
+    <div class="embed" id="agent-container"></div>
+  </div>
+
+  <script>
+    // --- Simple allowlist & code gate ---
+    const ACCESS_CODE = "medspAI2025"; // rotate when needed
+    const ALLOWLIST = [
+      "ebfairydust@gmail.com",
+      "chase@thewellnesscenter.life",
+      "team@medspai.com"
+      // add more allowed emails here
+    ];
+
+    const loginBtn = document.getElementById('login-btn');
+    const errorEl = document.getElementById('error');
+    const loginCard = document.getElementById('login-card');
+    const embedCard = document.getElementById('embed-card');
+    const welcome = document.getElementById('welcome');
+
+    function tryLogin() {
+      const email = (document.getElementById('email').value || "").trim().toLowerCase();
+      const code  = (document.getElementById('code').value || "").trim();
+
+      const okEmail = ALLOWLIST.includes(email);
+      const okCode  = code === ACCESS_CODE;
+
+      if (okEmail && okCode) {
+        errorEl.style.display = 'none';
+        loginCard.classList.add('hide');
+        embedCard.classList.remove('hide');
+        welcome.textContent = `Welcome, ${email}`;
+
+        // Load Voiceflow Web Chat (widget-next build)
+        (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '68ae36386fa1a8204295f96e' }, // replace if needed
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production', // make sure this is the version you customized
+              voice: { url: 'https://runtime-api.voiceflow.com' },
+              render: {
+                mode: 'embedded',
+                target: document.getElementById('agent-container')
+              },
+              user: { name: email, email }
+            });
+          };
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+          v.type = "text/javascript";
+          s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+
+      } else {
+        errorEl.style.display = 'block';
+      }
+    }
+
+    loginBtn.addEventListener('click', tryLogin);
+    document.getElementById('email').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
+    document.getElementById('code').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
+  </script>
+</body>
+</html>
