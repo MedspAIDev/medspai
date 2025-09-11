@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MedspAI | Client Portal</title>
+  <meta name="description" content="Access your MedspAI tools: Marketing Agent, Social Media Agent, and Agent Analytics." />
+  <style>
+    :root{
+      --bg:#0b0f10; --card:#12181b; --ink:#e8f0f2; --muted:#9fb0b7; --accent:#14b8a6; --border:#1e2a2f;
+    }
+    *{ box-sizing:border-box; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+    body{ margin:0; background:linear-gradient(180deg,#0b0f10,#0e1417 60%,#0b0f10); color:var(--ink); min-height:100dvh; display:flex; align-items:center; justify-content:center; padding:28px; }
+    .shell{ width:100%; max-width:1100px; }
+    header{ text-align:center; margin-bottom:28px; }
+    h1{ margin:0 0 6px; font-size:28px; letter-spacing:.2px; }
+    p.sub{ margin:0; color:var(--muted); font-size:14px; }
+    .grid{ display:grid; gap:18px; grid-template-columns: repeat(12, 1fr); }
+    @media (max-width:900px){ .grid{ grid-template-columns: repeat(6, 1fr); } }
+    @media (max-width:580px){ .grid{ grid-template-columns: repeat(1, 1fr); } }
+
+    .card{
+      grid-column: span 4;
+      background:var(--card); border:1px solid var(--border); border-radius:20px; padding:20px;
+      box-shadow:0 12px 30px rgba(0,0,0,.35); display:flex; flex-direction:column; gap:14px; min-height:220px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover{ transform: translateY(-2px); box-shadow:0 18px 38px rgba(0,0,0,.45); border-color:#284048; }
+    .row{ display:flex; align-items:center; gap:14px; }
+    .icon{
+      width:46px; height:46px; border-radius:12px; background:#0f1518; display:grid; place-items:center; border:1px solid #243238;
+    }
+    .icon svg{ width:24px; height:24px; fill:none; stroke:var(--ink); stroke-width:1.6; }
+    h2{ margin:0; font-size:18px; }
+    p{ margin:0; color:var(--muted); font-size:14px; line-height:1.5; }
+    .actions{ margin-top:auto; display:flex; gap:10px; }
+    a.btn{
+      display:inline-block; text-align:center; padding:12px 14px; border-radius:12px; text-decoration:none; font-weight:600;
+      background:var(--accent); color:#052224; border:1px solid transparent; width:100%;
+    }
+    a.btn.secondary{ background:#0f1518; color:var(--ink); border-color:#26343a; }
+    footer{ margin-top:22px; text-align:center; color:var(--muted); font-size:12px; }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <h1>MedspAI Client Portal</h1>
+      <p class="sub">Choose a tool to continue.</p>
+    </header>
+
+    <section class="grid">
+      <!-- Marketing Agent -->
+      <article class="card">
+        <div class="row">
+          <div class="icon" aria-hidden="true">
+            <!-- megaphone icon -->
+            <svg viewBox="0 0 24 24"><path d="M3 11v2a4 4 0 0 0 4 4h1l1.5 3 1.5-3h2a4 4 0 0 0 4-4V8a2 2 0 0 0-2-2h-1l-8 4H5a2 2 0 0 0-2 2z"/></svg>
+          </div>
+          <div>
+            <h2>Marketing Agent</h2>
+            <p>Create compliant offers & ad copy.</p>
+          </div>
+        </div>
+        <p>Generate and refine Meta-compliant promotions in minutes.</p>
+        <div class="actions">
+          <a class="btn" href="/marketing">Open</a>
+        </div>
+      </article>
+
+      <!-- Social Media Agent -->
+      <article class="card">
+        <div class="row">
+          <div class="icon" aria-hidden="true">
+            <!-- chat bubbles icon -->
+            <svg viewBox="0 0 24 24"><path d="M7 8h6m-6 4h4M5 20l3-3h9a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v9l1 4z"/></svg>
+          </div>
+          <div>
+            <h2>Social Media Agent</h2>
+            <p>Plan posts, captions, and ideas.</p>
+          </div>
+        </div>
+        <p>Turn services into scroll-stopping content across platforms.</p>
+        <div class="actions">
+          <a class="btn" href="/social-media">Open</a>
+        </div>
+      </article>
+
+      <!-- Agent Analytics (ChatDash) -->
+      <article class="card">
+        <div class="row">
+          <div class="icon" aria-hidden="true">
+            <!-- chart icon -->
+            <svg viewBox="0 0 24 24"><path d="M4 19V5m4 14v-6m4 6V7m4 12v-9m4 9H3"/></svg>
+          </div>
+          <div>
+            <h2>Agent Analytics</h2>
+            <p>ChatDash dashboards & insights.</p>
+          </div>
+        </div>
+        <p>Track conversations, bookings, and performance.</p>
+        <div class="actions">
+          <a class="btn" href="/login">Open</a>
+        </div>
+      </article>
+    </section>
+
+    <footer>Need help? Email <a href="mailto:team@medspai.com" style="color:inherit;text-decoration:underline;">team@medspai.com</a></footer>
+  </main>
+</body>
+</html>
