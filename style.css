@@ -945,6 +945,15 @@ p {
     padding: 14px 28px;
     font-size: 16px;
   }
+
+  .header-guarantee, 
+.header-guarantee-inline {
+  white-space: normal;     /* allow wrapping */
+  text-align: center;      /* center the text */
+  padding: 0 12px;         /* add small horizontal padding */
+  box-sizing: border-box;  /* make sure padding counts in width */
+}
+
 }
 
 @media (max-width: 480px) {
