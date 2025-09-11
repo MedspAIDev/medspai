@@ -12,13 +12,9 @@
     h1 { margin:0 0 4px; font-size:22px; }
     p.sub { margin:0 0 20px; color:var(--muted); font-size:14px; }
     label { display:block; font-size:14px; margin:14px 0 6px; color:#cfe3ea; }
-    input, button, select {
-      width:100%; padding:12px 14px; border-radius:12px; border:1px solid #26343a; background:#0f1518; color:var(--fg);
-    }
+    input, button { width:100%; padding:12px 14px; border-radius:12px; border:1px solid #26343a; background:#0f1518; color:var(--fg); }
     input::placeholder { color:#6f838b; }
     button { margin-top:14px; background:var(--accent); border:none; color:#052224; font-weight:600; cursor:pointer; }
-    .row { display:flex; gap:10px; }
-    .row > * { flex:1; }
     .error { color:#ff6b6b; font-size:13px; margin-top:10px; display:none; }
     .hide { display:none; }
     .footer { margin-top:16px; font-size:12px; color:var(--muted); text-align:center; }
@@ -35,17 +31,11 @@
     <label for="email">Work Email</label>
     <input id="email" type="email" placeholder="owner@yourmedspa.com" autocomplete="email" />
 
-    <div class="row">
-      <div>
-        <label for="code">Access Code</label>
-        <input id="code" type="password" placeholder="Enter code" autocomplete="current-password" />
-      </div>
-      <div>
-      </div>
-    </div>
+    <label for="code">Access Code</label>
+    <input id="code" type="password" placeholder="Enter code" autocomplete="current-password" />
 
-    <button id="login-btn">Continue</button>
-    <div id="error" class="error">Invalid email, client, or code.</div>
+    <button id="login-btn" type="button">Continue</button>
+    <div id="error" class="error">Invalid email or access code.</div>
 
     <div class="footer">By continuing you agree not to share credentials.</div>
   </div>
@@ -55,28 +45,18 @@
     <h1>Client Agent</h1>
     <p class="sub" id="welcome">Welcome!</p>
 
-    <!-- Option 1: Voiceflow Web Chat Widget -->
-    <div class="embed" id="agent-container">
-      <!-- The agent widget will mount here -->
-    </div>
-
-    <!-- Option 2 (fallback): Iframe embed
-    <iframe id="agent-iframe" class="embed hide"
-            src="" title="MedspAI Agent" frameborder="0" style="width:100%;border-radius:12px;"></iframe>
-    -->
+    <div class="embed" id="agent-container"></div>
   </div>
 
   <script>
-    // --- Simple allowlist & code gate (replace with your own values) ---
-    // For per-client revocation, remove their email or rotate the ACCESS_CODE.
-    const ACCESS_CODE = "medspAI2025"; // rotate this if someone churns
-    const ALLOWLIST = {
-      "Enhancing Beauty & Aesthetics": ["ebfairydust@gmail.com"],
-      "The Wellness Center": [chase@thewellnesscenter.life"],
-      "MedspAI": [team@medspai.com"],
-
-      // Add more clients/emails here
-    };
+    // --- Simple allowlist & code gate ---
+    const ACCESS_CODE = "medspAI2025"; // rotate when needed
+    const ALLOWLIST = [
+      "ebfairydust@gmail.com",
+      "chase@thewellnesscenter.life",
+      "team@medspai.com"
+      // add more allowed emails here
+    ];
 
     const loginBtn = document.getElementById('login-btn');
     const errorEl = document.getElementById('error');
@@ -84,49 +64,49 @@
     const embedCard = document.getElementById('embed-card');
     const welcome = document.getElementById('welcome');
 
-    loginBtn.addEventListener('click', () => {
+    function tryLogin() {
       const email = (document.getElementById('email').value || "").trim().toLowerCase();
       const code  = (document.getElementById('code').value || "").trim();
-      const client= document.getElementById('client').value;
 
-      const okClient = !!client && Array.isArray(ALLOWLIST[client]);
-      const okEmail  = okClient && ALLOWLIST[client].map(s=>s.toLowerCase()).includes(email);
-      const okCode   = code === ACCESS_CODE;
+      const okEmail = ALLOWLIST.includes(email);
+      const okCode  = code === ACCESS_CODE;
 
-      if (okClient && okEmail && okCode) {
+      if (okEmail && okCode) {
         errorEl.style.display = 'none';
         loginCard.classList.add('hide');
         embedCard.classList.remove('hide');
-        welcome.textContent = `Welcome, ${email} — ${client}`;
+        welcome.textContent = `Welcome, ${email}`;
 
         // Load Voiceflow Web Chat (replace with your project details)
-        // Docs: https://www.voiceflow.com (Widget snippet; keep tokens private when possible)
         (function loadVF(){
           const script = document.createElement('script');
-          script.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; // example path; use Voiceflow's official snippet
+          script.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; // use Voiceflow's official snippet URL
           script.type = "module";
           script.onload = () => {
-            // @ts-ignore
-            window.voiceflow && window.voiceflow.chat && window.voiceflow.chat.load({
-              // VERIFY: replace with your live project
-              verify: { projectID: "YOUR_PROJECT_ID" }, // e.g., "64f...abc"
-              url: "https://general-runtime.voiceflow.com",
-              versionID: "production",
-              // Pass client identity as context/metadata for analytics
-              user: { name: email, email, client },
-              render: { mode: "embedded", target: document.getElementById("agent-container") }
-            });
+            if (window.voiceflow && window.voiceflow.chat) {
+              window.voiceflow.chat.load({
+                verify: { projectID: "68a256a70404dfaf68e3cdc5" }, // e.g., "64f...abc"
+                url: "https://general-runtime.voiceflow.com",
+                versionID: "production",
+                user: { name: email, email },
+                render: { mode: "embedded", target: document.getElementById("agent-container") }
+              });
+            } else {
+              console.error("Voiceflow widget failed to load.");
+            }
           };
           document.head.appendChild(script);
         })();
-
-        // If using an iframe instead:
-        // document.getElementById('agent-iframe').src = "https://YOUR-WIDGET-HOST/page.html?client=" + encodeURIComponent(client) + "&email=" + encodeURIComponent(email);
-
       } else {
         errorEl.style.display = 'block';
       }
-    });
+    }
+
+    loginBtn.addEventListener('click', tryLogin);
+    // Allow pressing Enter in either input to submit
+    document.getElementById('email').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
+    document.getElementById('code').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
   </script>
 </body>
 </html>
+
