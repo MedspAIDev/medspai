@@ -94,6 +94,9 @@ p {
   font-weight: 600;
   font-size: 15px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;        /* 🔑 keep text on one line */
+  min-width: 120px;           /* 🔑 ensures all buttons are wide enough */
+  text-align: center;   
 }
 
 .nav-btn:hover {
