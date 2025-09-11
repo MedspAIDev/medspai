@@ -18,7 +18,7 @@
     .error { color:#ff6b6b; font-size:13px; margin-top:10px; display:none; }
     .hide { display:none; }
     .footer { margin-top:16px; font-size:12px; color:var(--muted); text-align:center; }
-    .embed { height:70dvh; min-height:520px; }
+    .embed { height:70vh; min-height:520px; width:100%; }
   </style>
 </head>
 <body>
@@ -44,7 +44,6 @@
   <div id="embed-card" class="card hide">
     <h1>Client Agent</h1>
     <p class="sub" id="welcome">Welcome!</p>
-
     <div class="embed" id="agent-container"></div>
   </div>
 
@@ -77,36 +76,35 @@
         embedCard.classList.remove('hide');
         welcome.textContent = `Welcome, ${email}`;
 
-        // Load Voiceflow Web Chat (replace with your project details)
-        (function loadVF(){
-          const script = document.createElement('script');
-          script.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; // use Voiceflow's official snippet URL
-          script.type = "module";
-          script.onload = () => {
-            if (window.voiceflow && window.voiceflow.chat) {
-              window.voiceflow.chat.load({
-                verify: { projectID: "68a256a70404dfaf68e3cdc5" }, // e.g., "64f...abc"
-                url: "https://general-runtime.voiceflow.com",
-                versionID: "production",
-                user: { name: email, email },
-                render: { mode: "embedded", target: document.getElementById("agent-container") }
-              });
-            } else {
-              console.error("Voiceflow widget failed to load.");
-            }
+        // Load Voiceflow Web Chat (widget-next build)
+        (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '68a256a70404dfaf68e3cdc5' }, // replace if needed
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production', // make sure this is the version you customized
+              voice: { url: 'https://runtime-api.voiceflow.com' },
+              render: {
+                mode: 'embedded',
+                target: document.getElementById('agent-container')
+              },
+              user: { name: email, email }
+            });
           };
-          document.head.appendChild(script);
-        })();
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+          v.type = "text/javascript";
+          s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+
       } else {
         errorEl.style.display = 'block';
       }
     }
 
     loginBtn.addEventListener('click', tryLogin);
-    // Allow pressing Enter in either input to submit
     document.getElementById('email').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
     document.getElementById('code').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
   </script>
 </body>
 </html>
-
