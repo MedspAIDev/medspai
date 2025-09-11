@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MedspAI | Client Portal</title>
+  <style>
+    :root { --bg:#0b0f10; --card:#12181b; --fg:#e8f0f2; --muted:#9fb0b7; --accent:#14b8a6; }
+    * { box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+    body { margin:0; background:linear-gradient(180deg,#0b0f10,#0e1417 60%,#0b0f10); color:var(--fg); display:grid; min-height:100dvh; place-items:center; padding:24px; }
+    .card { width:100%; max-width:520px; background:var(--card); border:1px solid #1e2a2f; border-radius:18px; padding:24px; box-shadow:0 10px 30px rgba(0,0,0,.35); }
+    h1 { margin:0 0 4px; font-size:22px; }
+    p.sub { margin:0 0 20px; color:var(--muted); font-size:14px; }
+    label { display:block; font-size:14px; margin:14px 0 6px; color:#cfe3ea; }
+    input, button, select {
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid #26343a; background:#0f1518; color:var(--fg);
+    }
+    input::placeholder { color:#6f838b; }
+    button { margin-top:14px; background:var(--accent); border:none; color:#052224; font-weight:600; cursor:pointer; }
+    .row { display:flex; gap:10px; }
+    .row > * { flex:1; }
+    .error { color:#ff6b6b; font-size:13px; margin-top:10px; display:none; }
+    .hide { display:none; }
+    .footer { margin-top:16px; font-size:12px; color:var(--muted); text-align:center; }
+    .embed { height:70dvh; min-height:520px; }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN CARD -->
+  <div id="login-card" class="card">
+    <h1>MedspAI Client Login</h1>
+    <p class="sub">Access your AI Agent. If you need help, contact support@medspai.com.</p>
+
+    <label for="email">Work Email</label>
+    <input id="email" type="email" placeholder="owner@yourmedspa.com" autocomplete="email" />
+
+    <div class="row">
+      <div>
+        <label for="code">Access Code</label>
+        <input id="code" type="password" placeholder="Enter code" autocomplete="current-password" />
+      </div>
+      <div>
+        <label for="client">Client</label>
+        <select id="client">
+          <option value="">Select your clinic…</option>
+          <option>Enhancing Beauty & Aesthetics</option>
+          <option>Remedy Refined Aesthetics</option>
+          <option>The Medspa @50th</option>
+          <!-- Add more as needed -->
+        </select>
+      </div>
+    </div>
+
+    <button id="login-btn">Continue</button>
+    <div id="error" class="error">Invalid email, client, or code.</div>
+
+    <div class="footer">By continuing you agree not to share credentials. Access may be revoked for non-payment.</div>
+  </div>
+
+  <!-- EMBED CARD (hidden until login passes) -->
+  <div id="embed-card" class="card hide">
+    <h1>Client Agent</h1>
+    <p class="sub" id="welcome">Welcome!</p>
+
+    <!-- Option 1: Voiceflow Web Chat Widget -->
+    <div class="embed" id="agent-container">
+      <!-- The agent widget will mount here -->
+    </div>
+
+    <!-- Option 2 (fallback): Iframe embed
+    <iframe id="agent-iframe" class="embed hide"
+            src="" title="MedspAI Agent" frameborder="0" style="width:100%;border-radius:12px;"></iframe>
+    -->
+  </div>
+
+  <script>
+    // --- Simple allowlist & code gate (replace with your own values) ---
+    // For per-client revocation, remove their email or rotate the ACCESS_CODE.
+    const ACCESS_CODE = "medspai-2025"; // rotate this if someone churns
+    const ALLOWLIST = {
+      "Enhancing Beauty & Aesthetics": ["owner@enhancingbeautyaesthetics.com"],
+      "Remedy Refined Aesthetics": ["renee@remedyrefined.com", "manager@remedyrefined.com"],
+      "The Medspa @50th": ["shaurin@m50medspa.com"]
+      // Add more clients/emails here
+    };
+
+    const loginBtn = document.getElementById('login-btn');
+    const errorEl = document.getElementById('error');
+    const loginCard = document.getElementById('login-card');
+    const embedCard = document.getElementById('embed-card');
+    const welcome = document.getElementById('welcome');
+
+    loginBtn.addEventListener('click', () => {
+      const email = (document.getElementById('email').value || "").trim().toLowerCase();
+      const code  = (document.getElementById('code').value || "").trim();
+      const client= document.getElementById('client').value;
+
+      const okClient = !!client && Array.isArray(ALLOWLIST[client]);
+      const okEmail  = okClient && ALLOWLIST[client].map(s=>s.toLowerCase()).includes(email);
+      const okCode   = code === ACCESS_CODE;
+
+      if (okClient && okEmail && okCode) {
+        errorEl.style.display = 'none';
+        loginCard.classList.add('hide');
+        embedCard.classList.remove('hide');
+        welcome.textContent = `Welcome, ${email} — ${client}`;
+
+        // Load Voiceflow Web Chat (replace with your project details)
+        // Docs: https://www.voiceflow.com (Widget snippet; keep tokens private when possible)
+        (function loadVF(){
+          const script = document.createElement('script');
+          script.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; // example path; use Voiceflow's official snippet
+          script.type = "module";
+          script.onload = () => {
+            // @ts-ignore
+            window.voiceflow && window.voiceflow.chat && window.voiceflow.chat.load({
+              // VERIFY: replace with your live project
+              verify: { projectID: "YOUR_PROJECT_ID" }, // e.g., "64f...abc"
+              url: "https://general-runtime.voiceflow.com",
+              versionID: "production",
+              // Pass client identity as context/metadata for analytics
+              user: { name: email, email, client },
+              render: { mode: "embedded", target: document.getElementById("agent-container") }
+            });
+          };
+          document.head.appendChild(script);
+        })();
+
+        // If using an iframe instead:
+        // document.getElementById('agent-iframe').src = "https://YOUR-WIDGET-HOST/page.html?client=" + encodeURIComponent(client) + "&email=" + encodeURIComponent(email);
+
+      } else {
+        errorEl.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
