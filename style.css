@@ -112,6 +112,16 @@ p {
   color: #1f2e1d;
 }
 
+.nav-btn.portal-btn {
+  background: #111; /* matte black */
+  color: #fff;
+  border: 1px solid #222;
+}
+
+.nav-btn.portal-btn:hover {
+  background: #222;
+}
+
 /* ===== Hero Background Sticky Section ===== */
 .hero-background {
   height: 170vh;
