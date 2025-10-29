@@ -143,6 +143,10 @@ ul {
   width: auto;
 }
 
+.header-guarantee {
+  display: none;
+}
+
 .site-nav {
   display: none;
   gap: 1.5rem;
@@ -963,6 +967,225 @@ input[type='range']::-moz-range-thumb {
   text-align: center;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* ------------------------------------------------------ */
+/* Shared page hero styles for secondary pages            */
+/* ------------------------------------------------------ */
+
+.page-hero {
+  padding: 6rem 2rem 4rem;
+  background: linear-gradient(180deg, rgba(230, 245, 237, 0.7) 0%, rgba(249, 251, 249, 0) 65%);
+}
+
+.page-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.page-hero-highlight {
+  color: var(--color-highlight);
+}
+
+.page-hero-text {
+  font-size: 1.08rem;
+  color: var(--color-muted);
+}
+
+.demo-hero .page-hero-inner {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 3rem 3.5rem;
+  box-shadow: 0 28px 60px rgba(15, 42, 31, 0.14);
+  border: 1px solid rgba(15, 42, 31, 0.04);
+}
+
+@media (max-width: 640px) {
+  .demo-hero .page-hero-inner {
+    padding: 2.4rem;
+  }
+}
+
+.hidden-offer-banner {
+  max-width: 640px;
+  margin: 2.5rem auto 0;
+  padding: 1.4rem 1.8rem;
+  border-radius: 18px;
+  background: rgba(35, 178, 108, 0.12);
+  border: 1px solid rgba(35, 178, 108, 0.28);
+  color: var(--color-forest);
+  font-weight: 500;
+  text-align: center;
+}
+
+.hidden-offer-banner p {
+  margin: 0;
+}
+
+.calendly-section {
+  padding: 3.5rem 2rem 4.5rem;
+}
+
+.calendly-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.calendly-box {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 30px 70px rgba(15, 42, 31, 0.16);
+  border: 1px solid rgba(15, 42, 31, 0.06);
+}
+
+.calendly-inline-widget {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .calendly-box {
+    padding: 1.4rem;
+  }
+}
+
+.page-testimonial {
+  padding: 0 2rem 6rem;
+}
+
+.testimonial-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 24px 56px rgba(15, 42, 31, 0.12);
+  border: 1px solid rgba(15, 42, 31, 0.05);
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+}
+
+.testimonial-card blockquote {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--color-ink);
+}
+
+.testimonial-card figcaption {
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------ */
+/* Case study article layout                              */
+/* ------------------------------------------------------ */
+
+.article-layout {
+  padding: 6rem 2rem 6rem;
+}
+
+.article-content {
+  max-width: 780px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 32px;
+  padding: 3.5rem 4rem;
+  box-shadow: 0 36px 82px rgba(15, 42, 31, 0.16);
+  border: 1px solid rgba(15, 42, 31, 0.05);
+  display: grid;
+  gap: 1.6rem;
+}
+
+.article-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.article-title {
+  font-size: clamp(2.2rem, 4vw, 2.9rem);
+  line-height: 1.25;
+}
+
+.article-intro {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+}
+
+.article-content h2 {
+  font-size: 1.45rem;
+  margin-top: 1rem;
+}
+
+.article-content p {
+  color: rgba(15, 42, 31, 0.8);
+  font-size: 1.03rem;
+}
+
+.article-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.article-results li {
+  background: rgba(27, 90, 64, 0.07);
+  border-radius: 16px;
+  padding: 0.85rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.article-results li span {
+  font-size: 1.1rem;
+}
+
+.article-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.article-cta .btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .article-content {
+    padding: 2.6rem 2.2rem;
+  }
+
+  .article-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .article-content {
+    padding: 2.2rem 1.8rem;
+  }
+
+  .testimonial-card {
+    padding: 2rem;
+  }
+
+  .page-hero {
+    padding-top: 4.5rem;
+  }
 }
 
 .sr-only {
