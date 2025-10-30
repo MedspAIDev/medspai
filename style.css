@@ -417,6 +417,15 @@ main {
   gap: 1.5rem;
 }
 
+.logo-strip-heading {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: var(--color-forest-dark);
+}
+
 .logo-strip {
   display: flex;
   overflow: hidden;
