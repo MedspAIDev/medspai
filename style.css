@@ -602,22 +602,6 @@ main {
   align-items: center;
 }
 
-.results-visual {
-  overflow: hidden;
-}
-
-.results-visual .chart {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-end;
-  min-height: 220px;      /* adjust up/down to taste */
-}
-
-.results-visual .chart-bar {
-  height: var(--bar-height);
-  max-height: 100%;
-}
-
 .results-intro {
   display: grid;
   gap: 1rem;
@@ -627,22 +611,25 @@ main {
   color: var(--color-muted);
 }
 
+/* keep everything inside the white card */
 .results-visual {
   display: grid;
   gap: 2rem;
+  overflow: hidden;
 }
 
-.chart {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(120px, 1fr));
+/* CHART */
+.results-visual .chart {
+  display: flex;
   gap: 1.5rem;
-  align-items: end;
+  align-items: flex-end;
+  min-height: 220px; /* adjust as needed */
 }
 
 .chart-bar {
   background: linear-gradient(180deg, rgba(27, 90, 64, 0.15), rgba(27, 90, 64, 0.45));
   border-radius: 18px 18px 4px 4px;
-  height: calc(var(--bar-height) * 2);
+  height: var(--bar-height); /* was calc(var(--bar-height) * 2); */
   position: relative;
   display: grid;
   place-items: center;
@@ -674,13 +661,14 @@ main {
 
 .chart-bar.highlight {
   background: linear-gradient(180deg, rgba(35, 178, 108, 0.8), rgba(27, 90, 64, 0.9));
-  transform: translateY(-8px);
+  transform: translateY(-4px); /* subtle lift */
 }
 
 .chart-bar:hover {
-  transform: translateY(-10px);
+  transform: translateY(-6px);
 }
 
+/* STATS */
 .results-stats {
   list-style: none;
   display: grid;
@@ -711,6 +699,7 @@ main {
   font-size: 0.9rem;
   color: var(--color-muted);
 }
+
 
 .roi {
   padding: 5rem 2rem 4rem;
