@@ -236,9 +236,6 @@ main {
   color: var(--color-forest-dark);
   font-size: 0.9em;
   font-weight: 700;
-  color: var(--color-muted);
-  font-size: 0.82em;
-  font-weight: 500;
 }
 
 .hero-line-highlight {
@@ -707,6 +704,7 @@ main {
   gap: 2rem;
   overflow: hidden;
   justify-items: center;
+  overflow-x: visible;
 }
 
 /* CHART */
@@ -764,6 +762,19 @@ main {
 
 .chart-bar:hover {
   box-shadow: 0 16px 28px rgba(27, 90, 64, 0.18);
+}
+
+@media (max-width: 600px) {
+  .results-visual .chart {
+    width: 100%;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .chart-bar {
+    flex: 1 1 44%;
+    min-width: 0;
+  }
 }
 
 /* STATS */
