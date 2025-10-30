@@ -3,198 +3,386 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MedspAI - 24/7 AI Assistant for Med Spas. Capture leads, book patients, and grow revenue on autopilot.">
-  <title>MedspAI | Never Miss a Lead Again</title>
-  <link rel="stylesheet" href="/style.css?v=16">
+  <meta name="description" content="MedspAI builds AI receptionists so med spa teams can stay with patients while every call is handled for $1/hour.">
+  <title>MedspAI | AI Reception Coverage for Med Spas</title>
+  <link rel="stylesheet" href="/style.css?v=21">
   <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-  <!-- Sticky Header -->
   <header class="site-header">
     <div class="nav-container">
-      <div class="logo">
-        <a href="/">
-          <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI Logo" class="logo-img" />
-        </a>
-      </div>
-
-      <div class="header-guarantee">
-        Seamless automation for med spas that want to scale
-      </div>
-
-      <div class="header-buttons">
-        <a href="/features/" class="nav-btn">Features</a>
-        <a href="/portal/" class="nav-btn secondary" target="_blank" rel="noopener">Client Portal</a>
+      <a href="/" class="logo" aria-label="MedspAI Home">
+        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="logo-img">
+      </a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#approach" class="nav-link">How It Works</a>
+        <a href="#results" class="nav-link">Results</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#cta" class="nav-link">Talk to Us</a>
+      </nav>
+      <div class="header-cta">
+        <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
       </div>
     </div>
   </header>
 
-
-
-
-
-  <!-- TOP HERO SECTION -->
-<section class="hero-hero">
-  <div class="hero-container">
-    <h1>Med Spas <span class="highlight-green">Bleed Money</span> from <span class="highlight-darkgreen">Missed Leads</span></h1>
-    <div class="hero-subheadline-wrapper">
-      <h2 class="hero-subheadline-main">Custom AI Receptionists Respond, Convert, and Book 24/7</h2>
-      <p class="hero-subheadline-support">No missed messages. No manual follow-ups. No revenue left on the table.</p>
-    </div>
-
-    <div class="hero-buttons">
-      <a href="/demo/" class="btn primary-btn">Book Free Demo</a>
-      <a href="https://www.loom.com/embed/YOUR-DEMO-VIDEO-ID" target="_blank" class="btn secondary-btn">Watch How It Works</a>
-    </div>
-  </div>
-</section>
-
-<!-- BOTTOM RESULTS SECTION -->
-<section class="hero-results">
-  <div class="section-divider"></div>
-  <h2 class="stats-title">Proven Results</h2>
-
-  <div class="stats-section">
-    <div class="stats-container">
-      <div class="stat-box">
-        <p>$23,280+</p>
-        <h3>Revenue Booked</h3>
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <p class="eyebrow">AI Phone Coverage</p>
+        <h1 class="hero-title">
+          <span class="hero-line hero-line-primary">Keep your team with patients</span>
+          <span class="hero-line hero-line-secondary">We answer every call for</span>
+          <span class="hero-line hero-line-highlight">$1/hour</span>
+        </h1>
+        <p class="hero-subtext">MedspAI builds and runs AI receptionists that greet callers, qualify requests, and book appointments so your front desk can stay present with every guest in the building.</p>
+        <div class="hero-actions">
+          <a href="/demo/" class="btn primary-btn">Book a FREE Strategy Session</a>
+          <a href="tel:+12815196219" class="btn secondary-btn">Launch the live receptionist</a>
+        </div>
+        <div class="hero-lower">
+          <div class="hero-proof" aria-label="Coverage metrics">
+            <div class="proof-item">
+              <span class="proof-value">100%</span>
+              <span class="proof-label">Calls answered live or returned</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-value">50s</span>
+              <span class="proof-label">Average escalation time</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-value">0</span>
+              <span class="proof-label">Staff pulled off the floor</span>
+            </div>
+          </div>
+          <div class="hero-experience">
+            <div class="audio-preview" aria-labelledby="audio-preview-title">
+              <p id="audio-preview-title" class="audio-title">Listen to a real call</p>
+              <p class="audio-subtitle">Hear how MedspAI greets a new patient and books directly into your schedule.</p>
+              <button type="button" class="btn tertiary-btn hero-audio-trigger" data-playing="false">Play sample call</button>
+              <div class="audio-wave" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <audio id="hero-audio" preload="none">
+                <source src="https://cdn.pixabay.com/download/audio/2022/06/06/audio_3dbe558158.mp3?filename=call-center-voicemail-112919.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <p class="audio-transcript"><strong>Caller:</strong> “Hi, I’m looking to book a consultation next week.”<br><strong>MedspAI:</strong> “Absolutely! I can grab that for you — what day works best?”</p>
+            </div>
+            <div class="hero-demo-card">
+              <p class="demo-title">Try it for yourself</p>
+              <p class="demo-subtitle">Call MedspAI’s receptionist right now or book a walkthrough.</p>
+              <p class="demo-call-label">Call MedspAI at</p>
+              <p class="demo-phone">+1 (281) 519-6219</p>
+              <p class="demo-or">or</p>
+              <a href="/demo/" class="btn secondary-btn demo-btn">Schedule Your Free Demo &rarr;</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="stat-box">
-        <p>78%</p>
-        <h3>Lead Conversion Rate</h3>
+    </section>
+
+    <section class="social-proof">
+      <div class="social-proof-inner">
+        <div class="logo-strip" aria-label="Med spas using MedspAI">
+          <span>Peak Health &amp; Aesthetics</span>
+          <span>GlowMethod Studio</span>
+          <span>Bluebird Med Spa</span>
+          <span>Refine Aesthetics</span>
+        </div>
+        <div class="proof-quotes">
+          <figure class="quote-card">
+            <blockquote>“Our phones sound human 24/7 and my team stays locked in on patients in the lounge.”</blockquote>
+            <figcaption>Founder, GlowMethod Studio</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>“We launched in 9 days and haven’t missed a single injectable consult since.”</blockquote>
+            <figcaption>Owner, Bluebird Med Spa</figcaption>
+          </figure>
+        </div>
       </div>
-      <div class="stat-box">
-        <p>$0</p>
-        <h3>Ad Spend</h3>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-header">
+        <p class="eyebrow">What We Build</p>
+        <h2>Purpose-built AI receptionists for med spas</h2>
+        <p>Everything we deliver is aimed at one outcome: every caller feels welcomed, qualified, and scheduled while your in-studio team focuses on care.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>Every new patient captured</h3>
+          <p>Your branded receptionist answers instantly, handles pricing questions, and books into your system without sending callers to voicemail.</p>
+          <ul>
+            <li>Custom voice, greeting, and tone that matches your brand</li>
+            <li>Qualification prompts that surface VIP leads</li>
+            <li>Direct scheduling into Aesthetic Record or your calendar</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <h3>Zero guesswork handoffs</h3>
+          <p>Escalations, post-care questions, and membership requests land with the right teammate in seconds—no more Slack pings or sticky notes.</p>
+          <ul>
+            <li>Real-time summaries in your inbox or CRM</li>
+            <li>Smart routing by service, spend, and availability</li>
+            <li>HIPAA-aware transcripts for every conversation</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <h3>White-glove support on standby</h3>
+          <p>The AI runs the desk, and our specialists monitor quality, push updates, and jump in live if anything needs a human touch.</p>
+          <ul>
+            <li>On-call backup line to our implementation team</li>
+            <li>Proactive tuning based on caller trends</li>
+            <li>Performance dashboards with call recordings</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="approach" id="approach">
+      <div class="section-header">
+        <p class="eyebrow">Playbook</p>
+        <h2>Launch-ready in 3 simple phases</h2>
+        <p>We build it once, tune it together, and the AI takes over the phones while your team stays face-to-face with guests.</p>
+      </div>
+      <div class="timeline" aria-label="Implementation timeline">
+        <div class="timeline-step">
+          <span class="step-number">01</span>
+          <h3>Blueprint (Days 1-3)</h3>
+          <p>Map every inbound scenario, capture your scripts, and define escalation rules so nothing is left to improvisation.</p>
+        </div>
+        <div class="timeline-step">
+          <span class="step-number">02</span>
+          <h3>Build &amp; rehearse (Days 4-9)</h3>
+          <p>We train the receptionist, connect phone systems, and roleplay real calls with your leadership listening in.</p>
+        </div>
+        <div class="timeline-step">
+          <span class="step-number">03</span>
+          <h3>Go live (Day 10)</h3>
+          <p>Flip the switch with white-glove monitoring, instant fallbacks, and analytics so you see impact in the first week.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" id="results">
+      <div class="results-card">
+        <div class="results-intro">
+          <p class="eyebrow">Case Study</p>
+          <h2>Peak Health &amp; Aesthetics never misses a phone lead</h2>
+          <p>MedspAI replaced overflow staffing with an AI receptionist that books directly into their schedule and keeps the front desk with guests.</p>
+          <a href="/case-study/" class="btn tertiary-btn">Read the full breakdown</a>
+        </div>
+        <div class="results-visual" aria-hidden="true">
+          <div class="chart">
+            <div class="chart-bar" data-label="Before" data-value="38%" style="--bar-height: 38%;">
+              <span>38%</span>
+              <small>Calls answered</small>
+            </div>
+            <div class="chart-bar highlight" data-label="After" data-value="99%" style="--bar-height: 99%;">
+              <span>99%</span>
+              <small>Calls answered</small>
+            </div>
+          </div>
+          <ul class="results-stats">
+            <li>
+              <span class="stat-value">3.2×</span>
+              <span class="stat-label">Increase in booked consults</span>
+            </li>
+            <li>
+              <span class="stat-value">$23,280</span>
+              <span class="stat-label">Revenue in first 60 days</span>
+            </li>
+            <li>
+              <span class="stat-value"><span class="highlight">$1</span>/hr</span>
+              <span class="stat-label">All-in ongoing coverage</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="roi" id="pricing">
+      <div class="roi-content">
+        <div class="section-header">
+          <p class="eyebrow">Engagement Model</p>
+          <h2>Simple pricing. Full phone coverage.</h2>
+          <p>Every plan includes the receptionist build, system integrations, and white-glove backup if something goes wrong.</p>
+        </div>
+        <div class="roi-grid">
+          <div class="roi-card">
+            <h3>What you pay</h3>
+            <ul>
+              <li>$1/hour for live AI receptionist coverage</li>
+              <li>Flat monthly platform fee based on locations</li>
+              <li>Month-to-month agreement</li>
+            </ul>
+          </div>
+          <div class="roi-card">
+            <h3>What you get</h3>
+            <ul>
+              <li>Done-for-you receptionist build</li>
+              <li>Unlimited script updates</li>
+              <li>Performance dashboard &amp; alerts</li>
+            </ul>
+          </div>
+          <div class="roi-card highlight-card">
+            <h3>White-glove support</h3>
+            <p>On-call specialists monitor performance, jump in if the AI needs backup, and provide instant failover coverage.</p>
+          </div>
+        </div>
+        <div class="coverage-calculator" aria-labelledby="coverage-calculator-title">
+          <div class="calculator-header">
+            <h3 id="coverage-calculator-title">Coverage calculator</h3>
+            <p>Model how $1/hour coverage outperforms hiring and protects every caller.</p>
+          </div>
+          <div class="calculator-controls">
+            <label for="call-volume">Daily calls to cover: <span id="call-volume-value">60</span></label>
+            <input type="range" id="call-volume" min="20" max="160" step="10" value="60">
+            <label for="coverage-hours">Hours of coverage per day: <span id="coverage-hours-value">12</span></label>
+            <input type="range" id="coverage-hours" min="6" max="24" step="1" value="12">
+          </div>
+          <div class="calculator-output">
+            <p class="calc-primary"><span id="calc-ai-cost">$360</span> /month for complete coverage</p>
+            <p class="calc-secondary">Compared to <span id="calc-staff-cost">$4,500</span> for part-time front desk</p>
+            <p class="calc-savings">≈ <span id="calc-savings">$4,140</span> saved monthly</p>
+            <p class="calc-recovered"><span id="calc-recovered">630</span> calls kept out of voicemail each month</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial">
+      <blockquote>“MedspAI gave us a front desk that never sleeps. They mapped every call, kept our phones clear, and freed my staff to focus on guests walking through the door.”</blockquote>
+      <cite>Office Manager, Peak Health &amp; Aesthetics</cite>
+    </section>
+
+    <section class="cta" id="cta">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <p class="eyebrow">Next Step</p>
+          <h2>Let’s design your phone coverage plan</h2>
+          <p>Share your email and we’ll map your call flow, build a receptionist draft, and show how we keep your team 100% focused on in-clinic patients.</p>
+        </div>
+        <form class="cta-form" action="https://script.google.com/macros/s/AKfycbyt1wNdtdN29g3IZptgsUbemsEllF49hFFyf4cM7w89P0j6yZg6yXf_lImh3GT7_dyJ/exec" method="POST">
+          <label for="cta-email" class="sr-only">Email</label>
+          <input id="cta-email" type="email" name="email" placeholder="work email" required>
+          <button type="submit" class="btn primary-btn">Send me the coverage plan</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/horizontal-medspai.png" alt="MedspAI" class="footer-logo">
+        <p>MedspAI is the embedded AI team for med spas ready to deliver uninterrupted patient service.</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Ready when your phones light up</h4>
+        <p>Call <a href="tel:+12815196219">+1 (281) 519-6219</a> or schedule a custom demo to see coverage in action.</p>
+        <a href="/demo/" class="btn secondary-btn">Schedule Custom Demo</a>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Explore</h4>
+          <a href="#services">Services</a>
+          <a href="#approach">Approach</a>
+          <a href="#results">Results</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="/case-study/">Case Study</a>
+          <a href="/features/">Product Features</a>
+          <a href="/blog/">Insights</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:hello@medspai.com">hello@medspai.com</a>
+        </div>
       </div>
     </div>
-  </div>
+    <p class="footer-copy">© <span id="year"></span> MedspAI. All rights reserved.</p>
+  </footer>
 
-  <p class="stats-intro">Based on Real Results From the First 2 Months of MedspAI deployment at Our Pilot Med Spa.</p>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  <div class="stats-cta vertical-btns">
-    <a href="/case-study/" class="case-study-btn">View Case Study</a>
-    <a href="/demo/" class="primary-btn stats-btn">Book Custom Demo</a>
-  </div>
-</section>
+    const audioButton = document.querySelector('.hero-audio-trigger');
+    const audioElement = document.getElementById('hero-audio');
+    const wave = document.querySelector('.audio-wave');
 
+    if (audioButton && audioElement) {
+      audioButton.addEventListener('click', () => {
+        const isPlaying = audioButton.getAttribute('data-playing') === 'true';
+        if (isPlaying) {
+          audioElement.pause();
+          audioElement.currentTime = 0;
+          audioButton.textContent = 'Play sample call';
+          audioButton.setAttribute('data-playing', 'false');
+          wave.classList.remove('active');
+        } else {
+          audioElement.play();
+          audioButton.textContent = 'Stop playback';
+          audioButton.setAttribute('data-playing', 'true');
+          wave.classList.add('active');
+        }
+      });
 
-  <!-- Overlap Section (Stat + Video) -->
-<!-- VIDEO + EMAIL COLLECTION SECTION -->
-<section class="demo-section">
-  <div class="demo-container">
-    <div class="demo-text">
-      <h2>Want to See it Work For You?</h2>
-      <p>We’ll build you a free agent. You decide if it’s worth keeping.</p>
+      audioElement.addEventListener('ended', () => {
+        audioButton.textContent = 'Play sample call';
+        audioButton.setAttribute('data-playing', 'false');
+        wave.classList.remove('active');
+      });
+    }
 
-      <form class="email-form" action="https://script.google.com/macros/s/AKfycbyt1wNdtdN29g3IZptgsUbemsEllF49hFFyf4cM7w89P0j6yZg6yXf_lImh3GT7_dyJ/exec" method="POST">
-  <input type="email" name="email" placeholder="Enter your email" required>
-  <button type="submit">Request My Free Agent</button>
-</form>
+    const callSlider = document.getElementById('call-volume');
+    const hoursSlider = document.getElementById('coverage-hours');
+    const callValue = document.getElementById('call-volume-value');
+    const hoursValue = document.getElementById('coverage-hours-value');
+    const aiCostEl = document.getElementById('calc-ai-cost');
+    const staffCostEl = document.getElementById('calc-staff-cost');
+    const savingsEl = document.getElementById('calc-savings');
+    const recoveredEl = document.getElementById('calc-recovered');
 
-</div>
+    const STAFF_COST = 4500;
+    const VOICEMAIL_RATE = 0.35;
 
-    <div class="demo-video responsive-video">
-      <iframe 
-        src="https://www.youtube.com/embed/cVudHGOeOeQ" 
-        title="MedspAI Demo"
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</section>
+    const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
 
-<!-- Testimonial Section -->
-<section class="testimonial-block">
-  <p class="quote">“We were always behind on follow-ups and had no idea so many people were falling through the cracks. Our AI assistant helped us engage website visitors, finally stay on top of leads, and gave our staff breathing room. We didn’t expect to see new revenue from it so quickly, so it’s been a huge win.”</p>
-  <p class="attribution">– Office Manager, Peak Health & Aesthetics</p>
-</section>
+    function updateCalculator() {
+      const dailyCalls = parseInt(callSlider.value, 10);
+      const coverageHours = parseInt(hoursSlider.value, 10);
+      const monthlyHours = coverageHours * 30;
+      const aiCost = monthlyHours * 1; // $1/hour coverage
+      const monthlyCalls = dailyCalls * 30;
+      const recoveredCalls = Math.round(monthlyCalls * VOICEMAIL_RATE);
+      const savings = STAFF_COST - aiCost;
 
+      callValue.textContent = dailyCalls;
+      hoursValue.textContent = coverageHours;
+      aiCostEl.textContent = currency.format(aiCost);
+      staffCostEl.textContent = currency.format(STAFF_COST);
+      savingsEl.textContent = currency.format(savings > 0 ? savings : 0);
+      recoveredEl.textContent = recoveredCalls.toLocaleString();
+    }
 
-<!-- Quick Feature Snapshot -->
-<section class="stats-section">
-  <div class="stats-title">How MedspAI Helps You Win</div>
-  <div class="stats-container">
-    <div class="stat-box">
-      <p>24/7 Replies</p>
-      <h3>Never Miss a Call Again</h3>
-    </div>
-    <div class="stat-box">
-      <p>Auto-Booking</p>
-      <h3>Fills Your Calendar</h3>
-    </div>
-    <div class="stat-box flip-card" onclick="this.classList.toggle('flipped')">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <p>Zero Ad Spend</p>
-      <h3>Real Revenue, Automatically</h3>
-    </div>
-    <div class="flip-card-back">
-      <p style="font-weight: bold; font-size: 16px;">🎉 Hidden Offer 🎉</p>
-      <p style="font-size: 14px; line-height: 1.4; margin: 0 10px 10px;">Get your first month 100% free.</p>
-      <a href="/demo/?offer=hiddenfree" class="primary-btn" style="font-size: 14px; padding: 10px 20px;">Claim My Discount</a>
-    </div>
-  </div>
-</div>
-
-
-
-  </div> 
-</section>
-
-
-  <section class="stats-section" style="background-color: #f3f7f1; text-align: center; padding: 60px 20px 30px;">
-  <h2 style="font-size: 32px; max-width: 700px; margin: 0 auto 20px;">
-    Ready to Stop Missing Leads?
-  </h2>
-  <p style="font-size: 18px; max-width: 600px; margin: 0 auto 30px; color: #555;">
-    We'll build you a free AI receptionist tailored to your med spa. No contracts. No risk.
-  </p>
-  <a href="/demo/" class="primary-btn stats-btn">Book Your Free Demo</a>
-</section>
-
-
-  <!-- Footer -->
-<footer class="site-footer" style="background-color: #f9f9f9; padding: 40px 20px;">
-  <div class="footer-container" style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px;">
-
-    <div class="footer-logo" style="flex: 1 1 250px;">
-      <img src="horizontal-medspai-no-tagline.png" alt="MedspAI Logo" style="height: 100px; width: auto;" />
-    </div>
-
-    <div class="footer-links" style="flex: 1 1 200px;">
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        <li><a href="/">Home</a></li>
-        <li><a href="/features/">Features</a></li>
-        <li><a href="/case-study/">Case Study</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/demo/">Book Demo</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-contact" style="flex: 1 1 200px;">
-      <p style="margin: 4px 0; font-size: 14px; color: #555;">team@medspai.com</p>
-      <p style="margin: 4px 0; font-size: 14px; color: #555;">Houston, TX</p>
-    </div>
-
-    <div class="footer-legal" style="flex: 1 1 200px; text-align: right;">
-      <p style="margin: 4px 0; font-size: 14px; color: #555;">© 2025 MedspAI</p>
-      <p style="margin: 4px 0; font-size: 13px; color: #4d6a3d;">
-        <a href="/privacy/" style="color: #4d6a3d; text-decoration: none;">Privacy Policy</a> |
-        <a href="/terms.html/" style="color: #4d6a3d; text-decoration: none;">Terms</a>
-      </p>
-    </div>
-
-  </div>
-</footer>
-
-
-  
+    if (callSlider && hoursSlider) {
+      callSlider.addEventListener('input', updateCalculator);
+      hoursSlider.addEventListener('input', updateCalculator);
+      updateCalculator();
+    }
+  </script>
 </body>
 </html>
-
