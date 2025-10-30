@@ -234,6 +234,8 @@ main {
 
 .hero-line-secondary {
   color: var(--color-muted);
+  font-size: 0.82em;
+  font-weight: 500;
 }
 
 .hero-line-highlight {
