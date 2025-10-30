@@ -602,6 +602,22 @@ main {
   align-items: center;
 }
 
+.results-visual {
+  overflow: hidden;
+}
+
+.results-visual .chart {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  min-height: 220px;      /* adjust up/down to taste */
+}
+
+.results-visual .chart-bar {
+  height: var(--bar-height);
+  max-height: 100%;
+}
+
 .results-intro {
   display: grid;
   gap: 1rem;
