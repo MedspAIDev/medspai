@@ -417,10 +417,18 @@ main {
   gap: 1.5rem;
 }
 
+.logo-strip-heading {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: var(--color-forest-dark);
+}
+
 .logo-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+  display: flex;
+  overflow: hidden;
   background: #ffffff;
   border-radius: 20px;
   padding: 1rem 1.5rem;
@@ -428,8 +436,35 @@ main {
   text-transform: uppercase;
   font-size: 0.78rem;
   letter-spacing: 0.22em;
-  justify-items: center;
   color: var(--color-muted);
+}
+
+.logo-strip-track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  animation: logo-marquee 28s linear infinite;
+  flex-shrink: 0;
+}
+
+.logo-strip-track span {
+  white-space: nowrap;
+}
+
+@keyframes logo-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-strip-track {
+    animation: none;
+  }
 }
 
 .proof-quotes {
