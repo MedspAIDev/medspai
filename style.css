@@ -233,6 +233,22 @@ ul {
 
 .header-cta {
   display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-portal {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-forest);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+  padding: 0.75rem 1.5rem;
+}
+
+.header-portal:hover,
+.header-portal:focus {
+  background: var(--color-mint);
+  transform: translateY(-1px);
 }
 
 @media (min-width: 960px) {
@@ -241,7 +257,7 @@ ul {
   }
 
   .header-cta {
-    display: block;
+    display: inline-flex;
   }
 }
 
@@ -307,29 +323,50 @@ main {
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 0.4rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
   justify-content: center;
 }
 
-.hero-actions .btn {
-  margin-block: 0.2rem;
+.hero-social-proof {
+  width: 100%;
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+  text-align: center;
 }
 
 .hero-lower {
   width: 100%;
   display: grid;
-  gap: 2.5rem;
+  gap: 2rem;
   align-self: stretch;
+  justify-items: center;
+}
+
+.hero-demo-card {
+  max-width: 540px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hero-reviews {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
 }
 
 .hero-metrics {
   width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero-proof {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.2rem;
+  width: 100%;
+  justify-items: center;
 }
 
 .proof-item {
@@ -360,97 +397,34 @@ main {
   color: var(--color-muted);
 }
 
-.hero-experience {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
 
-.audio-preview,
 .hero-demo-card {
   background: #ffffff;
   border-radius: 26px;
-  padding: 2rem;
+  padding: 2.4rem 2.6rem;
   box-shadow: 0 24px 52px rgba(15, 42, 31, 0.1);
   border: 1px solid rgba(240, 247, 242, 0.9);
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.2rem;
   position: relative;
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.audio-preview:hover,
 .hero-demo-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 28px 60px rgba(15, 42, 31, 0.15);
 }
 
-.audio-title {
-  font-size: 1.12rem;
-  font-weight: 700;
-}
-
-.audio-subtitle {
-  font-size: 0.95rem;
-  color: var(--color-muted);
-}
-
-.hero-audio-trigger {
-  align-self: center;
-}
-
-.audio-wave {
-  display: inline-flex;
-  gap: 0.4rem;
-  align-items: center;
-  justify-content: center;
-  min-height: 20px;
-  align-self: center;
-}
-
-.audio-wave span {
-  width: 6px;
-  border-radius: 4px;
-  background: var(--color-highlight);
-  height: 10px;
-  opacity: 0.4;
-}
-
-.audio-wave.active span {
-  animation: bounce 0.8s infinite ease-in-out;
-  opacity: 1;
-}
-
-.audio-wave.active span:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.audio-wave.active span:nth-child(3) {
-  animation-delay: 0.2s;
-}
-
-.audio-wave.active span:nth-child(4) {
-  animation-delay: 0.3s;
-}
-
-.audio-transcript {
-  font-size: 0.9rem;
-  color: var(--color-muted);
-  background: rgba(35, 178, 108, 0.08);
-  border-radius: 16px;
-  padding: 0.9rem 1rem;
-}
-
 .demo-title {
-  font-size: 1.12rem;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 
 .demo-subtitle {
   color: var(--color-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .demo-call-label {
@@ -461,7 +435,7 @@ main {
 }
 
 .demo-phone {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--color-forest-dark);
 }
@@ -475,17 +449,6 @@ main {
 
 .demo-btn {
   align-self: center;
-}
-
-.social-proof {
-  padding: 3rem 2rem 2.5rem;
-}
-
-.social-proof-inner {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  display: grid;
-  gap: 1.5rem;
 }
 
 .logo-strip-heading {
@@ -508,6 +471,7 @@ main {
   font-size: 0.78rem;
   letter-spacing: 0.22em;
   color: var(--color-muted);
+  width: min(100%, var(--container-width));
 }
 
 .logo-strip-track {
@@ -1405,10 +1369,6 @@ input[type='range']::-moz-range-thumb {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 
-  .hero-experience {
-    gap: 1.8rem;
-  }
-
   .results-card {
     padding: 2.5rem;
   }
@@ -1440,11 +1400,6 @@ input[type='range']::-moz-range-thumb {
     padding: 1.6rem 1.75rem;
   }
 
-  .hero-experience {
-    gap: 1.6rem;
-  }
-
-  .audio-preview,
   .hero-demo-card {
     padding: 1.7rem;
   }
