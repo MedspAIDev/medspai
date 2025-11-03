@@ -236,8 +236,8 @@ main {
 
 .hero-line-secondary {
   color: var(--color-forest-dark);
-  font-size: 0.9em;
-  font-weight: 700;
+  font-size: 0.85em;
+  font-weight: 650;
 }
 
 .hero-line-highlight {
@@ -440,7 +440,7 @@ main {
 .logo-strip-heading {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   letter-spacing: 0.2em;
   text-align: center;
   color: var(--color-forest-dark);
