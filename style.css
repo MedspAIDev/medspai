@@ -128,6 +128,57 @@ ul {
   z-index: 100;
 }
 
+.site-banner {
+  background: linear-gradient(90deg, rgba(27, 90, 64, 0.12), rgba(35, 178, 108, 0.12));
+  border-bottom: 1px solid rgba(15, 42, 31, 0.08);
+  color: var(--color-forest-dark);
+}
+
+.banner-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0.85rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.banner-message {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.banner-link {
+  color: var(--color-forest);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.banner-link:hover,
+.banner-link:focus {
+  color: var(--color-highlight);
+}
+
+.banner-message .banner-link {
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .banner-inner {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .banner-message {
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+}
+
 .nav-container {
   max-width: var(--container-width);
   margin: 0 auto;
