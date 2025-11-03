@@ -347,14 +347,16 @@ main {
 }
 
 .hero-audio-trigger {
-  align-self: flex-start;
+  align-self: center;
 }
 
 .audio-wave {
   display: inline-flex;
   gap: 0.4rem;
   align-items: center;
+  justify-content: center;
   min-height: 20px;
+  align-self: center;
 }
 
 .audio-wave span {
@@ -421,7 +423,7 @@ main {
 }
 
 .demo-btn {
-  align-self: flex-start;
+  align-self: center;
 }
 
 .social-proof {
