@@ -1063,6 +1063,21 @@ input[type='range']::-moz-range-thumb {
   gap: 1rem;
 }
 
+.cta-form .form-step {
+  display: contents;
+}
+
+.cta-form .form-step[hidden] {
+  display: none;
+}
+
+.cta-form .honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .cta-form input {
   flex: 1 1 220px;
   padding: 1rem 1.2rem;
