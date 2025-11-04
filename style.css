@@ -504,8 +504,9 @@ main {
 
 .proof-quotes {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  justify-content: center;
   width: 100%;
 }
 
