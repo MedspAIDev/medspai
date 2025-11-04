@@ -519,7 +519,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  font-size: 0.95rem;                    /* base smaller */
+  font-size: 0.85rem;                    /* base smaller */
   color: var(--color-forest-dark);
   box-shadow: 0 24px 50px rgba(15, 42, 31, 0.10);
   border: 1px solid rgba(35, 178, 108, 0.20);
