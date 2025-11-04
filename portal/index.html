@@ -25,15 +25,16 @@
         <h1 id="portal-heading">Login to Your MedspAI Dashboard</h1>
         <p>Enter your credentials to review live receptionist coverage, bookings, and guest conversations.</p>
       </header>
-      <form class="portal-form" action="/portal/dashboard.html" method="post">
+      <form class="portal-form" id="portal-login-form" data-success-url="/portal/dashboard.html">
         <div class="portal-field">
           <label class="portal-label" for="portal-username">Username</label>
-          <input class="portal-input" type="text" id="portal-username" name="username" autocomplete="username" required>
+          <input class="portal-input" type="email" id="portal-username" name="username" autocomplete="username" required>
         </div>
         <div class="portal-field">
           <label class="portal-label" for="portal-password">Password</label>
           <input class="portal-input" type="password" id="portal-password" name="password" autocomplete="current-password" required>
         </div>
+        <p class="portal-error" id="portal-error" role="alert" aria-live="polite"></p>
         <div class="portal-actions">
           <button type="submit" class="btn primary-btn portal-submit">Log In</button>
           <p class="portal-meta">Need help? <a href="mailto:team@medspai.com">Contact support</a></p>
@@ -41,5 +42,37 @@
       </form>
     </section>
   </main>
+  <script>
+    /**
+     * Update the array below with each client login you create.
+     * Keep emails in lowercase for consistent comparisons.
+     */
+    const PORTAL_LOGINS = [
+      { email: "team@medspai.com", password: "123456" }
+    ];
+
+    const loginForm = document.getElementById("portal-login-form");
+    const errorMessage = document.getElementById("portal-error");
+
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const email = loginForm.username.value.trim().toLowerCase();
+      const password = loginForm.password.value;
+
+      const credentialsMatch = PORTAL_LOGINS.some(
+        (login) => login.email === email && login.password === password
+      );
+
+      if (credentialsMatch) {
+        errorMessage.textContent = "";
+        window.location.href = loginForm.dataset.successUrl;
+      } else {
+        errorMessage.textContent = "Incorrect login information";
+        loginForm.password.value = "";
+        loginForm.password.focus();
+      }
+    });
+  </script>
 </body>
 </html>

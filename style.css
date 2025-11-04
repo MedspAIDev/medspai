@@ -1231,18 +1231,6 @@ input[type='range']::-moz-range-thumb {
   margin: 0 auto;
 }
 
-.hero-social-proof {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-forest);
-}
-
-.hero-reassurance {
-  font-size: 1.05rem;
-  color: var(--color-muted);
-  line-height: 1.7;
-}
-
 @media (max-width: 640px) {
   .demo-hero {
     padding: 3.5rem 1.5rem 0.5rem;
@@ -1680,6 +1668,15 @@ body.portal {
 .portal-form {
   display: grid;
   gap: 1.25rem;
+}
+
+.portal-error {
+  min-height: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-align: center;
+  margin: 0;
 }
 
 .portal-field {
