@@ -34,10 +34,10 @@
 
   <main>
     <section class="page-hero demo-hero">
-      <div class="page-hero-inner">
-        <p class="eyebrow">Live walkthrough</p>
-        <h1>Plan Your <span class="page-hero-highlight">Custom Demo</span></h1>
-        <p class="page-hero-text">We'll give you a complimentary walkthrough of a custom-built AI receptionist for your med spa.</p>
+      <div class="page-hero-inner demo-hero-inner">
+        <p class="hero-social-proof">Join leading med spas automating their phones with MedspAI.</p>
+        <h1 class="demo-hero-title">Turn Your <span class="hero-highlight">Med Spa’s Missed Calls &amp; No-Shows</span> Into Booked, Paying Clients</h1>
+        <p class="hero-reassurance">You’ll meet live with our team to map your call flow, show you how our AI answers in your brand’s tone, and explore how it could fit into your workflow.</p>
       </div>
     </section>
 
@@ -66,6 +66,60 @@
         <blockquote>“We booked over $23,000 in revenue in just 60 days with MedspAI, and we didn’t spend a dime on ads.”</blockquote>
         <figcaption>Owner, Pilot Med Spa</figcaption>
       </figure>
+    </section>
+
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <div class="faq-inner">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Will this replace my staff?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>MedspAI augments your front desk by handling repetitive questions, scheduling, and follow-ups so your team can focus on high-touch client care.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>What types of questions can it answer?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Our AI is trained on your services, pricing, policies, and promotions, so it can answer common booking, treatment, and availability questions instantly.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>What happens if MedspAI can't handle a specific request?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>We escalate any nuanced or urgent requests to your team immediately through your preferred channel, ensuring nothing slips through the cracks.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>What’s the cost after setup?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>After onboarding, MedspAI runs on a straightforward monthly plan tailored to your call volume, with no hidden fees or surprise overages.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Do I need any technical experience?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Not at all—we configure everything for you and provide ongoing support so you can stay focused on delivering amazing client results.</p>
+            </div>
+          </article>
+        </div>
+        <a class="btn primary-btn faq-cta" href="#calendly">Schedule Your Live Demo</a>
+      </div>
     </section>
 
   </main>
@@ -116,6 +170,18 @@
         banner.hidden = false;
       }
     }
+
+    const faqButtons = document.querySelectorAll('.faq-question');
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        const answer = button.nextElementSibling;
+        if (answer) {
+          answer.hidden = expanded;
+        }
+      });
+    });
   </script>
 
 
