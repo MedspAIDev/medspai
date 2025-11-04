@@ -528,7 +528,7 @@ main {
 
 .quote-card blockquote {
   margin: 0;
-  font-size: 1.03rem;                    /* smaller quote */
+  font-size: .93rem;                    /* smaller quote */
   line-height: 1.45;
 }
 
