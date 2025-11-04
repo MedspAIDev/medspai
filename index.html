@@ -281,10 +281,17 @@
           <h2>Let’s design your phone coverage plan</h2>
           <p>Share your email and we’ll map your call flow, build a receptionist draft, and show how we keep your team 100% focused on in-clinic patients.</p>
         </div>
-        <form class="cta-form" action="https://script.google.com/macros/s/AKfycbyt1wNdtdN29g3IZptgsUbemsEllF49hFFyf4cM7w89P0j6yZg6yXf_lImh3GT7_dyJ/exec" method="POST">
-          <label for="cta-email" class="sr-only">Email</label>
-          <input id="cta-email" type="email" name="email" placeholder="work email" required>
-          <button type="submit" class="btn primary-btn">Send me the coverage plan</button>
+        <form class="cta-form" id="cta-form">
+          <div class="form-step form-step-email">
+            <label for="cta-email" class="sr-only">Email</label>
+            <input id="cta-email" type="email" name="email" placeholder="work email" required autocomplete="email">
+          </div>
+          <div class="form-step form-step-medspa" hidden>
+            <label for="cta-medspa" class="sr-only">Med spa name</label>
+            <input id="cta-medspa" type="text" name="medSpaName" placeholder="med spa name" disabled required autocomplete="organization">
+          </div>
+          <input type="text" name="company" id="cta-company" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn primary-btn"><span class="cta-button-text">Send me the coverage plan</span></button>
         </form>
       </div>
     </section>
@@ -328,6 +335,74 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const CRM_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/yiubPI8Z7kiAGrebVoGy/webhook-trigger/8bb7876a-dfa8-46e2-a0af-0f3dfcccb95d';
+    const ctaForm = document.getElementById('cta-form');
+
+    if (ctaForm) {
+      const emailStep = ctaForm.querySelector('.form-step-email');
+      const medSpaStep = ctaForm.querySelector('.form-step-medspa');
+      const emailInput = document.getElementById('cta-email');
+      const medSpaInput = document.getElementById('cta-medspa');
+      const honeypotInput = document.getElementById('cta-company');
+      const submitButton = ctaForm.querySelector('button[type="submit"]');
+      const buttonText = submitButton.querySelector('.cta-button-text') || submitButton;
+      let currentStep = 1;
+
+      ctaForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (honeypotInput && honeypotInput.value) {
+          return;
+        }
+
+        if (currentStep === 1) {
+          if (!emailInput.checkValidity()) {
+            emailInput.reportValidity();
+            return;
+          }
+
+          currentStep = 2;
+          emailStep.hidden = true;
+          medSpaStep.hidden = false;
+          medSpaInput.disabled = false;
+          medSpaInput.focus();
+          buttonText.textContent = 'Schedule my custom demo';
+          return;
+        }
+
+        if (!medSpaInput.value.trim()) {
+          medSpaInput.reportValidity();
+          return;
+        }
+
+        submitButton.disabled = true;
+        buttonText.textContent = 'Sending...';
+
+        const payload = {
+          email: emailInput.value.trim(),
+          medSpaName: medSpaInput.value.trim(),
+          source: 'Homepage CTA'
+        };
+
+        try {
+          await fetch(CRM_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } catch (error) {
+          console.error('CTA submission failed', error);
+        }
+
+        const params = new URLSearchParams({
+          email: payload.email,
+          med_spa_name: payload.medSpaName
+        });
+
+        window.location.href = `/demo/?${params.toString()}`;
+      });
+    }
 
     const callSlider = document.getElementById('call-volume');
     const hoursSlider = document.getElementById('coverage-hours');
