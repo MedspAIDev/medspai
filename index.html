@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="MedspAI builds AI receptionists so med spa teams can stay with patients while every call is handled for $1/hour.">
   <title>MedspAI | AI Reception Coverage for Med Spas</title>
-  <link rel="stylesheet" href="/style.css?v=21">
+  <link rel="stylesheet" href="/style.css?v=23">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,16 +17,26 @@
       <a href="/" class="logo" aria-label="MedspAI Home">
         <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="logo-img">
       </a>
-      <nav class="site-nav" aria-label="Primary Navigation">
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#approach" class="nav-link">How It Works</a>
-        <a href="#results" class="nav-link">Results</a>
-        <a href="#pricing" class="nav-link">Pricing</a>
-        <a href="#cta" class="nav-link">Talk to Us</a>
-      </nav>
-      <div class="header-cta">
-        <a href="/portal/" class="btn tertiary-btn header-portal">Client Portal</a>
-        <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </span>
+      </button>
+      <div class="nav-menu" id="primary-navigation">
+        <nav class="site-nav" aria-label="Primary Navigation">
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#approach" class="nav-link">How It Works</a>
+          <a href="#results" class="nav-link">Results</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+          <a href="#cta" class="nav-link">Talk to Us</a>
+        </nav>
+        <div class="header-cta">
+          <a href="/portal/" class="btn tertiary-btn header-portal">Client Portal</a>
+          <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
+        </div>
       </div>
     </div>
   </header>
@@ -281,10 +291,17 @@
           <h2>Let’s design your phone coverage plan</h2>
           <p>Share your email and we’ll map your call flow, build a receptionist draft, and show how we keep your team 100% focused on in-clinic patients.</p>
         </div>
-        <form class="cta-form" action="https://script.google.com/macros/s/AKfycbyt1wNdtdN29g3IZptgsUbemsEllF49hFFyf4cM7w89P0j6yZg6yXf_lImh3GT7_dyJ/exec" method="POST">
-          <label for="cta-email" class="sr-only">Email</label>
-          <input id="cta-email" type="email" name="email" placeholder="work email" required>
-          <button type="submit" class="btn primary-btn">Send me the coverage plan</button>
+        <form class="cta-form" id="cta-form">
+          <div class="form-step form-step-email">
+            <label for="cta-email" class="sr-only">Email</label>
+            <input id="cta-email" type="email" name="email" placeholder="work email" required autocomplete="email">
+          </div>
+          <div class="form-step form-step-medspa" hidden>
+            <label for="cta-medspa" class="sr-only">Med spa name</label>
+            <input id="cta-medspa" type="text" name="medSpaName" placeholder="med spa name" disabled required autocomplete="organization">
+          </div>
+          <input type="text" name="company" id="cta-company" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn primary-btn"><span class="cta-button-text">Send me the coverage plan</span></button>
         </form>
       </div>
     </section>
@@ -327,7 +344,143 @@
   </footer>
 
   <script>
+    (function () {
+      const header = document.querySelector('.site-header');
+      const toggle = header ? header.querySelector('.nav-toggle') : null;
+      const navMenu = header ? header.querySelector('.nav-menu') : null;
+      const mobileBreakpoint = window.matchMedia('(max-width: 959px)');
+
+      if (!header || !toggle || !navMenu) {
+        return;
+      }
+
+      const updateAriaHidden = () => {
+        if (mobileBreakpoint.matches) {
+          navMenu.setAttribute('aria-hidden', header.classList.contains('nav-open') ? 'false' : 'true');
+        } else {
+          navMenu.setAttribute('aria-hidden', 'false');
+        }
+      };
+
+      const closeMenu = () => {
+        header.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-locked');
+        updateAriaHidden();
+      };
+
+      const openMenu = () => {
+        header.classList.add('nav-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-locked');
+        updateAriaHidden();
+      };
+
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      header.querySelectorAll('.nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (mobileBreakpoint.matches) {
+            closeMenu();
+          }
+        });
+      });
+
+      const handleBreakpointChange = () => {
+        closeMenu();
+      };
+
+      if (mobileBreakpoint.addEventListener) {
+        mobileBreakpoint.addEventListener('change', handleBreakpointChange);
+      } else if (mobileBreakpoint.addListener) {
+        mobileBreakpoint.addListener(handleBreakpointChange);
+      }
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      updateAriaHidden();
+    })();
+
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const CRM_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/yiubPI8Z7kiAGrebVoGy/webhook-trigger/8bb7876a-dfa8-46e2-a0af-0f3dfcccb95d';
+    const ctaForm = document.getElementById('cta-form');
+
+    if (ctaForm) {
+      const emailStep = ctaForm.querySelector('.form-step-email');
+      const medSpaStep = ctaForm.querySelector('.form-step-medspa');
+      const emailInput = document.getElementById('cta-email');
+      const medSpaInput = document.getElementById('cta-medspa');
+      const honeypotInput = document.getElementById('cta-company');
+      const submitButton = ctaForm.querySelector('button[type="submit"]');
+      const buttonText = submitButton.querySelector('.cta-button-text') || submitButton;
+      let currentStep = 1;
+
+      ctaForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (honeypotInput && honeypotInput.value) {
+          return;
+        }
+
+        if (currentStep === 1) {
+          if (!emailInput.checkValidity()) {
+            emailInput.reportValidity();
+            return;
+          }
+
+          currentStep = 2;
+          emailStep.hidden = true;
+          medSpaStep.hidden = false;
+          medSpaInput.disabled = false;
+          medSpaInput.focus();
+          buttonText.textContent = 'Schedule my custom demo';
+          return;
+        }
+
+        if (!medSpaInput.value.trim()) {
+          medSpaInput.reportValidity();
+          return;
+        }
+
+        submitButton.disabled = true;
+        buttonText.textContent = 'Sending...';
+
+        const payload = {
+          email: emailInput.value.trim(),
+          medSpaName: medSpaInput.value.trim(),
+          source: 'Homepage CTA'
+        };
+
+        try {
+          await fetch(CRM_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } catch (error) {
+          console.error('CTA submission failed', error);
+        }
+
+        const params = new URLSearchParams({
+          email: payload.email,
+          med_spa_name: payload.medSpaName
+        });
+
+        window.location.href = `/demo/?${params.toString()}`;
+      });
+    }
 
     const callSlider = document.getElementById('call-volume');
     const hoursSlider = document.getElementById('coverage-hours');
