@@ -3,139 +3,290 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore MedspAI's powerful AI features designed for Med Spas—automated lead engagement, booking, follow-ups, and more.">
+  <meta name="description" content="Explore the MedspAI feature set built to capture more leads, automate booking, and grow your med spa without adding headcount.">
   <title>Features | MedspAI – AI Automation for Med Spas</title>
-  <link rel="stylesheet" href="/style.css?v=12">
+  <link rel="stylesheet" href="/style.css?v=23">
   <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .features-hero {
+      padding: clamp(4rem, 6vw, 6rem) 1.5rem 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(27, 90, 64, 0.08), rgba(35, 178, 108, 0.12));
+    }
+
+    .features-hero .features-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .features-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
+      line-height: 1.1;
+      color: var(--color-forest-dark);
+    }
+
+    .features-hero p {
+      font-size: 1.1rem;
+      color: rgba(15, 42, 31, 0.76);
+    }
+
+    .features-grid-section {
+      padding: 3.5rem 1.5rem 4rem;
+    }
+
+    .features-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 2rem 1.75rem;
+      border: 1px solid rgba(27, 90, 64, 0.12);
+      box-shadow: 0 14px 30px rgba(15, 42, 31, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-card h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: var(--color-forest-dark);
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: rgba(15, 42, 31, 0.76);
+      line-height: 1.6;
+    }
+
+    .feature-card .btn {
+      align-self: flex-start;
+    }
+
+    .features-cta {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .features-cta p {
+      margin-bottom: 1.5rem;
+      color: rgba(15, 42, 31, 0.76);
+      font-size: 1.05rem;
+    }
+  </style>
 </head>
-
 <body>
-
-  <!-- Sticky Header -->
   <header class="site-header">
     <div class="nav-container">
-      <div class="logo">
-        <a href="/">
-          <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI Logo" class="logo-img">
-        </a>
-      </div>
-
-      <div class="header-guarantee">
-        Guaranteed to Pay for Itself — Or You Don’t Pay
-      </div>
-
-      <div class="header-buttons">
-        <a href="#features" class="nav-btn">Features</a>
-        <a href="/demo/" class="nav-btn secondary">Demo</a>
+      <a href="/" class="logo" aria-label="MedspAI Home">
+        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="logo-img">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </span>
+      </button>
+      <div class="nav-menu" id="primary-navigation">
+        <nav class="site-nav" aria-label="Primary Navigation">
+          <a href="/#services" class="nav-link">Services</a>
+          <a href="/#approach" class="nav-link">How It Works</a>
+          <a href="/#results" class="nav-link">Results</a>
+          <a href="/#pricing" class="nav-link">Pricing</a>
+          <a href="/#cta" class="nav-link">Talk to Us</a>
+        </nav>
+        <div class="header-cta">
+          <a href="/portal/" class="btn tertiary-btn header-portal">Client Portal</a>
+          <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <section class="features-content"> 
-  <h1>Built to <span style="color: #4d6a3d;">Grow</span> Your Med Spa</h1>
-  <p>Every feature is designed to automatically capture more leads, save your team time, and grow your revenue.</p>
-</section>
+  <main>
+    <section class="features-hero">
+      <div class="features-hero-inner">
+        <h1>Feature Suite Built to Grow Your Med Spa</h1>
+        <p>Every capability inside MedspAI is designed to capture more qualified leads, answer every call, and book revenue without adding headcount.</p>
+      </div>
+    </section>
 
-  <section class="features-grid">
-  <div class="feature-box">
-    <h3>Instant Lead Engagement</h3>
-    <p>Responds to leads within seconds so you never miss an opportunity — even after hours.</p>
-    <a href="/demo/" class="feature-btn">Explore Engagement</a>
-  </div>
-  <div class="feature-box">
-    <h3>Automated Booking</h3>
-    <p>Books appointments without any human involvement, anytime day or night.</p>
-    <a href="/demo/" class="feature-btn">Book Smarter</a>
-  </div>
-  <div class="feature-box">
-    <h3>Custom-Trained for Your Business</h3>
-    <p>Our AI agents aren't generic. We train them on your actual services, FAQs, team, and booking process, so they respond like a real staff member, not a script.</p>
-    <a href="/demo/" class="feature-btn">Start Training</a>
-  </div>    
-  <div class="feature-box">
-    <h3>Boosted Conversion</h3>
-    <p>Turns more conversations into customers: 78% lead to customer conversion rate with $0 ad spend.</p>
-    <a href="/demo/" class="feature-btn">See the Stats</a>
-  </div>
-  <div class="feature-box">
-    <h3>Brand-Safe AI</h3>
-    <p>Sounds human and aligns with your tone, FAQs, and service options.</p>
-    <a href="/demo/" class="feature-btn">Customize Yours</a>
-  </div>
-<div class="feature-box">
-  <h3>Smart Review Booster</h3>
-  <p>Our agent prompts satisfied clients to leave Google reviews, helping your med spa stand out and build trust online.</p>
-  <a href="/demo/" class="feature-btn">Boost Reviews</a>
-</div>
-<div class="feature-box">
-  <h3>Persistent Lead Follow-Up</h3>
-  <p>Automatically follows up with leads who don’t book right away, turning cold inquiries into paying patients on autopilot.</p>
-  <a href="/demo/" class="feature-btn">Nurture Leads</a>
-</div>
-<div class="feature-box">
-  <h3>Your 24/7 AI Teammate</h3>
-  <p>Works around the clock to answer questions, book appointments, and free up your front desk staff, without ever calling in sick.</p>
-  <a href="/demo/" class="feature-btn">Meet Your AI Teammate</a>
-</div>
+    <section class="features-grid-section" aria-label="Product features">
+      <div class="features-grid">
+        <article class="feature-card">
+          <h2>Instant Lead Engagement</h2>
+          <p>Respond to leads within seconds so you never miss an opportunity—even when your team is busy or after hours.</p>
+          <a href="/demo/" class="btn secondary-btn">Explore Engagement</a>
+        </article>
+        <article class="feature-card">
+          <h2>Automated Booking</h2>
+          <p>Book appointments directly into your systems around the clock, no handoffs or voicemails required.</p>
+          <a href="/demo/" class="btn secondary-btn">Book Smarter</a>
+        </article>
+        <article class="feature-card">
+          <h2>Custom-Trained for Your Business</h2>
+          <p>Train MedspAI on your services, FAQs, and policies so every answer sounds on-brand and accurate.</p>
+          <a href="/demo/" class="btn secondary-btn">Start Training</a>
+        </article>
+        <article class="feature-card">
+          <h2>Persistent Lead Follow-Up</h2>
+          <p>Automatically nurture unbooked leads and keep the conversation going until they schedule.</p>
+          <a href="/demo/" class="btn secondary-btn">Nurture Leads</a>
+        </article>
+        <article class="feature-card">
+          <h2>Smart Review Booster</h2>
+          <p>Prompt satisfied clients for Google reviews and showcase your reputation without extra staff effort.</p>
+          <a href="/demo/" class="btn secondary-btn">Boost Reviews</a>
+        </article>
+        <article class="feature-card">
+          <h2>Brand-Safe Conversations</h2>
+          <p>Guide every interaction with guardrails that keep messaging compliant and aligned with your brand tone.</p>
+          <a href="/demo/" class="btn secondary-btn">Customize Voice</a>
+        </article>
+        <article class="feature-card">
+          <h2>Revenue &amp; Call Analytics</h2>
+          <p>Track bookings, revenue won, and conversation quality with transparent dashboards and call summaries.</p>
+          <a href="/demo/" class="btn secondary-btn">See the Dashboard</a>
+        </article>
+        <article class="feature-card">
+          <h2>24/7 AI Teammate</h2>
+          <p>Deliver human-quality coverage day and night so your front desk can focus on in-person care.</p>
+          <a href="/demo/" class="btn secondary-btn">Meet the Team</a>
+        </article>
+      </div>
+    </section>
 
-</section>
+    <section class="features-cta">
+      <p>Want to experience these features in action? We’ll build a sample call flow tailored to your med spa.</p>
+      <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
+    </section>
+  </main>
 
-
-<section class="demo-section" style="background-color: #f9f9f9; padding: 60px 20px;">
-  <div style="display: flex; justify-content: center;">
-    <div style="max-width: 600px; text-align: center; width: 100%;">
-      <h2 style="font-size: 36px; font-weight: 800;">Want to See it Work For You?</h2>
-      <p>We’ll build you a free agent. You decide if it’s worth keeping.</p>
-
-      <form class="email-form" action="https://script.google.com/macros/s/AKfycbyt1wNdtdN29g3IZptgsUbemsEllF49hFFyf4cM7w89P0j6yZg6yXf_lImh3GT7_dyJ/exec" method="POST">
-  <input type="email" name="email" placeholder="Enter your email" required>
-  <button type="submit">Request My Free Agent</button>
-</form>
-
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/MedspAI Transparent Horizontal White Letters.png" alt="MedspAI" class="footer-logo">
+        <p>MedspAI is the embedded AI team for med spas ready to deliver uninterrupted patient service.</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Ready when your phones light up</h4>
+        <p>Call <a href="tel:+12815196219">+1 (281) 519-6219</a> or schedule a custom demo to see coverage in action.</p>
+        <a href="/demo/" class="btn secondary-btn">Schedule Custom Demo</a>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Explore</h4>
+          <a href="/#services">Services</a>
+          <a href="/#approach">Approach</a>
+          <a href="/#results">Results</a>
+          <a href="/#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="/case-study/">Case Study</a>
+          <a href="/features/">Product Features</a>
+          <a href="/blog/">Insights</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:team@medspai.com">team@medspai.com</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+    <p class="footer-copy">© <span id="year"></span> MedspAI. All rights reserved.</p>
+  </footer>
 
+  <script>
+    (function () {
+      const header = document.querySelector('.site-header');
+      const toggle = header ? header.querySelector('.nav-toggle') : null;
+      const navMenu = header ? header.querySelector('.nav-menu') : null;
+      const mobileBreakpoint = window.matchMedia('(max-width: 959px)');
 
+      if (!header || !toggle || !navMenu) {
+        return;
+      }
 
-  
-<div class="back-home-cta">
-  <a href="/" class="back-home-btn">← Back to Home</a>
-</div>
-  
-<!-- Footer -->
-<footer class="site-footer" style="background-color: #f9f9f9; padding: 40px 20px;">
-  <div class="footer-container" style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px;">
+      const updateAriaHidden = () => {
+        if (mobileBreakpoint.matches) {
+          navMenu.setAttribute('aria-hidden', header.classList.contains('nav-open') ? 'false' : 'true');
+        } else {
+          navMenu.setAttribute('aria-hidden', 'false');
+        }
+      };
 
-    <div class="footer-logo" style="flex: 1 1 250px;">
-      <img src="/MedspAI Transparent Horizontal White Letters.png" alt="MedspAI Logo" style="height: 100px; width: auto;" />
-    </div>
+      const closeMenu = () => {
+        header.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-locked');
+        updateAriaHidden();
+      };
 
-    <div class="footer-links" style="flex: 1 1 200px;">
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        <li><a href="/">Home</a></li>
-        <li><a href="/features/">Features</a></li>
-        <li><a href="/case-study/">Case Study</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/demo/">Book Demo</a></li>
-      </ul>
-    </div>
+      const openMenu = () => {
+        header.classList.add('nav-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-locked');
+        updateAriaHidden();
+      };
 
-    <div class="footer-contact" style="flex: 1 1 200px;">
-      <p style="margin: 4px 0; font-size: 14px; color: #555;">team@medspai.com</p>
-      <p style="margin: 4px 0; font-size: 14px; color: #555;">Houston, TX</p>
-    </div>
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
 
-    <div class="footer-legal" style="flex: 1 1 200px; text-align: right;">
-      <p style="margin: 4px 0; font-size: 14px; color: #555;">© 2025 MedspAI</p>
-      <p style="margin: 4px 0; font-size: 13px; color: #4d6a3d;">
-        <a href="/privacy/" style="color: #4d6a3d; text-decoration: none;">Privacy Policy</a> |
-        <a href="/terms/" style="color: #4d6a3d; text-decoration: none;">Terms</a>
-      </p>
-    </div>
+      header.querySelectorAll('.nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (mobileBreakpoint.matches) {
+            closeMenu();
+          }
+        });
+      });
 
-  </div>
-</footer>
+      const handleBreakpointChange = () => {
+        closeMenu();
+        updateAriaHidden();
+      };
 
+      if (mobileBreakpoint.addEventListener) {
+        mobileBreakpoint.addEventListener('change', handleBreakpointChange);
+      } else if (mobileBreakpoint.addListener) {
+        mobileBreakpoint.addListener(handleBreakpointChange);
+      }
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      updateAriaHidden();
+    })();
+
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
 </body>
 </html>
