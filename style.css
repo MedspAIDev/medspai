@@ -1338,6 +1338,204 @@ input[type='range']::-moz-range-thumb {
   color: var(--color-muted);
 }
 
+.free-trial-hero {
+  padding: clamp(4.5rem, 7vw, 6.5rem) 1.75rem 3.75rem;
+  background: linear-gradient(135deg, rgba(27, 90, 64, 0.1), rgba(35, 178, 108, 0.12));
+}
+
+.free-trial-hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+.free-trial-hero-inner h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.free-trial-subheading {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-weight: 600;
+  color: var(--color-forest);
+  line-height: 1.45;
+}
+
+.free-trial-form-section {
+  padding: 3.75rem 1.75rem 5rem;
+}
+
+.free-trial-form-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.free-trial-form-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: clamp(2.5rem, 5vw, 3rem) clamp(1.75rem, 4vw, 2.75rem);
+  border: 1px solid rgba(27, 90, 64, 0.12);
+  box-shadow: 0 16px 36px rgba(15, 42, 31, 0.08);
+  display: grid;
+  gap: clamp(2rem, 4vw, 2.75rem);
+}
+
+.free-trial-progress {
+  margin-bottom: 0.75rem;
+}
+
+.step-indicator {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.step-indicator-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.25rem;
+  border-radius: 18px;
+  border: 1px solid rgba(27, 90, 64, 0.16);
+  background: rgba(230, 245, 237, 0.5);
+  color: var(--color-muted);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-indicator-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid rgba(27, 90, 64, 0.18);
+  color: var(--color-forest);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.step-indicator-label {
+  font-size: 0.95rem;
+}
+
+.step-indicator-item.is-active {
+  border-color: var(--color-forest);
+  background: linear-gradient(135deg, rgba(27, 90, 64, 0.18), rgba(35, 178, 108, 0.2));
+  color: var(--color-forest-dark);
+  box-shadow: 0 12px 26px rgba(15, 42, 31, 0.12);
+}
+
+.step-indicator-item.is-active .step-indicator-count {
+  background: var(--color-forest);
+  color: #ffffff;
+  border-color: rgba(27, 90, 64, 0.45);
+}
+
+.step-indicator-item.is-complete {
+  border-color: rgba(35, 178, 108, 0.7);
+  background: rgba(35, 178, 108, 0.18);
+  color: var(--color-forest);
+}
+
+.step-indicator-item.is-complete .step-indicator-count {
+  background: var(--color-highlight);
+  color: #ffffff;
+  border-color: rgba(35, 178, 108, 0.9);
+}
+
+.multi-step-form {
+  display: block;
+}
+
+.step-panels {
+  display: grid;
+}
+
+.step-panel {
+  display: none;
+  gap: 1.5rem;
+  color: var(--color-ink);
+}
+
+.step-panel.is-active {
+  display: grid;
+}
+
+.step-header {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.step-overline {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+.step-panel h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+  color: var(--color-forest-dark);
+}
+
+.step-panel p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.step-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.75rem;
+}
+
+.step-actions-single {
+  justify-content: flex-end;
+}
+
+.step-actions .btn {
+  min-width: 9rem;
+}
+
+@media (max-width: 720px) {
+  .step-indicator {
+    grid-template-columns: 1fr;
+  }
+
+  .step-indicator-item {
+    justify-content: flex-start;
+  }
+
+  .step-actions {
+    justify-content: flex-start;
+  }
+
+  .step-actions .btn {
+    flex: 1 1 45%;
+    min-width: 0;
+  }
+
+  .step-actions-single {
+    justify-content: flex-end;
+  }
+}
+
 .demo-hero {
   padding: 4.5rem 2rem 0.75rem;
 }
@@ -1386,6 +1584,14 @@ input[type='range']::-moz-range-thumb {
 
   .hero-reassurance {
     max-width: none;
+  }
+
+  .free-trial-hero {
+    padding: 3.5rem 1.5rem 3rem;
+  }
+
+  .free-trial-form-section {
+    padding: 3rem 1.5rem 4rem;
   }
 }
 
