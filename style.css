@@ -1338,6 +1338,63 @@ input[type='range']::-moz-range-thumb {
   color: var(--color-muted);
 }
 
+.free-trial-hero {
+  padding: clamp(4.5rem, 7vw, 6.5rem) 1.75rem 3.75rem;
+  background: linear-gradient(135deg, rgba(27, 90, 64, 0.1), rgba(35, 178, 108, 0.12));
+}
+
+.free-trial-hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+.free-trial-hero-inner h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.free-trial-subheading {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-weight: 600;
+  color: var(--color-forest);
+  line-height: 1.45;
+}
+
+.free-trial-form-section {
+  padding: 3.75rem 1.75rem 5rem;
+}
+
+.free-trial-form-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.free-trial-form-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: clamp(2.5rem, 5vw, 3rem) clamp(1.75rem, 4vw, 2.75rem);
+  border: 1px solid rgba(27, 90, 64, 0.12);
+  box-shadow: 0 16px 36px rgba(15, 42, 31, 0.08);
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+}
+
+.free-trial-form-card h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+  margin: 0;
+  color: var(--color-forest-dark);
+}
+
+.free-trial-form-card p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
 .demo-hero {
   padding: 4.5rem 2rem 0.75rem;
 }
@@ -1386,6 +1443,14 @@ input[type='range']::-moz-range-thumb {
 
   .hero-reassurance {
     max-width: none;
+  }
+
+  .free-trial-hero {
+    padding: 3.5rem 1.5rem 3rem;
+  }
+
+  .free-trial-form-section {
+    padding: 3rem 1.5rem 4rem;
   }
 }
 
