@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Start your complimentary 14-day trial of MedspAI's AI receptionist. We'll set everything up so you can experience how it handles real callers without risk.">
+  <title>Start Your 14-Day Free Trial | MedspAI</title>
+  <link rel="stylesheet" href="/style.css?v=23">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="/" class="logo" aria-label="MedspAI Home">
+        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="logo-img">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </span>
+      </button>
+      <div class="nav-menu" id="primary-navigation">
+        <nav class="site-nav" aria-label="Primary Navigation">
+          <a href="/#services" class="nav-link">Services</a>
+          <a href="/#approach" class="nav-link">How It Works</a>
+          <a href="/#results" class="nav-link">Results</a>
+          <a href="/#pricing" class="nav-link">Pricing</a>
+          <a href="/#cta" class="nav-link">Talk to Us</a>
+        </nav>
+        <div class="header-cta">
+          <a href="/portal/" class="btn tertiary-btn header-portal">Client Portal</a>
+          <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero free-trial-hero">
+      <div class="page-hero-inner free-trial-hero-inner">
+        <h1>Start Your 14-Day Free Trial</h1>
+        <p class="free-trial-subheading">We’re so confident you’ll love your AI receptionist that we'll install it free for 14 days</p>
+        <p class="page-hero-text">We’ll ask a few quick questions about your med spa and then set up your AI receptionist so you can test it with real callers.</p>
+      </div>
+    </section>
+
+    <section class="free-trial-form-section" aria-labelledby="free-trial-form-heading">
+      <div class="free-trial-form-container">
+        <div class="free-trial-form-card">
+          <h2 id="free-trial-form-heading" class="sr-only">Free Trial Sign-Up</h2>
+          <div class="free-trial-progress" aria-hidden="false" aria-label="Free trial steps">
+            <ol class="step-indicator" role="list">
+              <li class="step-indicator-item is-active" data-step="1">
+                <span class="step-indicator-count" aria-hidden="true">1</span>
+                <span class="step-indicator-label">Practice Details</span>
+              </li>
+              <li class="step-indicator-item" data-step="2">
+                <span class="step-indicator-count" aria-hidden="true">2</span>
+                <span class="step-indicator-label">Trial Settings</span>
+              </li>
+              <li class="step-indicator-item" data-step="3">
+                <span class="step-indicator-count" aria-hidden="true">3</span>
+                <span class="step-indicator-label">Start Date</span>
+              </li>
+            </ol>
+          </div>
+
+          <form class="multi-step-form" data-current-step="1" aria-live="polite" novalidate>
+            <div class="step-panels">
+              <section class="step-panel is-active" data-step="1" aria-labelledby="step-heading-1">
+                <header class="step-header">
+                  <p class="step-overline">Step 1</p>
+                  <h2 id="step-heading-1">Practice Details</h2>
+                </header>
+                <p>We’ll capture the essentials about your med spa so the AI receptionist introduces your brand accurately.</p>
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="practice_name">Practice name <span aria-hidden="true">*</span></label>
+                    <input id="practice_name" name="practice_name" type="text" required autocomplete="organization" spellcheck="false" aria-describedby="practice_name_error">
+                    <p class="field-error" id="practice_name_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="city">City <span aria-hidden="true">*</span></label>
+                    <input id="city" name="city" type="text" required autocomplete="address-level2" spellcheck="false" aria-describedby="city_error">
+                    <p class="field-error" id="city_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="monthly_revenue">Monthly revenue <span aria-hidden="true">*</span></label>
+                    <select id="monthly_revenue" name="monthly_revenue" required aria-describedby="monthly_revenue_error">
+                      <option value="" disabled selected>Select a revenue range</option>
+                      <option value="less than 50k/month">less than 50k/month</option>
+                      <option value="50-100k/month">50-100k/month</option>
+                      <option value="100-150k">100-150k</option>
+                      <option value="150-250k">150-250k</option>
+                      <option value="250+">250+</option>
+                    </select>
+                    <p class="field-error" id="monthly_revenue_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="role">Your role <span aria-hidden="true">*</span></label>
+                    <select id="role" name="role" required aria-describedby="role_error">
+                      <option value="" disabled selected>Select your role</option>
+                      <option value="Owner">Owner</option>
+                      <option value="Practice Manager">Practice Manager</option>
+                      <option value="Front Desk / Reception">Front Desk / Reception</option>
+                      <option value="Marketing Agency / Consultant">Marketing Agency / Consultant</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <p class="field-error" id="role_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="email">Best contact email <span aria-hidden="true">*</span></label>
+                    <input id="email" name="email" type="email" required autocomplete="email" spellcheck="false" aria-describedby="email_error">
+                    <p class="field-error" id="email_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="phone">Best phone number <span aria-hidden="true">*</span></label>
+                    <input id="phone" name="phone" type="tel" required autocomplete="tel" aria-describedby="phone_error">
+                    <p class="field-error" id="phone_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="daily_call_volume">How many inbound calls does your med spa get on a typical day? <span class="optional">(Optional)</span></label>
+                    <select id="daily_call_volume" name="daily_call_volume" aria-describedby="daily_call_volume_error">
+                      <option value="" selected>Select a range</option>
+                      <option value="Under 10">Under 10</option>
+                      <option value="10–25">10–25</option>
+                      <option value="25–50">25–50</option>
+                      <option value="50+">50+</option>
+                    </select>
+                    <p class="field-error" id="daily_call_volume_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="website">Website URL <span class="optional">(Optional)</span></label>
+                    <input id="website" name="website" type="text" inputmode="url" autocomplete="url" spellcheck="false" aria-describedby="website_error">
+                    <p class="field-error" id="website_error" aria-live="polite" hidden></p>
+                  </div>
+                </div>
+                <div class="step-actions step-actions-single">
+                  <button class="btn primary-btn step-next" type="button" data-step-action="next" disabled>Next</button>
+                </div>
+              </section>
+
+              <section class="step-panel" data-step="2" aria-labelledby="step-heading-2" aria-hidden="true">
+                <header class="step-header">
+                  <p class="step-overline">Step 2</p>
+                  <h2 id="step-heading-2">Trial Settings</h2>
+                </header>
+                <p>We keep the trial simple: you’ll get up to 14 days or 100 receptionist minutes of real coverage so you can see how many calls you save.</p>
+                <div class="form-stack">
+                  <div class="form-checkbox-group">
+                    <div class="checkbox-field">
+                      <input id="accepts_trial_limit" name="accepts_trial_limit" type="checkbox" required aria-describedby="accepts_trial_limit_error">
+                      <label for="accepts_trial_limit">I understand the trial lasts up to 14 days or 100 receptionist minutes, whichever comes first.</label>
+                    </div>
+                    <p class="field-error" id="accepts_trial_limit_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-checkbox-group">
+                    <div class="checkbox-field">
+                      <input id="can_update_forwarding" name="can_update_forwarding" type="checkbox" required aria-describedby="can_update_forwarding_error">
+                      <label for="can_update_forwarding">I can either update my call forwarding or coordinate with my phone provider to route calls to the AI receptionist during the trial.</label>
+                    </div>
+                    <p class="field-error" id="can_update_forwarding_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="phone_system">Current phone system / provider <span class="optional">(Optional)</span></label>
+                    <input id="phone_system" name="phone_system" type="text" autocomplete="off" spellcheck="false" aria-describedby="phone_system_error">
+                    <p class="field-error" id="phone_system_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="call_handling_notes">How do you currently handle incoming calls? <span class="optional">(Optional)</span></label>
+                    <textarea id="call_handling_notes" name="call_handling_notes" rows="4" aria-describedby="call_handling_notes_error"></textarea>
+                    <p class="field-error" id="call_handling_notes_error" aria-live="polite" hidden></p>
+                  </div>
+                </div>
+                <div class="step-actions">
+                  <button class="btn tertiary-btn step-back" type="button" data-step-action="back">Back</button>
+                  <button class="btn primary-btn step-next" type="button" data-step-action="next">Next</button>
+                </div>
+              </section>
+
+              <section class="step-panel" data-step="3" aria-labelledby="step-heading-3" aria-hidden="true">
+                <header class="step-header">
+                  <p class="step-overline">Step 3</p>
+                  <h2 id="step-heading-3">Start Date</h2>
+                </header>
+                <p>Choose when you’d like the free trial to begin so we can configure coverage and confirm the kickoff plan.</p>
+                <div class="step-actions">
+                  <button class="btn tertiary-btn step-back" type="button" data-step-action="back">Back</button>
+                  <button class="btn primary-btn step-submit" type="submit">Start My Free Trial</button>
+                </div>
+              </section>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/MedspAI Transparent Horizontal White Letters.png" alt="MedspAI" class="footer-logo">
+        <p>MedspAI is the embedded AI team for med spas ready to deliver uninterrupted patient service.</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Ready when your phones light up</h4>
+        <p>Call <a href="tel:+11234567890">+1 (123) 456-7890</a> or schedule a custom demo to see coverage in action.</p>
+        <a href="/demo/" class="btn secondary-btn">Schedule Custom Demo</a>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Explore</h4>
+          <a href="/#services">Services</a>
+          <a href="/#approach">Approach</a>
+          <a href="/#results">Results</a>
+          <a href="/#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="/case-study/">Case Study</a>
+          <a href="/features/">Product Features</a>
+          <a href="/blog/">Insights</a>
+          <a href="/social-media/">Social Media Kit</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+          <a href="/thank-you/">Contact</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> MedspAI. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const header = document.querySelector('.site-header');
+      const toggle = header ? header.querySelector('.nav-toggle') : null;
+      const navMenu = header ? header.querySelector('.nav-menu') : null;
+      const mobileBreakpoint = window.matchMedia('(max-width: 959px)');
+
+      if (!header || !toggle || !navMenu) {
+        return;
+      }
+
+      const updateAriaHidden = () => {
+        if (mobileBreakpoint.matches) {
+          navMenu.setAttribute('aria-hidden', header.classList.contains('nav-open') ? 'false' : 'true');
+        } else {
+          navMenu.setAttribute('aria-hidden', 'false');
+        }
+      };
+
+      const closeMenu = () => {
+        header.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-locked');
+        updateAriaHidden();
+      };
+
+      const openMenu = () => {
+        header.classList.add('nav-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-locked');
+        updateAriaHidden();
+      };
+
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      header.querySelectorAll('.nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (mobileBreakpoint.matches) {
+            closeMenu();
+          }
+        });
+      });
+
+      const handleBreakpointChange = () => {
+        closeMenu();
+        updateAriaHidden();
+      };
+
+      if (mobileBreakpoint.addEventListener) {
+        mobileBreakpoint.addEventListener('change', handleBreakpointChange);
+      } else if (mobileBreakpoint.addListener) {
+        mobileBreakpoint.addListener(handleBreakpointChange);
+      }
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      updateAriaHidden();
+    })();
+
+    (function () {
+      const form = document.querySelector('.multi-step-form');
+      if (!form) {
+        return;
+      }
+
+      const panels = Array.from(form.querySelectorAll('.step-panel'));
+      const indicatorItems = Array.from(document.querySelectorAll('.step-indicator-item'));
+
+      const stepOnePanel = form.querySelector('.step-panel[data-step="1"]');
+      const stepOneFields = stepOnePanel
+        ? Array.from(stepOnePanel.querySelectorAll('input, select, textarea')).filter((field) => field.name)
+        : [];
+      const requiredStepOneFields = stepOneFields.filter((field) => field.required);
+      const stepOneNextButton = stepOnePanel
+        ? stepOnePanel.querySelector('[data-step-action="next"]')
+        : null;
+      const stepTwoPanel = form.querySelector('.step-panel[data-step="2"]');
+      const stepTwoRequiredCheckboxes = stepTwoPanel
+        ? Array.from(stepTwoPanel.querySelectorAll('input[type="checkbox"][required]'))
+        : [];
+      const touchedFields = new WeakSet();
+      const touchedCheckboxes = new WeakSet();
+
+      const customMessages = {
+        practice_name: 'Enter your practice name.',
+        city: 'Provide your city.',
+        monthly_revenue: 'Select your monthly revenue range.',
+        role: 'Select the role that best describes you.',
+        email: 'Enter a valid email address.',
+        phone: 'Share the best phone number to reach you.',
+      };
+
+      const checkboxMessages = {
+        accepts_trial_limit: 'Confirm you understand the trial limit to continue.',
+        can_update_forwarding: 'Confirm you can manage call forwarding during the trial.',
+      };
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      const setFieldError = (field, message) => {
+        const wrapper = field.closest('.form-field');
+        if (!wrapper) {
+          return;
+        }
+
+        const errorEl = wrapper.querySelector('.field-error');
+        if (!errorEl) {
+          return;
+        }
+
+        if (message) {
+          errorEl.textContent = message;
+          errorEl.hidden = false;
+          field.setAttribute('aria-invalid', 'true');
+          wrapper.classList.add('has-error');
+        } else {
+          errorEl.textContent = '';
+          errorEl.hidden = true;
+          field.removeAttribute('aria-invalid');
+          wrapper.classList.remove('has-error');
+        }
+      };
+
+      const validateField = (field, { forceShow = false } = {}) => {
+        const value = field.value.trim();
+        let message = '';
+
+        if (field.required) {
+          if (!value) {
+            message = customMessages[field.name] || 'This field is required.';
+          } else if (field.type === 'email' && !emailPattern.test(value)) {
+            message = customMessages[field.name] || 'Enter a valid email address.';
+          }
+        }
+
+        if (!field.required && field.type === 'email' && value && !emailPattern.test(value)) {
+          message = customMessages[field.name] || 'Enter a valid email address.';
+        }
+
+        if (forceShow || touchedFields.has(field) || !message) {
+          setFieldError(field, message);
+        }
+
+        return message === '';
+      };
+
+      const updateStepOneButtonState = () => {
+        if (!stepOneNextButton) {
+          return;
+        }
+
+        const allValid = requiredStepOneFields.every((field) => validateField(field));
+        stepOneNextButton.disabled = !allValid;
+        stepOneNextButton.setAttribute('aria-disabled', allValid ? 'false' : 'true');
+      };
+
+      const setCheckboxError = (checkbox, message) => {
+        const wrapper = checkbox.closest('.form-checkbox-group');
+        if (!wrapper) {
+          return;
+        }
+
+        const errorEl = wrapper.querySelector('.field-error');
+        if (!errorEl) {
+          return;
+        }
+
+        if (message) {
+          errorEl.textContent = message;
+          errorEl.hidden = false;
+          checkbox.setAttribute('aria-invalid', 'true');
+          wrapper.classList.add('has-error');
+        } else {
+          errorEl.textContent = '';
+          errorEl.hidden = true;
+          checkbox.removeAttribute('aria-invalid');
+          wrapper.classList.remove('has-error');
+        }
+      };
+
+      const validateCheckbox = (checkbox, { forceShow = false } = {}) => {
+        const isChecked = checkbox.checked;
+        let message = '';
+
+        if (!isChecked) {
+          message = checkboxMessages[checkbox.name] || 'This field is required.';
+        }
+
+        if (forceShow || touchedCheckboxes.has(checkbox) || isChecked) {
+          setCheckboxError(checkbox, message);
+        }
+
+        return isChecked;
+      };
+
+      if (stepOnePanel) {
+        stepOneFields.forEach((field) => {
+          const eventName = field.tagName === 'SELECT' ? 'change' : 'input';
+
+          field.addEventListener(eventName, () => {
+            validateField(field, { forceShow: touchedFields.has(field) });
+            updateStepOneButtonState();
+          });
+
+          field.addEventListener('blur', () => {
+            touchedFields.add(field);
+            validateField(field, { forceShow: true });
+            updateStepOneButtonState();
+          });
+        });
+      }
+
+      if (stepTwoPanel) {
+        stepTwoRequiredCheckboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', () => {
+            touchedCheckboxes.add(checkbox);
+            validateCheckbox(checkbox, { forceShow: true });
+          });
+
+          checkbox.addEventListener('blur', () => {
+            touchedCheckboxes.add(checkbox);
+            validateCheckbox(checkbox, { forceShow: true });
+          });
+        });
+      }
+
+      const getCurrentStep = () => Number(form.dataset.currentStep || '1');
+
+      const updateIndicator = (currentStep) => {
+        indicatorItems.forEach((item) => {
+          const stepNumber = Number(item.dataset.step);
+          item.classList.toggle('is-active', stepNumber === currentStep);
+          item.classList.toggle('is-complete', stepNumber < currentStep);
+          if (stepNumber === currentStep) {
+            item.setAttribute('aria-current', 'step');
+          } else {
+            item.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const updatePanels = (currentStep) => {
+        panels.forEach((panel) => {
+          const panelStep = Number(panel.dataset.step);
+          const isActive = panelStep === currentStep;
+          panel.classList.toggle('is-active', isActive);
+          panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        });
+      };
+
+      const goToStep = (nextStep) => {
+        const totalSteps = panels.length;
+        const targetStep = Math.min(Math.max(nextStep, 1), totalSteps);
+        form.dataset.currentStep = String(targetStep);
+        updatePanels(targetStep);
+        updateIndicator(targetStep);
+      };
+
+      form.addEventListener('click', (event) => {
+        const actionButton = event.target.closest('[data-step-action]');
+        if (!actionButton) {
+          return;
+        }
+
+        event.preventDefault();
+        const actionType = actionButton.dataset.stepAction;
+        const currentStep = getCurrentStep();
+
+        if (actionType === 'next') {
+          if (currentStep === 1 && stepOnePanel) {
+            let firstInvalidField = null;
+
+            requiredStepOneFields.forEach((field) => {
+              touchedFields.add(field);
+              const fieldIsValid = validateField(field, { forceShow: true });
+              if (!fieldIsValid && !firstInvalidField) {
+                firstInvalidField = field;
+              }
+            });
+            updateStepOneButtonState();
+
+            if (firstInvalidField) {
+              firstInvalidField.focus();
+              return;
+            }
+          }
+
+          if (currentStep === 2 && stepTwoPanel) {
+            let firstInvalidCheckbox = null;
+
+            stepTwoRequiredCheckboxes.forEach((checkbox) => {
+              touchedCheckboxes.add(checkbox);
+              const checkboxIsValid = validateCheckbox(checkbox, { forceShow: true });
+              if (!checkboxIsValid && !firstInvalidCheckbox) {
+                firstInvalidCheckbox = checkbox;
+              }
+            });
+
+            if (firstInvalidCheckbox) {
+              firstInvalidCheckbox.focus();
+              return;
+            }
+          }
+
+          goToStep(currentStep + 1);
+        } else if (actionType === 'back') {
+          goToStep(currentStep - 1);
+        }
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+      });
+
+      goToStep(getCurrentStep());
+      updateStepOneButtonState();
+    })();
+
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
