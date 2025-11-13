@@ -1511,6 +1511,12 @@ input[type='range']::-moz-range-thumb {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
+.form-stack {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
 .form-field {
   display: grid;
   gap: 0.5rem;
@@ -1523,7 +1529,8 @@ input[type='range']::-moz-range-thumb {
 }
 
 .form-field input,
-.form-field select {
+.form-field select,
+.form-field textarea {
   width: 100%;
   padding: 0.85rem 1rem;
   border-radius: 14px;
@@ -1535,8 +1542,15 @@ input[type='range']::-moz-range-thumb {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.form-field textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
 .form-field input:focus,
-.form-field select:focus {
+.form-field select:focus,
+.form-field textarea:focus {
   border-color: var(--color-forest);
   outline: none;
   box-shadow: 0 0 0 3px rgba(35, 178, 108, 0.18);
@@ -1571,13 +1585,62 @@ input[type='range']::-moz-range-thumb {
 }
 
 .form-field.has-error input,
-.form-field.has-error select {
+.form-field.has-error select,
+.form-field.has-error textarea {
   border-color: rgba(193, 64, 64, 0.9);
   box-shadow: 0 0 0 3px rgba(193, 64, 64, 0.15);
 }
 
 .form-field.has-error label {
   color: rgba(193, 64, 64, 0.95);
+}
+
+.form-checkbox-group {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 18px;
+  border: 1px solid rgba(27, 90, 64, 0.14);
+  background: rgba(230, 245, 237, 0.45);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form-checkbox-group.has-error {
+  border-color: rgba(193, 64, 64, 0.9);
+  box-shadow: 0 0 0 3px rgba(193, 64, 64, 0.12);
+  background: rgba(255, 245, 245, 0.85);
+}
+
+.checkbox-field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.checkbox-field input[type='checkbox'] {
+  margin-top: 0.15rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--color-forest);
+  border-radius: 4px;
+}
+
+.checkbox-field label {
+  font-weight: 600;
+  color: var(--color-forest-dark);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.form-checkbox-group .field-error {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-error, #c14040);
+}
+
+.form-checkbox-group .field-error[hidden] {
+  display: none;
 }
 
 .step-actions {

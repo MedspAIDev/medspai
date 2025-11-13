@@ -151,7 +151,33 @@
                   <p class="step-overline">Step 2</p>
                   <h2 id="step-heading-2">Trial Settings</h2>
                 </header>
-                <p>Decide how callers are greeted, which services to highlight, and the hours we’ll cover for the trial period.</p>
+                <p>We keep the trial simple: you’ll get up to 14 days or 100 receptionist minutes of real coverage so you can see how many calls you save.</p>
+                <div class="form-stack">
+                  <div class="form-checkbox-group">
+                    <div class="checkbox-field">
+                      <input id="accepts_trial_limit" name="accepts_trial_limit" type="checkbox" required aria-describedby="accepts_trial_limit_error">
+                      <label for="accepts_trial_limit">I understand the trial lasts up to 14 days or 100 receptionist minutes, whichever comes first.</label>
+                    </div>
+                    <p class="field-error" id="accepts_trial_limit_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-checkbox-group">
+                    <div class="checkbox-field">
+                      <input id="can_update_forwarding" name="can_update_forwarding" type="checkbox" required aria-describedby="can_update_forwarding_error">
+                      <label for="can_update_forwarding">I can either update my call forwarding or coordinate with my phone provider to route calls to the AI receptionist during the trial.</label>
+                    </div>
+                    <p class="field-error" id="can_update_forwarding_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="phone_system">Current phone system / provider <span class="optional">(Optional)</span></label>
+                    <input id="phone_system" name="phone_system" type="text" autocomplete="off" spellcheck="false" aria-describedby="phone_system_error">
+                    <p class="field-error" id="phone_system_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="call_handling_notes">How do you currently handle incoming calls? <span class="optional">(Optional)</span></label>
+                    <textarea id="call_handling_notes" name="call_handling_notes" rows="4" aria-describedby="call_handling_notes_error"></textarea>
+                    <p class="field-error" id="call_handling_notes_error" aria-live="polite" hidden></p>
+                  </div>
+                </div>
                 <div class="step-actions">
                   <button class="btn tertiary-btn step-back" type="button" data-step-action="back">Back</button>
                   <button class="btn primary-btn step-next" type="button" data-step-action="next">Next</button>
@@ -300,7 +326,12 @@
       const stepOneNextButton = stepOnePanel
         ? stepOnePanel.querySelector('[data-step-action="next"]')
         : null;
+      const stepTwoPanel = form.querySelector('.step-panel[data-step="2"]');
+      const stepTwoRequiredCheckboxes = stepTwoPanel
+        ? Array.from(stepTwoPanel.querySelectorAll('input[type="checkbox"][required]'))
+        : [];
       const touchedFields = new WeakSet();
+      const touchedCheckboxes = new WeakSet();
 
       const customMessages = {
         practice_name: 'Enter your practice name.',
@@ -309,6 +340,11 @@
         role: 'Select the role that best describes you.',
         email: 'Enter a valid email address.',
         phone: 'Share the best phone number to reach you.',
+      };
+
+      const checkboxMessages = {
+        accepts_trial_limit: 'Confirm you understand the trial limit to continue.',
+        can_update_forwarding: 'Confirm you can manage call forwarding during the trial.',
       };
 
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -370,6 +406,45 @@
         stepOneNextButton.setAttribute('aria-disabled', allValid ? 'false' : 'true');
       };
 
+      const setCheckboxError = (checkbox, message) => {
+        const wrapper = checkbox.closest('.form-checkbox-group');
+        if (!wrapper) {
+          return;
+        }
+
+        const errorEl = wrapper.querySelector('.field-error');
+        if (!errorEl) {
+          return;
+        }
+
+        if (message) {
+          errorEl.textContent = message;
+          errorEl.hidden = false;
+          checkbox.setAttribute('aria-invalid', 'true');
+          wrapper.classList.add('has-error');
+        } else {
+          errorEl.textContent = '';
+          errorEl.hidden = true;
+          checkbox.removeAttribute('aria-invalid');
+          wrapper.classList.remove('has-error');
+        }
+      };
+
+      const validateCheckbox = (checkbox, { forceShow = false } = {}) => {
+        const isChecked = checkbox.checked;
+        let message = '';
+
+        if (!isChecked) {
+          message = checkboxMessages[checkbox.name] || 'This field is required.';
+        }
+
+        if (forceShow || touchedCheckboxes.has(checkbox) || isChecked) {
+          setCheckboxError(checkbox, message);
+        }
+
+        return isChecked;
+      };
+
       if (stepOnePanel) {
         stepOneFields.forEach((field) => {
           const eventName = field.tagName === 'SELECT' ? 'change' : 'input';
@@ -383,6 +458,20 @@
             touchedFields.add(field);
             validateField(field, { forceShow: true });
             updateStepOneButtonState();
+          });
+        });
+      }
+
+      if (stepTwoPanel) {
+        stepTwoRequiredCheckboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', () => {
+            touchedCheckboxes.add(checkbox);
+            validateCheckbox(checkbox, { forceShow: true });
+          });
+
+          checkbox.addEventListener('blur', () => {
+            touchedCheckboxes.add(checkbox);
+            validateCheckbox(checkbox, { forceShow: true });
           });
         });
       }
@@ -444,6 +533,23 @@
 
             if (firstInvalidField) {
               firstInvalidField.focus();
+              return;
+            }
+          }
+
+          if (currentStep === 2 && stepTwoPanel) {
+            let firstInvalidCheckbox = null;
+
+            stepTwoRequiredCheckboxes.forEach((checkbox) => {
+              touchedCheckboxes.add(checkbox);
+              const checkboxIsValid = validateCheckbox(checkbox, { forceShow: true });
+              if (!checkboxIsValid && !firstInvalidCheckbox) {
+                firstInvalidCheckbox = checkbox;
+              }
+            });
+
+            if (firstInvalidCheckbox) {
+              firstInvalidCheckbox.focus();
               return;
             }
           }
