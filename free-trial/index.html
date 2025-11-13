@@ -189,10 +189,29 @@
                   <p class="step-overline">Step 3</p>
                   <h2 id="step-heading-3">Start Date</h2>
                 </header>
-                <p>Choose when you’d like the free trial to begin so we can configure coverage and confirm the kickoff plan.</p>
+                <p>Tell us when you’d like to start and when we can do a quick setup call.</p>
+                <div class="form-stack">
+                  <div class="form-field">
+                    <label for="preferred_start_date">Preferred trial start date <span aria-hidden="true">*</span></label>
+                    <input id="preferred_start_date" name="preferred_start_date" type="date" required aria-describedby="preferred_start_date_error">
+                    <p class="field-error" id="preferred_start_date_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-info">
+                    <p>Book your 15-minute setup call so we can configure your AI receptionist before the trial begins.</p>
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/team-medspai/discovery-call" style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    <!-- Calendly inline widget end -->
+                  </div>
+                  <div class="form-field">
+                    <label for="extra_notes">Anything else we should know before your trial? <span class="optional">(Optional)</span></label>
+                    <textarea id="extra_notes" name="extra_notes" rows="4" aria-describedby="extra_notes_error"></textarea>
+                    <p class="field-error" id="extra_notes_error" aria-live="polite" hidden></p>
+                  </div>
+                </div>
                 <div class="step-actions">
                   <button class="btn tertiary-btn step-back" type="button" data-step-action="back">Back</button>
-                  <button class="btn primary-btn step-submit" type="submit">Start My Free Trial</button>
+                  <button class="btn primary-btn step-submit" type="submit" disabled aria-disabled="true">Start My Free Trial</button>
                 </div>
               </section>
             </div>
@@ -330,6 +349,14 @@
       const stepTwoRequiredCheckboxes = stepTwoPanel
         ? Array.from(stepTwoPanel.querySelectorAll('input[type="checkbox"][required]'))
         : [];
+      const stepThreePanel = form.querySelector('.step-panel[data-step="3"]');
+      const stepThreeFields = stepThreePanel
+        ? Array.from(stepThreePanel.querySelectorAll('input, select, textarea')).filter((field) => field.name)
+        : [];
+      const stepThreeRequiredFields = stepThreeFields.filter((field) => field.required);
+      const stepThreeSubmitButton = stepThreePanel
+        ? stepThreePanel.querySelector('.step-submit')
+        : null;
       const touchedFields = new WeakSet();
       const touchedCheckboxes = new WeakSet();
 
@@ -340,6 +367,7 @@
         role: 'Select the role that best describes you.',
         email: 'Enter a valid email address.',
         phone: 'Share the best phone number to reach you.',
+        preferred_start_date: 'Select your preferred trial start date.',
       };
 
       const checkboxMessages = {
@@ -404,6 +432,16 @@
         const allValid = requiredStepOneFields.every((field) => validateField(field));
         stepOneNextButton.disabled = !allValid;
         stepOneNextButton.setAttribute('aria-disabled', allValid ? 'false' : 'true');
+      };
+
+      const updateStepThreeButtonState = () => {
+        if (!stepThreeSubmitButton) {
+          return;
+        }
+
+        const allValid = stepThreeRequiredFields.every((field) => validateField(field));
+        stepThreeSubmitButton.disabled = !allValid;
+        stepThreeSubmitButton.setAttribute('aria-disabled', allValid ? 'false' : 'true');
       };
 
       const setCheckboxError = (checkbox, message) => {
@@ -476,6 +514,23 @@
         });
       }
 
+      if (stepThreePanel) {
+        stepThreeFields.forEach((field) => {
+          const eventName = field.tagName === 'SELECT' ? 'change' : 'input';
+
+          field.addEventListener(eventName, () => {
+            validateField(field, { forceShow: touchedFields.has(field) });
+            updateStepThreeButtonState();
+          });
+
+          field.addEventListener('blur', () => {
+            touchedFields.add(field);
+            validateField(field, { forceShow: true });
+            updateStepThreeButtonState();
+          });
+        });
+      }
+
       const getCurrentStep = () => Number(form.dataset.currentStep || '1');
 
       const updateIndicator = (currentStep) => {
@@ -506,6 +561,9 @@
         form.dataset.currentStep = String(targetStep);
         updatePanels(targetStep);
         updateIndicator(targetStep);
+        if (targetStep === 3) {
+          updateStepThreeButtonState();
+        }
       };
 
       form.addEventListener('click', (event) => {
@@ -561,11 +619,30 @@
       });
 
       form.addEventListener('submit', (event) => {
+        let firstInvalidField = null;
+
+        stepThreeRequiredFields.forEach((field) => {
+          touchedFields.add(field);
+          const fieldIsValid = validateField(field, { forceShow: true });
+          if (!fieldIsValid && !firstInvalidField) {
+            firstInvalidField = field;
+          }
+        });
+
+        updateStepThreeButtonState();
+
+        if (firstInvalidField) {
+          event.preventDefault();
+          firstInvalidField.focus();
+          return;
+        }
+
         event.preventDefault();
       });
 
       goToStep(getCurrentStep());
       updateStepOneButtonState();
+      updateStepThreeButtonState();
     })();
 
     const yearEl = document.getElementById('year');
