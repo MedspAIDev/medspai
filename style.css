@@ -1447,6 +1447,7 @@ input[type='range']::-moz-range-thumb {
   gap: 1.5rem;
 }
 
+
 .free-trial-review-card {
   border-radius: 18px;
   padding: 2rem 1.75rem;
@@ -1454,8 +1455,10 @@ input[type='range']::-moz-range-thumb {
   box-shadow: 0 20px 40px rgba(15, 42, 31, 0.08);
   border: 1px solid rgba(27, 90, 64, 0.12);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  text-align: left;
   min-height: 180px;
 }
 
@@ -1471,6 +1474,23 @@ input[type='range']::-moz-range-thumb {
   color: var(--color-muted);
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.free-trial-review-quote {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.free-trial-review-quote p {
+  margin: 0;
+}
+
+.free-trial-review-author {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
 .free-trial-progress {
