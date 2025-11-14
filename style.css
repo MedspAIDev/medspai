@@ -1753,6 +1753,7 @@ input[type='range']::-moz-range-thumb {
   font-family: inherit;
   color: var(--color-ink);
   background: #ffffff;
+  box-shadow: inset 0 0 0 0 rgba(35, 178, 108, 0);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -1767,7 +1768,7 @@ input[type='range']::-moz-range-thumb {
 .form-field textarea:focus {
   border-color: var(--color-forest);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(35, 178, 108, 0.18);
+  box-shadow: inset 0 0 0 2px rgba(35, 178, 108, 0.45);
 }
 
 .form-field select {
@@ -1802,7 +1803,7 @@ input[type='range']::-moz-range-thumb {
 .form-field.has-error select,
 .form-field.has-error textarea {
   border-color: rgba(193, 64, 64, 0.9);
-  box-shadow: 0 0 0 3px rgba(193, 64, 64, 0.15);
+  box-shadow: inset 0 0 0 2px rgba(193, 64, 64, 0.35);
 }
 
 .form-field.has-error label {
