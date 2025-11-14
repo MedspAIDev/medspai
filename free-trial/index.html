@@ -178,7 +178,7 @@
                 </div>
                 <div class="step-actions">
                   <button class="btn tertiary-btn step-back" type="button" data-step-action="back">Back</button>
-                  <button class="btn primary-btn step-next" type="button" data-step-action="next">Next</button>
+                  <button class="btn primary-btn step-next" type="button" data-step-action="next">Start My Free Trial</button>
                 </div>
               </section>
 
@@ -188,21 +188,11 @@
                   <h2 id="step-heading-3">Start Date</h2>
                 </header>
                 <p>We'll meet briefly to design and implement your custom agent. Same-day set-up guaranteed or we'll extend your trial.</p>
-                
-                    <!-- Calendly inline widget begin -->
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/team-medspai/discovery-call" style="min-width:320px;height:700px;"></div>
-                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                    <!-- Calendly inline widget end -->
-                  </div>
-                  <div class="form-field">
-                    <label for="extra_notes">Anything else we should know before your trial? <span class="optional">(Optional)</span></label>
-                    <textarea id="extra_notes" name="extra_notes" rows="4" aria-describedby="extra_notes_error"></textarea>
-                    <p class="field-error" id="extra_notes_error" aria-live="polite" hidden></p>
-                  </div>
-                </div>
-                <div class="step-actions">
-                  <button class="btn tertiary-btn step-back" type="button" data-step-action="back">Back</button>
-                  <button class="btn primary-btn step-submit" type="submit" disabled aria-disabled="true">Start My Free Trial</button>
+                <div class="calendly-embed">
+                  <!-- Calendly inline widget begin -->
+                  <div class="calendly-inline-widget" data-url="https://calendly.com/team-medspai/discovery-call" style="min-width:320px;height:700px;"></div>
+                  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                  <!-- Calendly inline widget end -->
                 </div>
               </section>
             </div>
@@ -337,6 +327,9 @@
         ? stepOnePanel.querySelector('[data-step-action="next"]')
         : null;
       const stepTwoPanel = form.querySelector('.step-panel[data-step="2"]');
+      const stepTwoActions = stepTwoPanel
+        ? stepTwoPanel.querySelector('.step-actions')
+        : null;
       const stepTwoRequiredCheckboxes = stepTwoPanel
         ? Array.from(stepTwoPanel.querySelectorAll('input[type="checkbox"][required]'))
         : [];
@@ -559,6 +552,7 @@
 
       const webhookUrl = 'https://services.leadconnectorhq.com/hooks/yiubPI8Z7kiAGrebVoGy/webhook-trigger/bb20e82c-a715-48e0-a6f4-a4f83fba7782';
       let hasCapturedStepOneLead = false;
+      let isSubmittingFinalPayload = false;
 
       const getFieldValue = (name) => {
         const field = form.elements.namedItem(name);
@@ -639,9 +633,8 @@
       submissionErrorEl.className = 'field-error form-submit-error';
       submissionErrorEl.setAttribute('role', 'alert');
       submissionErrorEl.hidden = true;
-      const stepThreeActions = stepThreePanel ? stepThreePanel.querySelector('.step-actions') : null;
-      if (stepThreePanel && stepThreeActions) {
-        stepThreePanel.insertBefore(submissionErrorEl, stepThreeActions);
+      if (stepTwoPanel && stepTwoActions) {
+        stepTwoPanel.insertBefore(submissionErrorEl, stepTwoActions);
       }
 
       const showSubmissionError = (message) => {
@@ -722,6 +715,48 @@
             if (firstInvalidCheckbox) {
               firstInvalidCheckbox.focus();
               return;
+            }
+
+            const nextButton = actionButton;
+
+            if (isSubmittingFinalPayload) {
+              return;
+            }
+
+            clearSubmissionError();
+            let originalButtonText = '';
+
+            if (nextButton) {
+              originalButtonText = nextButton.textContent;
+              nextButton.disabled = true;
+              nextButton.setAttribute('aria-disabled', 'true');
+              nextButton.textContent = 'Submitting…';
+            }
+
+            isSubmittingFinalPayload = true;
+
+            try {
+              await postPayload(buildFullPayload());
+            } catch (error) {
+              console.error('Failed to submit completed trial signup', error);
+              showSubmissionError('Something went wrong while starting your trial. Please check your connection and try again.');
+
+              if (nextButton) {
+                nextButton.disabled = false;
+                nextButton.setAttribute('aria-disabled', 'false');
+                nextButton.textContent = originalButtonText;
+              }
+
+              isSubmittingFinalPayload = false;
+              return;
+            }
+
+            isSubmittingFinalPayload = false;
+
+            if (nextButton) {
+              nextButton.disabled = false;
+              nextButton.setAttribute('aria-disabled', 'false');
+              nextButton.textContent = originalButtonText;
             }
           }
 
