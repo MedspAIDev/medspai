@@ -1431,8 +1431,21 @@ input[type='range']::-moz-range-thumb {
   max-width: 960px;
   margin: 0 auto;
   display: grid;
-  gap: 1.75rem;
+  gap: clamp(0.9rem, 2.5vw, 1.35rem);
   text-align: center;
+}
+
+.free-trial-reviews-stars {
+  display: inline-flex;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: clamp(1.9rem, 4.2vw, 2.4rem);
+  color: #f6c138;
+  line-height: 1;
+}
+
+.free-trial-reviews-inner > h2 {
+  margin: 0;
 }
 
 .free-trial-reviews-subheading {
@@ -1531,7 +1544,7 @@ input[type='range']::-moz-range-thumb {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.25rem;
+  gap: clamp(0.85rem, 2vw, 1.1rem);
   text-align: left;
   flex: 0 0 100%;
 }
@@ -1553,6 +1566,15 @@ input[type='range']::-moz-range-thumb {
   color: var(--color-muted);
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.free-trial-review-stars {
+  display: inline-flex;
+  gap: 0.2rem;
+  font-size: 1.3rem;
+  color: #f6c138;
+  line-height: 1;
+  margin-bottom: 0.25rem;
 }
 
 .free-trial-review-quote {
