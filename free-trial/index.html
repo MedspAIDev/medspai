@@ -46,6 +46,19 @@
       <div class="page-hero-inner free-trial-hero-inner">
         <h1>Stop Missing Calls Today</h1>
         <p class="free-trial-subheading">We’re so confident you’ll love your AI receptionist that we'll install it free for 14 days. No credit card, cancel anytime.</p>
+        <div class="free-trial-social-proof" role="note">
+          <div class="free-trial-social-stars" aria-hidden="true">
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+          </div>
+          <p>
+            <span class="sr-only">Average rating:</span>
+            Rated <strong>4.9/5 stars</strong> by over 70 med spas across the US
+          </p>
+        </div>
       </div>
     </section>
 
@@ -84,9 +97,14 @@
                     <p class="field-error" id="practice_name_error" aria-live="polite" hidden></p>
                   </div>
                   <div class="form-field">
-                    <label for="city">City <span aria-hidden="true">*</span></label>
-                    <input id="city" name="city" type="text" required autocomplete="address-level2" spellcheck="false" aria-describedby="city_error">
-                    <p class="field-error" id="city_error" aria-live="polite" hidden></p>
+                    <label for="email">Best contact email <span aria-hidden="true">*</span></label>
+                    <input id="email" name="email" type="email" required autocomplete="email" spellcheck="false" aria-describedby="email_error">
+                    <p class="field-error" id="email_error" aria-live="polite" hidden></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="phone">Best phone number <span aria-hidden="true">*</span></label>
+                    <input id="phone" name="phone" type="tel" required autocomplete="tel" aria-describedby="phone_error">
+                    <p class="field-error" id="phone_error" aria-live="polite" hidden></p>
                   </div>
                   <div class="form-field">
                     <label for="monthly_revenue">Monthly revenue <span aria-hidden="true">*</span></label>
@@ -111,27 +129,6 @@
                       <option value="Other">Other</option>
                     </select>
                     <p class="field-error" id="role_error" aria-live="polite" hidden></p>
-                  </div>
-                  <div class="form-field">
-                    <label for="email">Best contact email <span aria-hidden="true">*</span></label>
-                    <input id="email" name="email" type="email" required autocomplete="email" spellcheck="false" aria-describedby="email_error">
-                    <p class="field-error" id="email_error" aria-live="polite" hidden></p>
-                  </div>
-                  <div class="form-field">
-                    <label for="phone">Best phone number <span aria-hidden="true">*</span></label>
-                    <input id="phone" name="phone" type="tel" required autocomplete="tel" aria-describedby="phone_error">
-                    <p class="field-error" id="phone_error" aria-live="polite" hidden></p>
-                  </div>
-                  <div class="form-field">
-                    <label for="daily_call_volume">How many inbound calls does your med spa get on a typical day? <span class="optional">(Optional)</span></label>
-                    <select id="daily_call_volume" name="daily_call_volume" aria-describedby="daily_call_volume_error">
-                      <option value="" selected>Select a range</option>
-                      <option value="Under 10">Under 10</option>
-                      <option value="10–25">10–25</option>
-                      <option value="25–50">25–50</option>
-                      <option value="50+">50+</option>
-                    </select>
-                    <p class="field-error" id="daily_call_volume_error" aria-live="polite" hidden></p>
                   </div>
                   <div class="form-field">
                     <label for="website">Website URL <span class="optional">(Optional)</span></label>
@@ -171,9 +168,15 @@
                     <p class="field-error" id="phone_system_error" aria-live="polite" hidden></p>
                   </div>
                   <div class="form-field">
-                    <label for="call_handling_notes">How do you currently handle missed calls? <span class="optional">(Optional)</span></label>
-                    <textarea id="call_handling_notes" name="call_handling_notes" rows="4" aria-describedby="call_handling_notes_error"></textarea>
-                    <p class="field-error" id="call_handling_notes_error" aria-live="polite" hidden></p>
+                    <label for="daily_call_volume">How many inbound calls does your med spa get on a typical day? <span class="optional">(Optional)</span></label>
+                    <select id="daily_call_volume" name="daily_call_volume" aria-describedby="daily_call_volume_error">
+                      <option value="" selected>Select a range</option>
+                      <option value="Under 10">Under 10</option>
+                      <option value="10–25">10–25</option>
+                      <option value="25–50">25–50</option>
+                      <option value="50+">50+</option>
+                    </select>
+                    <p class="field-error" id="daily_call_volume_error" aria-live="polite" hidden></p>
                   </div>
                 </div>
                 <div class="step-actions">
@@ -197,6 +200,24 @@
               </section>
             </div>
           </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="free-trial-reviews" aria-labelledby="free-trial-reviews-heading">
+      <div class="free-trial-reviews-inner">
+        <h2 id="free-trial-reviews-heading">What med spas are saying</h2>
+        <p class="free-trial-reviews-subheading">Real feedback from practices nationwide coming soon.</p>
+        <div class="free-trial-review-grid">
+          <article class="free-trial-review-card is-placeholder" aria-label="Review placeholder 1">
+            <p class="free-trial-review-placeholder">Review placeholder</p>
+          </article>
+          <article class="free-trial-review-card is-placeholder" aria-label="Review placeholder 2">
+            <p class="free-trial-review-placeholder">Review placeholder</p>
+          </article>
+          <article class="free-trial-review-card is-placeholder" aria-label="Review placeholder 3">
+            <p class="free-trial-review-placeholder">Review placeholder</p>
+          </article>
         </div>
       </div>
     </section>
@@ -346,7 +367,6 @@
 
       const customMessages = {
         practice_name: 'Enter your practice name.',
-        city: 'Provide your city.',
         monthly_revenue: 'Select your monthly revenue range.',
         role: 'Select the role that best describes you.',
         email: 'Enter a valid email address.',
@@ -583,7 +603,6 @@
         source: 'medspai_website_free_trial',
         stage: 'step1_lead_capture',
         practice_name: getFieldValue('practice_name'),
-        city: getFieldValue('city'),
         revenue: getFieldValue('monthly_revenue'),
         role: getFieldValue('role'),
         email: getFieldValue('email'),
@@ -596,7 +615,6 @@
         source: 'medspai_website_free_trial',
         stage: 'completed_trial_signup',
         practice_name: getFieldValue('practice_name'),
-        city: getFieldValue('city'),
         revenue: getFieldValue('monthly_revenue'),
         role: getFieldValue('role'),
         email: getFieldValue('email'),
