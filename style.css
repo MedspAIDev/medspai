@@ -1660,6 +1660,40 @@ input[type='range']::-moz-range-thumb {
   min-width: 9rem;
 }
 
+.form-submit-error {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-error, #c14040);
+  font-weight: 600;
+}
+
+.form-submit-error[hidden] {
+  display: none;
+}
+
+.form-submission-success {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.submission-success-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-submission-success h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.8vw, 1.85rem);
+  color: var(--color-forest-dark);
+}
+
+.form-submission-success p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-ink);
+}
+
 @media (max-width: 720px) {
   .step-indicator {
     grid-template-columns: 1fr;

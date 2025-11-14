@@ -160,10 +160,10 @@
                   </div>
                   <div class="form-checkbox-group">
                     <div class="checkbox-field">
-                      <input id="can_update_forwarding" name="can_update_forwarding" type="checkbox" required aria-describedby="can_update_forwarding_error">
-                      <label for="can_update_forwarding">I understand that billing will only begin after the free trial if I decide to continue with the service.</label>
+                      <input id="accepts_billing_after_trial" name="accepts_billing_after_trial" type="checkbox" required aria-describedby="accepts_billing_after_trial_error">
+                      <label for="accepts_billing_after_trial">I understand that billing will only begin after the free trial if I decide to continue with the service.</label>
                     </div>
-                    <p class="field-error" id="can_update_forwarding_error" aria-live="polite" hidden></p>
+                    <p class="field-error" id="accepts_billing_after_trial_error" aria-live="polite" hidden></p>
                   </div>
                   <div class="form-field">
                     <label for="phone_system">Current phone system / provider <span class="optional">(Optional)</span></label>
@@ -363,7 +363,7 @@
 
       const checkboxMessages = {
         accepts_trial_limit: 'Confirm you understand the trial limit to continue.',
-        can_update_forwarding: 'Confirm you can manage call forwarding during the trial.',
+        accepts_billing_after_trial: 'Confirm you can manage call forwarding during the trial.',
       };
 
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -557,7 +557,109 @@
         }
       };
 
-      form.addEventListener('click', (event) => {
+      const webhookUrl = 'https://example.com/webhooks/medspai-trial-signup';
+      let hasCapturedStepOneLead = false;
+
+      const getFieldValue = (name) => {
+        const field = form.elements.namedItem(name);
+        if (!field) {
+          return '';
+        }
+
+        if (typeof RadioNodeList !== 'undefined' && field instanceof RadioNodeList) {
+          if (!field.length) {
+            return '';
+          }
+
+          if (field[0].type === 'checkbox') {
+            return Array.from(field).some((item) => item.checked);
+          }
+
+          return field.value.trim();
+        }
+
+        if (field.type === 'checkbox') {
+          return field.checked;
+        }
+
+        return field.value.trim();
+      };
+
+      const buildStepOnePayload = () => ({
+        source: 'medspai_website_free_trial',
+        stage: 'step1_lead_capture',
+        practice_name: getFieldValue('practice_name'),
+        city: getFieldValue('city'),
+        state: getFieldValue('state'),
+        role: getFieldValue('role'),
+        email: getFieldValue('email'),
+        phone: getFieldValue('phone'),
+        daily_call_volume: getFieldValue('daily_call_volume'),
+        website: getFieldValue('website'),
+      });
+
+      const buildFullPayload = () => ({
+        source: 'medspai_website_free_trial',
+        stage: 'completed_trial_signup',
+        practice_name: getFieldValue('practice_name'),
+        city: getFieldValue('city'),
+        state: getFieldValue('state'),
+        role: getFieldValue('role'),
+        email: getFieldValue('email'),
+        phone: getFieldValue('phone'),
+        daily_call_volume: getFieldValue('daily_call_volume'),
+        website: getFieldValue('website'),
+        accepts_trial_limit: Boolean(getFieldValue('accepts_trial_limit')),
+        accepts_billing_after_trial: Boolean(getFieldValue('accepts_billing_after_trial')),
+        phone_system: getFieldValue('phone_system'),
+        call_handling_notes: getFieldValue('call_handling_notes'),
+        preferred_start_date: getFieldValue('preferred_start_date'),
+        setup_call_time_window: getFieldValue('setup_call_time_window'),
+        timezone: getFieldValue('timezone'),
+        extra_notes: getFieldValue('extra_notes'),
+      });
+
+      const postPayload = async (payload) => {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+
+        return response;
+      };
+
+      const submissionErrorEl = document.createElement('p');
+      submissionErrorEl.className = 'field-error form-submit-error';
+      submissionErrorEl.setAttribute('role', 'alert');
+      submissionErrorEl.hidden = true;
+      const stepThreeActions = stepThreePanel ? stepThreePanel.querySelector('.step-actions') : null;
+      if (stepThreePanel && stepThreeActions) {
+        stepThreePanel.insertBefore(submissionErrorEl, stepThreeActions);
+      }
+
+      const showSubmissionError = (message) => {
+        if (!submissionErrorEl) {
+          return;
+        }
+
+        submissionErrorEl.textContent = message;
+        submissionErrorEl.hidden = !message;
+      };
+
+      const clearSubmissionError = () => {
+        showSubmissionError('');
+      };
+
+      const formCard = document.querySelector('.free-trial-form-card');
+
+      form.addEventListener('click', async (event) => {
         const actionButton = event.target.closest('[data-step-action]');
         if (!actionButton) {
           return;
@@ -584,6 +686,26 @@
               firstInvalidField.focus();
               return;
             }
+
+            if (!hasCapturedStepOneLead) {
+              const nextButton = actionButton;
+              if (nextButton) {
+                nextButton.disabled = true;
+                nextButton.setAttribute('aria-disabled', 'true');
+              }
+
+              try {
+                await postPayload(buildStepOnePayload());
+                hasCapturedStepOneLead = true;
+              } catch (error) {
+                console.error('Failed to submit step 1 lead capture', error);
+              } finally {
+                if (nextButton) {
+                  nextButton.disabled = false;
+                  nextButton.setAttribute('aria-disabled', 'false');
+                }
+              }
+            }
           }
 
           if (currentStep === 2 && stepTwoPanel) {
@@ -609,7 +731,7 @@
         }
       });
 
-      form.addEventListener('submit', (event) => {
+      form.addEventListener('submit', async (event) => {
         let firstInvalidField = null;
 
         stepThreeRequiredFields.forEach((field) => {
@@ -629,6 +751,41 @@
         }
 
         event.preventDefault();
+
+        if (!stepThreeSubmitButton) {
+          return;
+        }
+
+        clearSubmissionError();
+        const originalSubmitText = stepThreeSubmitButton.textContent;
+        stepThreeSubmitButton.disabled = true;
+        stepThreeSubmitButton.setAttribute('aria-disabled', 'true');
+        stepThreeSubmitButton.textContent = 'Submitting…';
+
+        try {
+          await postPayload(buildFullPayload());
+
+          if (formCard) {
+            const confirmation = document.createElement('div');
+            confirmation.className = 'form-submission-success';
+            confirmation.innerHTML = `
+              <div class="submission-success-content">
+                <h3>You're In!</h3>
+                <p>Thanks for starting your 14-day free trial. We'll review your info, set up your AI receptionist, and reach out to confirm your trial start and setup call time.</p>
+              </div>
+            `;
+            form.replaceWith(confirmation);
+          } else {
+            form.reset();
+          }
+        } catch (error) {
+          console.error('Failed to submit completed trial signup', error);
+          showSubmissionError('Something went wrong while starting your trial. Please check your connection and try again.');
+          stepThreeSubmitButton.disabled = false;
+          stepThreeSubmitButton.setAttribute('aria-disabled', 'false');
+          stepThreeSubmitButton.textContent = originalSubmitText;
+          return;
+        }
       });
 
       goToStep(getCurrentStep());
