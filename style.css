@@ -1431,8 +1431,21 @@ input[type='range']::-moz-range-thumb {
   max-width: 960px;
   margin: 0 auto;
   display: grid;
-  gap: 1.75rem;
+  gap: clamp(0.9rem, 2.5vw, 1.35rem);
   text-align: center;
+}
+
+.free-trial-reviews-stars {
+  display: inline-flex;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: clamp(1.9rem, 4.2vw, 2.4rem);
+  color: #f6c138;
+  line-height: 1;
+}
+
+.free-trial-reviews-inner > h2 {
+  margin: 0;
 }
 
 .free-trial-reviews-subheading {
@@ -1531,7 +1544,7 @@ input[type='range']::-moz-range-thumb {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.25rem;
+  gap: clamp(0.85rem, 2vw, 1.1rem);
   text-align: left;
   flex: 0 0 100%;
 }
@@ -1553,6 +1566,15 @@ input[type='range']::-moz-range-thumb {
   color: var(--color-muted);
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.free-trial-review-stars {
+  display: inline-flex;
+  gap: 0.2rem;
+  font-size: 1.3rem;
+  color: #f6c138;
+  line-height: 1;
+  margin-bottom: 0.25rem;
 }
 
 .free-trial-review-quote {
@@ -1731,7 +1753,7 @@ input[type='range']::-moz-range-thumb {
   font-family: inherit;
   color: var(--color-ink);
   background: #ffffff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .form-field textarea {
@@ -1745,7 +1767,7 @@ input[type='range']::-moz-range-thumb {
 .form-field textarea:focus {
   border-color: var(--color-forest);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(35, 178, 108, 0.18);
+  background: rgba(35, 178, 108, 0.08);
 }
 
 .form-field select {
@@ -1780,7 +1802,7 @@ input[type='range']::-moz-range-thumb {
 .form-field.has-error select,
 .form-field.has-error textarea {
   border-color: rgba(193, 64, 64, 0.9);
-  box-shadow: 0 0 0 3px rgba(193, 64, 64, 0.15);
+  background: rgba(193, 64, 64, 0.08);
 }
 
 .form-field.has-error label {
@@ -1794,12 +1816,18 @@ input[type='range']::-moz-range-thumb {
   border-radius: 18px;
   border: 1px solid rgba(27, 90, 64, 0.14);
   background: rgba(230, 245, 237, 0.45);
+  box-shadow: inset 0 0 0 0 rgba(27, 90, 64, 0);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form-checkbox-group:focus-within {
+  border-color: rgba(27, 90, 64, 0.6);
+  box-shadow: inset 0 0 0 2px rgba(35, 178, 108, 0.45);
 }
 
 .form-checkbox-group.has-error {
   border-color: rgba(193, 64, 64, 0.9);
-  box-shadow: 0 0 0 3px rgba(193, 64, 64, 0.12);
+  box-shadow: inset 0 0 0 2px rgba(193, 64, 64, 0.35);
   background: rgba(255, 245, 245, 0.85);
 }
 
