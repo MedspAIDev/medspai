@@ -209,31 +209,6 @@
       text-align: right;
     }
 
-    .rates {
-      margin-top: 14px;
-      display: grid;
-      gap: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
-    .rate-card {
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .rate-card h4 {
-      margin-bottom: 4px;
-      font-size: 13px;
-      color: #cbe8d7;
-    }
-
-    .rate-card .rate-value {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
     .assumption-note {
       margin-top: 16px;
       font-size: 13px;
@@ -327,36 +302,16 @@
             </div>
           </div>
 
-          <div class="input-section" aria-label="Revenue and conversion assumptions">
-            <h3>Revenue & Conversion</h3>
+          <div class="input-section" aria-label="Revenue assumptions">
+            <h3>Revenue</h3>
             <div class="field" data-field="patientValue">
               <div class="field-header">
-                <label for="patientValue">Average 12-Month Value per New Patient ($)</label>
+                <label for="patientValue">Average New Patient Value ($)</label>
                 <span class="hint">$<span id="patientValueHint"></span></span>
               </div>
               <div class="controls">
                 <input type="range" id="patientValue" min="300" max="4000" step="50" value="1200" aria-describedby="patientValueHint">
                 <input type="number" inputmode="decimal" id="patientValueNumber" min="300" max="4000" step="50" value="1200">
-              </div>
-            </div>
-            <div class="field" data-field="conversionRate">
-              <div class="field-header">
-                <label for="conversionRate">Current Conversion Rate (%)</label>
-                <span class="hint"><span id="conversionRateHint"></span>%</span>
-              </div>
-              <div class="controls">
-                <input type="range" id="conversionRate" min="5" max="60" step="1" value="25" aria-describedby="conversionRateHint">
-                <input type="number" inputmode="decimal" id="conversionRateNumber" min="5" max="60" step="1" value="25">
-              </div>
-            </div>
-            <div class="field" data-field="conversionLift">
-              <div class="field-header">
-                <label for="conversionLift">Conversion Rate Lift With AI (%)</label>
-                <span class="hint">+<span id="conversionLiftHint"></span>%</span>
-              </div>
-              <div class="controls">
-                <input type="range" id="conversionLift" min="0" max="30" step="0.5" value="8" aria-describedby="conversionLiftHint">
-                <input type="number" inputmode="decimal" id="conversionLiftNumber" min="0" max="30" step="0.5" value="8">
               </div>
             </div>
             <div class="field" data-field="bookingRate">
@@ -371,41 +326,7 @@
             </div>
           </div>
 
-          <div class="input-section" aria-label="Cost assumptions">
-            <h3>Cost & Staffing</h3>
-            <div class="field" data-field="hourlyCost">
-              <div class="field-header">
-                <label for="hourlyCost">Receptionist Hourly Cost ($/hr)</label>
-                <span class="hint">$<span id="hourlyCostHint"></span>/hr</span>
-              </div>
-              <div class="controls">
-                <input type="range" id="hourlyCost" min="10" max="60" step="1" value="24" aria-describedby="hourlyCostHint">
-                <input type="number" inputmode="decimal" id="hourlyCostNumber" min="10" max="60" step="1" value="24">
-              </div>
-            </div>
-            <div class="field" data-field="hoursPerWeek">
-              <div class="field-header">
-                <label for="hoursPerWeek">Hours per Week on Phones & Admin</label>
-                <span class="hint"><span id="hoursPerWeekHint"></span> hrs</span>
-              </div>
-              <div class="controls">
-                <input type="range" id="hoursPerWeek" min="0" max="80" step="1" value="35" aria-describedby="hoursPerWeekHint">
-                <input type="number" inputmode="decimal" id="hoursPerWeekNumber" min="0" max="80" step="1" value="35">
-              </div>
-            </div>
-            <div class="field" data-field="platformCost">
-              <div class="field-header">
-                <label for="platformCost">MedspAI Monthly Cost ($)</label>
-                <span class="hint">$<span id="platformCostHint"></span>/mo</span>
-              </div>
-              <div class="controls">
-                <input type="range" id="platformCost" min="500" max="5000" step="50" value="1950" aria-describedby="platformCostHint">
-                <input type="number" inputmode="decimal" id="platformCostNumber" min="500" max="5000" step="50" value="1950">
-              </div>
-            </div>
-          </div>
-
-          <p class="assumption-note">We base conversion lift on the same monthly inquiry volume as your missed calls to keep projections simple. Adjust the numbers to explore best- and worst-case scenarios for your practice.</p>
+          <p class="assumption-note">Adjust the numbers to explore how many additional bookings MedspAI can recover when every missed call gets a fast follow-up.</p>
         </div>
 
         <div class="panel output-panel" aria-labelledby="impact-heading">
@@ -419,31 +340,6 @@
             <div class="breakdown-item">
               <div class="label">Recovered Missed Calls</div>
               <div class="detail" id="recoveredDetail">0 bookings / $0</div>
-            </div>
-            <div class="breakdown-item">
-              <div class="label">Conversion Lift</div>
-              <div class="detail" id="liftDetail">0 bookings / $0</div>
-            </div>
-            <div class="breakdown-item">
-              <div class="label">Labor Savings</div>
-              <div class="detail" id="laborDetail">$0 / mo</div>
-            </div>
-            <div class="breakdown-item">
-              <div class="label">Platform Investment</div>
-              <div class="detail" id="costDetail">-$0 / mo</div>
-            </div>
-          </div>
-
-          <div class="rates" aria-label="Conversion impact">
-            <div class="rate-card">
-              <h4>Current Conversion</h4>
-              <div class="rate-value" id="currentRate">0%</div>
-              <div class="hint">Before MedspAI</div>
-            </div>
-            <div class="rate-card">
-              <h4>After AI</h4>
-              <div class="rate-value" id="aiRate">0%</div>
-              <div class="hint">With conversion lift</div>
             </div>
           </div>
         </div>
@@ -507,12 +403,7 @@
         { id: 'missedNight', hint: 'missedNightHint' },
         { id: 'missedWeekend', hint: 'missedWeekendHint' },
         { id: 'patientValue', hint: 'patientValueHint', prefix: '$' },
-        { id: 'conversionRate', hint: 'conversionRateHint', suffix: '%' },
-        { id: 'conversionLift', hint: 'conversionLiftHint', suffix: '%' },
-        { id: 'bookingRate', hint: 'bookingRateHint', suffix: '%' },
-        { id: 'hourlyCost', hint: 'hourlyCostHint', prefix: '$' },
-        { id: 'hoursPerWeek', hint: 'hoursPerWeekHint' },
-        { id: 'platformCost', hint: 'platformCostHint', prefix: '$' }
+        { id: 'bookingRate', hint: 'bookingRateHint', suffix: '%' }
       ];
 
       const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
@@ -564,38 +455,19 @@
         const missedNight = state.missedNight || 0;
         const missedWeekend = state.missedWeekend || 0;
         const patientValue = state.patientValue || 0;
-        const conversionRate = state.conversionRate || 0;
-        const conversionLift = state.conversionLift || 0;
         const bookingRate = state.bookingRate || 0;
-        const hourlyCost = state.hourlyCost || 0;
-        const hoursPerWeek = state.hoursPerWeek || 0;
-        const platformCost = state.platformCost || 0;
 
         const monthlyMissed = missedDay + missedNight + missedWeekend;
         const recoveredBookingsMonthly = monthlyMissed * (bookingRate / 100);
         const recoveredRevenueMonthly = recoveredBookingsMonthly * patientValue;
 
-        const incrementalConversion = conversionLift / 100;
-        const conversionLiftBookingsMonthly = monthlyMissed * incrementalConversion;
-        const conversionLiftRevenueMonthly = conversionLiftBookingsMonthly * patientValue;
-
-        const laborSavingsMonthly = hourlyCost * hoursPerWeek * 4.33; // weekly hours to monthly
-
-        const monthlyImpact = recoveredRevenueMonthly + conversionLiftRevenueMonthly + laborSavingsMonthly - platformCost;
+        const monthlyImpact = recoveredRevenueMonthly;
         const annualImpact = monthlyImpact * 12;
-
-        const currentRateDisplay = `${decimal.format(conversionRate)}%`;
-        const aiRateDisplay = `${decimal.format(conversionRate + conversionLift)}%`;
 
         document.getElementById('annualImpact').textContent = currency.format(Math.max(annualImpact, 0));
         document.getElementById('monthlyImpact').textContent = `${currency.format(Math.max(monthlyImpact, 0))} per month`;
         document.getElementById('recoveredDetail').textContent = `${decimal.format(recoveredBookingsMonthly)} bookings / ${compactCurrency.format(recoveredRevenueMonthly)}`;
-        document.getElementById('liftDetail').textContent = `${decimal.format(conversionLiftBookingsMonthly)} bookings / ${compactCurrency.format(conversionLiftRevenueMonthly)}`;
-        document.getElementById('laborDetail').textContent = `${currency.format(laborSavingsMonthly)} / mo`;
-        document.getElementById('costDetail').textContent = `-${currency.format(platformCost)} / mo`;
-        document.getElementById('currentRate').textContent = currentRateDisplay;
-        document.getElementById('aiRate').textContent = aiRateDisplay;
-        document.getElementById('bookingsPill').textContent = `${decimal.format(recoveredBookingsMonthly + conversionLiftBookingsMonthly)} bookings uplift / mo`;
+        document.getElementById('bookingsPill').textContent = `${decimal.format(recoveredBookingsMonthly)} bookings uplift / mo`;
       };
 
       const init = () => {
