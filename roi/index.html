@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estimate the revenue impact of MedspAI by modeling missed calls, booking rates, and conversion lifts.">
+  <title>AI Revenue Impact Calculator | MedspAI</title>
+  <link rel="stylesheet" href="/style.css?v=23">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .roi-hero {
+      padding: 88px 24px 36px;
+      text-align: center;
+      background: linear-gradient(120deg, rgba(27, 90, 64, 0.08), rgba(35, 178, 108, 0.12));
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .roi-hero h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: 12px;
+    }
+
+    .roi-hero p {
+      max-width: 780px;
+      margin: 0 auto;
+      color: var(--color-muted);
+    }
+
+    .roi-page {
+      padding: 28px 24px 80px;
+    }
+
+    .roi-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      box-shadow: 0 14px 32px rgba(15, 42, 31, 0.08);
+      padding: 24px;
+    }
+
+    .input-panel h2 {
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .input-panel p {
+      color: var(--color-muted);
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .input-section {
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: var(--color-sand);
+    }
+
+    .input-section h3 {
+      font-size: 15px;
+      margin-bottom: 10px;
+      color: var(--color-forest);
+      letter-spacing: 0.01em;
+    }
+
+    .field {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(15, 42, 31, 0.06);
+    }
+
+    .field:last-of-type {
+      border-bottom: none;
+    }
+
+    .field-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .field label {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--color-ink);
+    }
+
+    .hint {
+      color: var(--color-muted);
+      font-size: 12px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .controls input[type="range"] {
+      width: 100%;
+      accent-color: var(--color-highlight);
+    }
+
+    .controls input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      font-size: 14px;
+      background: #fff;
+    }
+
+    .controls input[type="number"]:focus,
+    .controls input[type="range"]:focus-visible {
+      outline: 2px solid rgba(35, 178, 108, 0.4);
+      outline-offset: 1px;
+    }
+
+    .output-panel {
+      background: linear-gradient(170deg, rgba(27, 90, 64, 0.92) 0%, rgba(15, 42, 31, 0.95) 100%);
+      color: #f2f9f4;
+      border: none;
+      box-shadow: 0 16px 42px rgba(27, 90, 64, 0.22);
+      position: sticky;
+      top: 18px;
+    }
+
+    .output-panel h2 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #e5f7ef;
+      letter-spacing: 0.01em;
+    }
+
+    .output-panel .value-primary {
+      font-size: clamp(40px, 6vw, 56px);
+      font-weight: 800;
+      margin: 8px 0 4px;
+    }
+
+    .output-panel .value-sub {
+      color: #c5e7d8;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.01em;
+      color: #e8f7f0;
+    }
+
+    .breakdown {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .breakdown h3 {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #e5f7ef;
+    }
+
+    .breakdown-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      gap: 12px;
+    }
+
+    .breakdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .breakdown-item .label {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .breakdown-item .detail {
+      color: #d7eee2;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .rates {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .rate-card {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .rate-card h4 {
+      margin-bottom: 4px;
+      font-size: 13px;
+      color: #cbe8d7;
+    }
+
+    .rate-card .rate-value {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .assumption-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--color-muted);
+    }
+
+    @media (max-width: 960px) {
+      .roi-container {
+        grid-template-columns: 1fr;
+      }
+
+      .output-panel {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="/" class="logo" aria-label="MedspAI Home">
+        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="logo-img">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </span>
+      </button>
+      <div class="nav-menu" id="primary-navigation" aria-hidden="true">
+        <nav class="site-nav" aria-label="Primary Navigation">
+          <a href="/#services" class="nav-link">Services</a>
+          <a href="/#approach" class="nav-link">How It Works</a>
+          <a href="/#results" class="nav-link">Results</a>
+          <a href="/#pricing" class="nav-link">Pricing</a>
+          <a href="/#cta" class="nav-link">Talk to Us</a>
+        </nav>
+        <div class="header-cta">
+          <a href="https://dashboard.medspai.com" class="btn tertiary-btn header-portal">Client Portal</a>
+          <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="roi-hero">
+      <h1>Calculate Your AI Revenue Impact</h1>
+      <p>Model the value of answering every call and converting more patients. Adjust the sliders to see how MedspAI lifts revenue, improves booking rates, and reduces front desk workload.</p>
+    </section>
+
+    <section class="roi-page">
+      <div class="roi-container">
+        <div class="panel input-panel" aria-labelledby="inputs-heading">
+          <h2 id="inputs-heading">Your Practice Numbers</h2>
+          <p>Use the sliders or type exact values to match your monthly call volume and booking performance.</p>
+
+          <div class="input-section" aria-label="Missed call volume">
+            <h3>Missed Calls Per Month</h3>
+            <div class="field" data-field="missedDay">
+              <div class="field-header">
+                <label for="missedDay">Missed Calls During Day</label>
+                <span class="hint"><span id="missedDayHint"></span> per month</span>
+              </div>
+              <div class="controls">
+                <input type="range" id="missedDay" min="0" max="400" step="5" value="120" aria-describedby="missedDayHint">
+                <input type="number" inputmode="numeric" id="missedDayNumber" min="0" max="400" step="5" value="120">
+              </div>
+            </div>
+            <div class="field" data-field="missedNight">
+              <div class="field-header">
+                <label for="missedNight">Missed Calls at Night</label>
+                <span class="hint"><span id="missedNightHint"></span> per month</span>
+              </div>
+              <div class="controls">
+                <input type="range" id="missedNight" min="0" max="200" step="2" value="40" aria-describedby="missedNightHint">
+                <input type="number" inputmode="numeric" id="missedNightNumber" min="0" max="200" step="2" value="40">
+              </div>
+            </div>
+            <div class="field" data-field="missedWeekend">
+              <div class="field-header">
+                <label for="missedWeekend">Missed Calls on Weekends</label>
+                <span class="hint"><span id="missedWeekendHint"></span> per month</span>
+              </div>
+              <div class="controls">
+                <input type="range" id="missedWeekend" min="0" max="240" step="5" value="60" aria-describedby="missedWeekendHint">
+                <input type="number" inputmode="numeric" id="missedWeekendNumber" min="0" max="240" step="5" value="60">
+              </div>
+            </div>
+          </div>
+
+          <div class="input-section" aria-label="Revenue and conversion assumptions">
+            <h3>Revenue & Conversion</h3>
+            <div class="field" data-field="patientValue">
+              <div class="field-header">
+                <label for="patientValue">Average 12-Month Value per New Patient ($)</label>
+                <span class="hint">$<span id="patientValueHint"></span></span>
+              </div>
+              <div class="controls">
+                <input type="range" id="patientValue" min="300" max="4000" step="50" value="1200" aria-describedby="patientValueHint">
+                <input type="number" inputmode="decimal" id="patientValueNumber" min="300" max="4000" step="50" value="1200">
+              </div>
+            </div>
+            <div class="field" data-field="conversionRate">
+              <div class="field-header">
+                <label for="conversionRate">Current Conversion Rate (%)</label>
+                <span class="hint"><span id="conversionRateHint"></span>%</span>
+              </div>
+              <div class="controls">
+                <input type="range" id="conversionRate" min="5" max="60" step="1" value="25" aria-describedby="conversionRateHint">
+                <input type="number" inputmode="decimal" id="conversionRateNumber" min="5" max="60" step="1" value="25">
+              </div>
+            </div>
+            <div class="field" data-field="conversionLift">
+              <div class="field-header">
+                <label for="conversionLift">Conversion Rate Lift With AI (%)</label>
+                <span class="hint">+<span id="conversionLiftHint"></span>%</span>
+              </div>
+              <div class="controls">
+                <input type="range" id="conversionLift" min="0" max="30" step="0.5" value="8" aria-describedby="conversionLiftHint">
+                <input type="number" inputmode="decimal" id="conversionLiftNumber" min="0" max="30" step="0.5" value="8">
+              </div>
+            </div>
+            <div class="field" data-field="bookingRate">
+              <div class="field-header">
+                <label for="bookingRate">Missed-Call Booking Rate With MedspAI (%)</label>
+                <span class="hint"><span id="bookingRateHint"></span>% of missed calls</span>
+              </div>
+              <div class="controls">
+                <input type="range" id="bookingRate" min="10" max="100" step="1" value="60" aria-describedby="bookingRateHint">
+                <input type="number" inputmode="decimal" id="bookingRateNumber" min="10" max="100" step="1" value="60">
+              </div>
+            </div>
+          </div>
+
+          <div class="input-section" aria-label="Cost assumptions">
+            <h3>Cost & Staffing</h3>
+            <div class="field" data-field="hourlyCost">
+              <div class="field-header">
+                <label for="hourlyCost">Receptionist Hourly Cost ($/hr)</label>
+                <span class="hint">$<span id="hourlyCostHint"></span>/hr</span>
+              </div>
+              <div class="controls">
+                <input type="range" id="hourlyCost" min="10" max="60" step="1" value="24" aria-describedby="hourlyCostHint">
+                <input type="number" inputmode="decimal" id="hourlyCostNumber" min="10" max="60" step="1" value="24">
+              </div>
+            </div>
+            <div class="field" data-field="hoursPerWeek">
+              <div class="field-header">
+                <label for="hoursPerWeek">Hours per Week on Phones & Admin</label>
+                <span class="hint"><span id="hoursPerWeekHint"></span> hrs</span>
+              </div>
+              <div class="controls">
+                <input type="range" id="hoursPerWeek" min="0" max="80" step="1" value="35" aria-describedby="hoursPerWeekHint">
+                <input type="number" inputmode="decimal" id="hoursPerWeekNumber" min="0" max="80" step="1" value="35">
+              </div>
+            </div>
+            <div class="field" data-field="platformCost">
+              <div class="field-header">
+                <label for="platformCost">MedspAI Monthly Cost ($)</label>
+                <span class="hint">$<span id="platformCostHint"></span>/mo</span>
+              </div>
+              <div class="controls">
+                <input type="range" id="platformCost" min="500" max="5000" step="50" value="1950" aria-describedby="platformCostHint">
+                <input type="number" inputmode="decimal" id="platformCostNumber" min="500" max="5000" step="50" value="1950">
+              </div>
+            </div>
+          </div>
+
+          <p class="assumption-note">We base conversion lift on the same monthly inquiry volume as your missed calls to keep projections simple. Adjust the numbers to explore best- and worst-case scenarios for your practice.</p>
+        </div>
+
+        <div class="panel output-panel" aria-labelledby="impact-heading">
+          <h2 id="impact-heading">Your Annual AI Revenue Impact</h2>
+          <div class="pill" id="bookingsPill">Projected uplift</div>
+          <div class="value-primary" id="annualImpact">$0</div>
+          <div class="value-sub" id="monthlyImpact">$0 per month</div>
+
+          <div class="breakdown" aria-label="Revenue breakdown">
+            <h3>Revenue Breakdown</h3>
+            <div class="breakdown-item">
+              <div class="label">Recovered Missed Calls</div>
+              <div class="detail" id="recoveredDetail">0 bookings / $0</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="label">Conversion Lift</div>
+              <div class="detail" id="liftDetail">0 bookings / $0</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="label">Labor Savings</div>
+              <div class="detail" id="laborDetail">$0 / mo</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="label">Platform Investment</div>
+              <div class="detail" id="costDetail">-$0 / mo</div>
+            </div>
+          </div>
+
+          <div class="rates" aria-label="Conversion impact">
+            <div class="rate-card">
+              <h4>Current Conversion</h4>
+              <div class="rate-value" id="currentRate">0%</div>
+              <div class="hint">Before MedspAI</div>
+            </div>
+            <div class="rate-card">
+              <h4>After AI</h4>
+              <div class="rate-value" id="aiRate">0%</div>
+              <div class="hint">With conversion lift</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const header = document.querySelector('.site-header');
+      const toggle = header ? header.querySelector('.nav-toggle') : null;
+      const navMenu = header ? header.querySelector('.nav-menu') : null;
+      const mobileBreakpoint = window.matchMedia('(max-width: 959px)');
+
+      if (!header || !toggle || !navMenu) return;
+
+      const updateAriaHidden = () => {
+        if (mobileBreakpoint.matches) {
+          navMenu.setAttribute('aria-hidden', header.classList.contains('nav-open') ? 'false' : 'true');
+        } else {
+          navMenu.setAttribute('aria-hidden', 'false');
+        }
+      };
+
+      const closeMenu = () => {
+        header.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-locked');
+        updateAriaHidden();
+      };
+
+      const openMenu = () => {
+        header.classList.add('nav-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-locked');
+        updateAriaHidden();
+      };
+
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        expanded ? closeMenu() : openMenu();
+      });
+
+      header.querySelectorAll('.nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (mobileBreakpoint.matches) closeMenu();
+        });
+      });
+
+      const handleBreakpointChange = () => closeMenu();
+      mobileBreakpoint.addEventListener('change', handleBreakpointChange);
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape') closeMenu();
+      });
+      updateAriaHidden();
+    })();
+
+    (function () {
+      const fields = [
+        { id: 'missedDay', hint: 'missedDayHint' },
+        { id: 'missedNight', hint: 'missedNightHint' },
+        { id: 'missedWeekend', hint: 'missedWeekendHint' },
+        { id: 'patientValue', hint: 'patientValueHint', prefix: '$' },
+        { id: 'conversionRate', hint: 'conversionRateHint', suffix: '%' },
+        { id: 'conversionLift', hint: 'conversionLiftHint', suffix: '%' },
+        { id: 'bookingRate', hint: 'bookingRateHint', suffix: '%' },
+        { id: 'hourlyCost', hint: 'hourlyCostHint', prefix: '$' },
+        { id: 'hoursPerWeek', hint: 'hoursPerWeekHint' },
+        { id: 'platformCost', hint: 'platformCostHint', prefix: '$' }
+      ];
+
+      const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+      const compactCurrency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, notation: 'compact' });
+      const decimal = new Intl.NumberFormat('en-US', { maximumFractionDigits: 1, minimumFractionDigits: 0 });
+
+      const state = {};
+
+      const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+      const syncValue = (id, value) => {
+        const range = document.getElementById(id);
+        const number = document.getElementById(id + 'Number');
+        const clamped = clamp(value, Number(range.min), Number(range.max));
+        range.value = clamped;
+        number.value = clamped;
+        state[id] = Number(clamped);
+        updateHint(id, clamped);
+      };
+
+      const updateHint = (id, value) => {
+        const config = fields.find((f) => f.id === id);
+        if (!config) return;
+        const hintEl = document.getElementById(config.hint);
+        if (!hintEl) return;
+        const display = config.prefix ? `${config.prefix}${decimal.format(value)}` : `${decimal.format(value)}${config.suffix ? config.suffix : ''}`;
+        hintEl.textContent = display.replace(/[$%]/g, '').trim();
+      };
+
+      const attachListeners = () => {
+        fields.forEach(({ id }) => {
+          const range = document.getElementById(id);
+          const number = document.getElementById(id + 'Number');
+          if (!range || !number) return;
+
+          const handleChange = (event) => {
+            const value = Number(event.target.value || 0);
+            syncValue(id, value);
+            calculate();
+          };
+
+          range.addEventListener('input', handleChange);
+          number.addEventListener('input', handleChange);
+        });
+      };
+
+      const calculate = () => {
+        const missedDay = state.missedDay || 0;
+        const missedNight = state.missedNight || 0;
+        const missedWeekend = state.missedWeekend || 0;
+        const patientValue = state.patientValue || 0;
+        const conversionRate = state.conversionRate || 0;
+        const conversionLift = state.conversionLift || 0;
+        const bookingRate = state.bookingRate || 0;
+        const hourlyCost = state.hourlyCost || 0;
+        const hoursPerWeek = state.hoursPerWeek || 0;
+        const platformCost = state.platformCost || 0;
+
+        const monthlyMissed = missedDay + missedNight + missedWeekend;
+        const recoveredBookingsMonthly = monthlyMissed * (bookingRate / 100);
+        const recoveredRevenueMonthly = recoveredBookingsMonthly * patientValue;
+
+        const incrementalConversion = conversionLift / 100;
+        const conversionLiftBookingsMonthly = monthlyMissed * incrementalConversion;
+        const conversionLiftRevenueMonthly = conversionLiftBookingsMonthly * patientValue;
+
+        const laborSavingsMonthly = hourlyCost * hoursPerWeek * 4.33; // weekly hours to monthly
+
+        const monthlyImpact = recoveredRevenueMonthly + conversionLiftRevenueMonthly + laborSavingsMonthly - platformCost;
+        const annualImpact = monthlyImpact * 12;
+
+        const currentRateDisplay = `${decimal.format(conversionRate)}%`;
+        const aiRateDisplay = `${decimal.format(conversionRate + conversionLift)}%`;
+
+        document.getElementById('annualImpact').textContent = currency.format(Math.max(annualImpact, 0));
+        document.getElementById('monthlyImpact').textContent = `${currency.format(Math.max(monthlyImpact, 0))} per month`;
+        document.getElementById('recoveredDetail').textContent = `${decimal.format(recoveredBookingsMonthly)} bookings / ${compactCurrency.format(recoveredRevenueMonthly)}`;
+        document.getElementById('liftDetail').textContent = `${decimal.format(conversionLiftBookingsMonthly)} bookings / ${compactCurrency.format(conversionLiftRevenueMonthly)}`;
+        document.getElementById('laborDetail').textContent = `${currency.format(laborSavingsMonthly)} / mo`;
+        document.getElementById('costDetail').textContent = `-${currency.format(platformCost)} / mo`;
+        document.getElementById('currentRate').textContent = currentRateDisplay;
+        document.getElementById('aiRate').textContent = aiRateDisplay;
+        document.getElementById('bookingsPill').textContent = `${decimal.format(recoveredBookingsMonthly + conversionLiftBookingsMonthly)} bookings uplift / mo`;
+      };
+
+      const init = () => {
+        fields.forEach(({ id }) => {
+          const range = document.getElementById(id);
+          if (!range) return;
+          syncValue(id, Number(range.value));
+        });
+        attachListeners();
+        calculate();
+      };
+
+      init();
+    })();
+  </script>
+</body>
+</html>
