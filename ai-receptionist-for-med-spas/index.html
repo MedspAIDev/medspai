@@ -6,193 +6,347 @@
   <title>AI Receptionist for Med Spas | 24/7 Call Answering &amp; Booking</title>
   <meta name="description" content="MedspAI is an AI receptionist built for med spas to answer calls, capture leads, and book consultations 24/7. See how it works.">
   <link rel="canonical" href="https://www.medspai.com/ai-receptionist-for-med-spas">
+  <link rel="stylesheet" href="/style.css?v=23">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      color-scheme: light;
-      --text: #0f172a;
-      --muted: #475569;
-      --border: #e2e8f0;
-      --accent: #0f766e;
-      --bg: #ffffff;
-      --surface: #f8fafc;
+    .ai-hero {
+      padding: clamp(4rem, 7vw, 6.5rem) 1.5rem 3.5rem;
+      background: linear-gradient(140deg, rgba(27, 90, 64, 0.12), rgba(35, 178, 108, 0.08));
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Manrope", system-ui, -apple-system, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-    }
-
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 16px 0;
-    }
-
-    .container {
-      width: min(900px, 92vw);
+    .ai-hero-inner {
+      max-width: 980px;
       margin: 0 auto;
+      display: grid;
+      gap: 1.75rem;
+      text-align: center;
     }
 
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: inherit;
-      font-weight: 600;
+    .ai-hero h1 {
+      font-size: clamp(2.6rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      color: var(--color-forest-dark);
     }
 
-    .logo img {
-      width: 150px;
-      height: auto;
+    .ai-hero p {
+      margin: 0;
+      color: rgba(15, 42, 31, 0.78);
+      font-size: 1.1rem;
     }
 
-    main {
-      padding: 32px 0 56px;
+    .ai-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.9rem;
     }
 
-    h1 {
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      margin-bottom: 12px;
+    .ai-section {
+      padding: 4rem 2rem;
     }
 
-    h2 {
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      margin: 32px 0 12px;
+    .ai-section.alt {
+      background: var(--color-mint);
     }
 
-    p {
-      margin: 0 0 12px;
-      color: var(--muted);
+    .ai-highlight {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 24px 50px rgba(15, 42, 31, 0.08);
+      border: 1px solid rgba(15, 42, 31, 0.08);
     }
 
-    .intro p {
-      color: var(--text);
-      font-size: 1.05rem;
+    .ai-highlight ul {
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.55rem;
+      color: rgba(15, 42, 31, 0.78);
     }
 
-    .section {
-      padding: 12px 0 4px;
+    .ai-cta {
+      padding: 4rem 2rem 5rem;
     }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
+    .ai-cta-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 2.75rem;
+      text-align: center;
+      box-shadow: 0 26px 54px rgba(15, 42, 31, 0.12);
+      border: 1px solid rgba(15, 42, 31, 0.08);
+      display: grid;
+      gap: 1rem;
     }
 
-    ul,
-    ol {
-      margin: 0 0 12px 20px;
-      color: var(--muted);
+    .ai-cta-card p {
+      margin: 0;
+      color: rgba(15, 42, 31, 0.7);
     }
 
-    .cta {
-      margin-top: 32px;
-      padding: 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      text-align: left;
+    .ai-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
     }
 
-    .cta a {
-      display: inline-block;
-      margin-top: 12px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 12px 18px;
-      border-radius: 10px;
-    }
-
-    @media (max-width: 600px) {
-      .logo img {
-        width: 130px;
+    @media (max-width: 700px) {
+      .ai-highlight,
+      .ai-cta-card {
+        padding: 2rem 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a class="logo" href="/" aria-label="MedspAI home">
-        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI">
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="/" class="logo" aria-label="MedspAI Home">
+        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="logo-img">
       </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </span>
+      </button>
+      <div class="nav-menu" id="primary-navigation">
+        <nav class="site-nav" aria-label="Primary Navigation">
+          <a href="/#services" class="nav-link">Services</a>
+          <a href="/#approach" class="nav-link">How It Works</a>
+          <a href="/#results" class="nav-link">Results</a>
+          <a href="/#pricing" class="nav-link">Pricing</a>
+          <a href="/#cta" class="nav-link">Talk to Us</a>
+        </nav>
+        <div class="header-cta">
+          <a href="https://dashboard.medspai.com" class="btn tertiary-btn header-portal">Client Portal</a>
+          <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="intro section">
-      <h1>AI Receptionist for Med Spas</h1>
-      <p>An AI receptionist for med spas answers inbound calls, captures patient details, and books consultations without sending callers to voicemail. It solves missed calls during busy hours and after hours by giving every caller a real-time response.</p>
+  <main>
+    <section class="ai-hero">
+      <div class="ai-hero-inner">
+        <p class="eyebrow">AI Receptionist for Med Spas</p>
+        <h1>Never miss another consult request.</h1>
+        <p>An AI receptionist for med spas answers every call, captures patient details, and books consultations in real time so your team can stay focused on in-clinic guests.</p>
+        <div class="ai-hero-actions">
+          <a href="/free-trial/" class="btn primary-btn">Start for Free</a>
+          <a href="/demo/" class="btn secondary-btn">See a Live Demo</a>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Why med spas need an AI receptionist</h2>
-      <p>Med spas run into the same daily issues: phones ring during treatments, after-hours calls go unanswered, and staff cannot keep up with every inquiry. These missed calls and delays lead to lost consults and revenue, plus a front desk that is forced to multitask instead of focusing on in-person guests.</p>
-      <ul>
-        <li>Missed calls during busy hours</li>
-        <li>Missed calls after hours</li>
-        <li>Lost revenue from unanswered inquiries</li>
-        <li>Front desk overload</li>
-      </ul>
+    <section class="services">
+      <div class="section-header">
+        <p class="eyebrow">Why It Matters</p>
+        <h2>Med spa phone coverage can’t afford gaps.</h2>
+        <p>Busy treatment schedules and after-hours calls create missed revenue. MedspAI ensures every caller gets a branded, confident response.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>Close the missed-call gap</h3>
+          <p>Every inbound call is greeted instantly so leads never drop into voicemail.</p>
+          <ul>
+            <li>Instant response during peak hours</li>
+            <li>24/7 coverage after close</li>
+            <li>Consistent, branded tone</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <h3>Replace generic answering services</h3>
+          <p>MedspAI speaks med spa and guides callers to the right treatment or provider.</p>
+          <ul>
+            <li>Med spa-specific qualification prompts</li>
+            <li>Handles pricing and service questions</li>
+            <li>Escalates urgent requests to staff</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <h3>Book or route in real time</h3>
+          <p>Schedule consultations on the spot or route hot leads to your team automatically.</p>
+          <ul>
+            <li>Appointment booking or lead routing</li>
+            <li>Lead capture for follow-up</li>
+            <li>Clean handoffs into your systems</li>
+          </ul>
+        </article>
+      </div>
+      <div class="section-cta">
+        <p>Ready to stop letting consultations slip away?</p>
+        <a href="/free-trial/" class="btn primary-btn">Launch Your Free Trial</a>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Why traditional solutions fail</h2>
-      <p>Voicemail, human answering services, and front desk staff alone all leave gaps for med spas. Voicemail depends on callers leaving a message, which many do not. Human answering services are generic and often lack med spa context. Front desk staff cannot answer every call while running the clinic.</p>
-      <div class="card">
+    <section class="approach" id="how-it-works">
+      <div class="section-header">
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps from call to booked consult.</h2>
+        <p>Patients get the answers they need quickly while your team stays focused on care.</p>
+      </div>
+      <div class="timeline" aria-label="AI receptionist workflow">
+        <div class="timeline-step">
+          <span class="step-number">01</span>
+          <h3>Instant response</h3>
+          <p>The AI receptionist answers every call and welcomes new and existing patients.</p>
+        </div>
+        <div class="timeline-step">
+          <span class="step-number">02</span>
+          <h3>Qualification + details</h3>
+          <p>Caller details, treatment interest, and intent are captured so nothing is missed.</p>
+        </div>
+        <div class="timeline-step">
+          <span class="step-number">03</span>
+          <h3>Book or route</h3>
+          <p>Appointments are scheduled or your team gets the hottest leads instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-section alt">
+      <div class="ai-highlight">
+        <div class="section-header">
+          <p class="eyebrow">Real-world impact</p>
+          <h2>AI reception that feels human.</h2>
+          <p>MedspAI is trusted by growing med spas to cover every call, boost consult volume, and keep the front desk focused on guests.</p>
+        </div>
         <ul>
-          <li>Voicemail collects messages but does not qualify or book.</li>
-          <li>Human answering services follow scripts but are not built for med spa scheduling.</li>
-          <li>Front desk staff alone cannot cover peak times and after hours.</li>
+          <li>Captures inquiries the moment they call.</li>
+          <li>Handles pricing, treatment, and scheduling questions with confidence.</li>
+          <li>Gives your team a clear summary of every caller.</li>
         </ul>
       </div>
     </section>
 
-    <section class="section">
-      <h2>AI receptionist built for med spas</h2>
-      <p>MedspAI is an AI receptionist built specifically for med spas. Calls are answered instantly, leads are qualified, and appointments can be booked or routed to your team. It works after hours and during peak times so no inquiry is left unattended.</p>
-      <ul>
-        <li>Calls are answered instantly</li>
-        <li>Leads are qualified</li>
-        <li>Appointments can be booked or routed</li>
-        <li>Works after hours and during peak times</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>How it works</h2>
-      <ol>
-        <li>Patient calls the med spa</li>
-        <li>AI receptionist answers and gathers information</li>
-        <li>Appointment is booked or lead is routed</li>
-      </ol>
-    </section>
-
-    <section class="section">
-      <h2>Proof and real-world use</h2>
-      <p>MedspAI is used by growing med spas to cover every inbound call. One recent deployment replaced after-hours voicemail and helped capture more consultation requests within the first week.</p>
-    </section>
-
-    <section class="cta">
-      <h2>See a live demo</h2>
-      <p>Get a clear look at how an AI receptionist for med spas answers calls and books consults in real time.</p>
-      <a href="/demo/">See a live demo</a>
+    <section class="ai-cta">
+      <div class="ai-cta-card">
+        <h2>See the AI receptionist in action.</h2>
+        <p>Get a clear look at how MedspAI answers calls, qualifies leads, and books consultations in real time.</p>
+        <div class="ai-cta-actions">
+          <a href="/demo/" class="btn primary-btn">Schedule a Live Demo</a>
+          <a href="/free-trial/" class="btn secondary-btn">Start Free Trial</a>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="footer-logo">
+        <p>The AI receptionist built to help med spas capture every call, every day.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Explore</h4>
+          <a href="/#services">Services</a>
+          <a href="/#approach">Approach</a>
+          <a href="/#results">Results</a>
+          <a href="/#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="/case-study/">Case Study</a>
+          <a href="/features/">Product Features</a>
+          <a href="/blog/">Insights</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:team@medspai.com">team@medspai.com</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> MedspAI. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const header = document.querySelector('.site-header');
+      const toggle = header ? header.querySelector('.nav-toggle') : null;
+      const navMenu = header ? header.querySelector('.nav-menu') : null;
+      const mobileBreakpoint = window.matchMedia('(max-width: 959px)');
+
+      if (!header || !toggle || !navMenu) {
+        return;
+      }
+
+      const updateAriaHidden = () => {
+        if (mobileBreakpoint.matches) {
+          navMenu.setAttribute('aria-hidden', header.classList.contains('nav-open') ? 'false' : 'true');
+        } else {
+          navMenu.setAttribute('aria-hidden', 'false');
+        }
+      };
+
+      const closeMenu = () => {
+        header.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-locked');
+        updateAriaHidden();
+      };
+
+      const openMenu = () => {
+        header.classList.add('nav-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-locked');
+        updateAriaHidden();
+      };
+
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      header.querySelectorAll('.nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (mobileBreakpoint.matches) {
+            closeMenu();
+          }
+        });
+      });
+
+      const handleBreakpointChange = () => {
+        closeMenu();
+        updateAriaHidden();
+      };
+
+      if (mobileBreakpoint.addEventListener) {
+        mobileBreakpoint.addEventListener('change', handleBreakpointChange);
+      } else if (mobileBreakpoint.addListener) {
+        mobileBreakpoint.addListener(handleBreakpointChange);
+      }
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      updateAriaHidden();
+    })();
+
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
 </body>
 </html>
