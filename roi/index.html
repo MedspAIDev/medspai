@@ -341,6 +341,10 @@
               <div class="label">Recovered Missed Calls</div>
               <div class="detail" id="recoveredDetail">0 bookings / $0</div>
             </div>
+            <div class="breakdown-item">
+              <div class="label">New Revenue per AI Call</div>
+              <div class="detail" id="revenuePerCallDetail">$0</div>
+            </div>
           </div>
         </div>
       </div>
@@ -408,6 +412,7 @@
 
       const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
       const compactCurrency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, notation: 'compact' });
+      const perCallCurrency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
       const decimal = new Intl.NumberFormat('en-US', { maximumFractionDigits: 1, minimumFractionDigits: 0 });
 
       const state = {};
@@ -460,6 +465,7 @@
         const monthlyMissed = missedDay + missedNight + missedWeekend;
         const recoveredBookingsMonthly = monthlyMissed * (bookingRate / 100);
         const recoveredRevenueMonthly = recoveredBookingsMonthly * patientValue;
+        const revenuePerCall = monthlyMissed > 0 ? recoveredRevenueMonthly / monthlyMissed : 0;
 
         const monthlyImpact = recoveredRevenueMonthly;
         const annualImpact = monthlyImpact * 12;
@@ -468,6 +474,7 @@
         document.getElementById('monthlyImpact').textContent = `${currency.format(Math.max(monthlyImpact, 0))} per month`;
         document.getElementById('recoveredDetail').textContent = `${decimal.format(recoveredBookingsMonthly)} bookings / ${compactCurrency.format(recoveredRevenueMonthly)}`;
         document.getElementById('bookingsPill').textContent = `${decimal.format(recoveredBookingsMonthly)} bookings uplift / mo`;
+        document.getElementById('revenuePerCallDetail').textContent = `${perCallCurrency.format(Math.max(revenuePerCall, 0))} per call`;
       };
 
       const init = () => {
