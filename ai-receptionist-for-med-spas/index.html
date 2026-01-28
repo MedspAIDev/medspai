@@ -6,113 +6,144 @@
   <title>AI Receptionist for Med Spas | 24/7 Call Answering &amp; Booking</title>
   <meta name="description" content="MedspAI is an AI receptionist built for med spas to answer calls, capture leads, and book consultations 24/7. See how it works.">
   <link rel="canonical" href="https://medspai.com/ai-receptionist-for-med-spas">
-  <link rel="stylesheet" href="/style.css?v=23">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .seo-page {
-      background: var(--color-sand);
-      padding: 40px 0 72px;
+    :root {
+      color-scheme: light;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #0f766e;
+      --bg: #ffffff;
+      --surface: #f8fafc;
     }
 
-    .seo-container {
-      width: min(880px, 92vw);
-      margin: 0 auto;
+    * {
+      box-sizing: border-box;
     }
 
-    .seo-header {
-      border-bottom: 1px solid var(--color-border);
-      background: #f9fbf9;
+    body {
+      margin: 0;
+      font-family: "Manrope", system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
       padding: 16px 0;
     }
 
-    .seo-logo {
+    .container {
+      width: min(900px, 92vw);
+      margin: 0 auto;
+    }
+
+    .logo {
       display: inline-flex;
       align-items: center;
       gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 600;
     }
 
-    .seo-logo img {
+    .logo img {
       width: 150px;
       height: auto;
-      display: block;
     }
 
-    .seo-intro {
-      margin-bottom: 24px;
+    main {
+      padding: 32px 0 56px;
     }
 
-    .seo-intro p {
-      margin-top: 12px;
+    h1 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      margin: 32px 0 12px;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .intro p {
+      color: var(--text);
       font-size: 1.05rem;
-      color: var(--color-ink);
     }
 
-    .seo-section {
-      margin-top: 28px;
+    .section {
+      padding: 12px 0 4px;
     }
 
-    .seo-section p {
-      margin-top: 8px;
-      color: var(--color-muted);
-    }
-
-    .seo-card {
-      margin-top: 16px;
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
       padding: 20px;
-      border-radius: 20px;
-      border: 1px solid var(--color-border);
-      background: #ffffff;
-      box-shadow: 0 12px 24px rgba(15, 42, 31, 0.06);
     }
 
-    .seo-list {
-      margin: 12px 0 0 18px;
-      color: var(--color-muted);
+    ul,
+    ol {
+      margin: 0 0 12px 20px;
+      color: var(--muted);
     }
 
-    .seo-cta {
-      margin-top: 36px;
+    .cta {
+      margin-top: 32px;
       padding: 24px;
-      border-radius: 24px;
-      background: #ffffff;
-      border: 1px solid var(--color-border);
-      box-shadow: 0 16px 32px rgba(15, 42, 31, 0.08);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-align: left;
     }
 
-    .seo-cta p {
-      margin-top: 8px;
+    .cta a {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 18px;
+      border-radius: 10px;
     }
 
     @media (max-width: 600px) {
-      .seo-logo img {
+      .logo img {
         width: 130px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="seo-header">
-    <div class="seo-container">
-      <a class="seo-logo" href="/" aria-label="MedspAI home">
+  <header>
+    <div class="container">
+      <a class="logo" href="/" aria-label="MedspAI home">
         <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI">
       </a>
     </div>
   </header>
 
-  <main class="seo-page">
-    <div class="seo-container">
-      <section class="seo-intro">
+  <main class="container">
+    <section class="intro section">
       <h1>AI Receptionist for Med Spas</h1>
       <p>An AI receptionist for med spas answers inbound calls, captures patient details, and books consultations without sending callers to voicemail. It solves missed calls during busy hours and after hours by giving every caller a real-time response.</p>
     </section>
 
-      <section class="seo-section">
+    <section class="section">
       <h2>Why med spas need an AI receptionist</h2>
       <p>Med spas run into the same daily issues: phones ring during treatments, after-hours calls go unanswered, and staff cannot keep up with every inquiry. These missed calls and delays lead to lost consults and revenue, plus a front desk that is forced to multitask instead of focusing on in-person guests.</p>
-      <ul class="seo-list">
+      <ul>
         <li>Missed calls during busy hours</li>
         <li>Missed calls after hours</li>
         <li>Lost revenue from unanswered inquiries</li>
@@ -120,11 +151,11 @@
       </ul>
     </section>
 
-      <section class="seo-section">
+    <section class="section">
       <h2>Why traditional solutions fail</h2>
       <p>Voicemail, human answering services, and front desk staff alone all leave gaps for med spas. Voicemail depends on callers leaving a message, which many do not. Human answering services are generic and often lack med spa context. Front desk staff cannot answer every call while running the clinic.</p>
-      <div class="seo-card">
-        <ul class="seo-list">
+      <div class="card">
+        <ul>
           <li>Voicemail collects messages but does not qualify or book.</li>
           <li>Human answering services follow scripts but are not built for med spa scheduling.</li>
           <li>Front desk staff alone cannot cover peak times and after hours.</li>
@@ -132,10 +163,10 @@
       </div>
     </section>
 
-      <section class="seo-section">
+    <section class="section">
       <h2>AI receptionist built for med spas</h2>
       <p>MedspAI is an AI receptionist built specifically for med spas. Calls are answered instantly, leads are qualified, and appointments can be booked or routed to your team. It works after hours and during peak times so no inquiry is left unattended.</p>
-      <ul class="seo-list">
+      <ul>
         <li>Calls are answered instantly</li>
         <li>Leads are qualified</li>
         <li>Appointments can be booked or routed</li>
@@ -143,26 +174,25 @@
       </ul>
     </section>
 
-      <section class="seo-section">
+    <section class="section">
       <h2>How it works</h2>
-      <ol class="seo-list">
+      <ol>
         <li>Patient calls the med spa</li>
         <li>AI receptionist answers and gathers information</li>
         <li>Appointment is booked or lead is routed</li>
       </ol>
     </section>
 
-      <section class="seo-section">
+    <section class="section">
       <h2>Proof and real-world use</h2>
       <p>MedspAI is used by growing med spas to cover every inbound call. One recent deployment replaced after-hours voicemail and helped capture more consultation requests within the first week.</p>
     </section>
 
-      <section class="seo-cta">
+    <section class="cta">
       <h2>See a live demo</h2>
       <p>Get a clear look at how an AI receptionist for med spas answers calls and books consults in real time.</p>
-      <a class="btn primary-btn" href="/demo/">See a live demo</a>
+      <a href="/demo/">See a live demo</a>
     </section>
-    </div>
   </main>
 </body>
 </html>
