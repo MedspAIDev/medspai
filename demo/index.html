@@ -3,110 +3,268 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Book a live demo with the MedspAI team and see how our 24/7 AI assistant boosts your revenue."/>
-  <title>Book Your Demo | MedspAI</title>
-  <link rel="stylesheet" href="/style.css?v=11" />
+  <meta name="description" content="See how fast booking can be. Our AI receptionist handles common questions and routes prospects to schedule—so every call becomes an opportunity."/>
+  <title>Try Our AI Receptionist for Free | MedspAI Demo</title>
+  <link rel="stylesheet" href="/style.css?v=23" />
   <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="nav-container">
-      <div class="logo">
-        <a href="/">
-          <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI Logo" class="logo-img" />
-        </a>
-      </div>
-
-      <div class="header-guarantee">
-        Guaranteed to Pay for Itself — Or You Don’t Pay
-      </div>
-
-      <div class="header-buttons">
-        <a href="/features/" class="nav-btn">Features</a>
-        <a href="/demo/" class="nav-btn secondary">Demo</a>
+      <a href="/" class="logo" aria-label="MedspAI Home">
+        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="logo-img" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </span>
+      </button>
+      <div class="nav-menu" id="primary-navigation">
+        <nav class="site-nav" aria-label="Primary Navigation">
+          <a href="/#services" class="nav-link">Services</a>
+          <a href="/#approach" class="nav-link">How It Works</a>
+          <a href="/#results" class="nav-link">Results</a>
+          <a href="/#pricing" class="nav-link">Pricing</a>
+          <a href="/#cta" class="nav-link">Talk to Us</a>
+        </nav>
+        <div class="header-cta">
+          <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="demo-landing-hero">
-    <div class="hero-container">
-      <h1>Schedule Your <span class="highlighted-text">Custom Demo</span></h1>
-      <p>We'll give you a complimentary walkthrough of a custom-built AI receptionist for your med spa.</p>
+  <main>
+    <section class="page-hero demo-hero">
+      <div class="page-hero-inner demo-hero-inner">
+        <p class="hero-social-proof">Join 70+ leading med spas automating their phones with MedspAI.</p>
+        <h1 class="demo-hero-title">Turn Your <span class="hero-highlight">Med Spa’s Missed Calls</span> Into Booked, Paying Clients</h1>
+        <p class="hero-reassurance">You’ll meet live with our team to map your call flow, show you how our AI answers in your brand’s tone, and explore how it could fit into your workflow.</p>
+      </div>
+    </section>
+
+    <section id="hidden-offer-banner" class="hidden-offer-banner" hidden>
+      <p>🎉 You found our hidden offer! Use code <strong>HIDDENFREE</strong> in your message when booking to get your first month free.</p>
+    </section>
+
+    <section class="calendly-section" id="calendly">
+      <div class="calendly-wrapper">
+        <div class="calendly-box">
+          <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-custom-demo"></div>
+          <script type="text/javascript">
+            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "custom-demo", {origin:"https://app.cal.com"});
+
+            Cal.ns["custom-demo"]("inline", {
+              elementOrSelector:"#my-cal-inline-custom-demo",
+              config: {"layout":"month_view"},
+              calLink: "medspai/custom-demo",
+            });
+
+            Cal.ns["custom-demo"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-testimonial">
+      <figure class="testimonial-card">
+        <blockquote>“We booked over $23,000 in revenue in just 60 days with MedspAI, and we didn’t spend a dime on ads.”</blockquote>
+        <figcaption>Owner, Pilot Med Spa</figcaption>
+      </figure>
+    </section>
+
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <div class="faq-inner">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Will this replace my staff?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>No! MedspAI augments your front desk by handling repetitive questions, call overflow, and after-hours inquiries so your team can focus on high-touch client care while never missing a call.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>What types of questions can it answer?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Our AI is trained on your services, pricing, policies, and promotions, so it can answer common booking, treatment, and day-to-day front desk questions with ease.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>What happens if MedspAI can't handle a specific request?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>We escalate any nuanced or urgent requests to your team immediately through your preferred channel, ensuring nothing slips through the cracks.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>What’s the cost after setup?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Access to MedspAI costs $1/hour. Yes, you read that right. Bonus: No long-term contracts. All of our service agreements operate on a month-to-month basis.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Do I need any technical experience?</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Not at all—we configure everything for you and provide ongoing support so you can stay focused on delivering amazing client results.</p>
+            </div>
+          </article>
+        </div>
+        <a class="btn primary-btn faq-cta" href="#calendly">Schedule Your Live Demo</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/MedspAI Transparent Horizontal White Letters.png" alt="MedspAI" class="footer-logo">
+        <p>MedspAI is the embedded AI team for med spas ready to deliver uninterrupted patient service.</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Ready when your phones light up</h4>
+        <p>Call <a href="tel:+11234567890">+1 (123) 456-7890</a> or schedule a custom demo to see coverage in action.</p>
+        <a href="/demo/" class="btn secondary-btn">Schedule Custom Demo</a>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Explore</h4>
+          <a href="/#services">Services</a>
+          <a href="/#approach">Approach</a>
+          <a href="/#results">Results</a>
+          <a href="/#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="/case-study/">Case Study</a>
+          <a href="/features/">Product Features</a>
+          <a href="/blog/">Insights</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:hello@medspai.com">hello@medspai.com</a>
+        </div>
+      </div>
     </div>
-  </section>
+    <p class="footer-copy">© <span id="year"></span> MedspAI. All rights reserved.</p>
+  </footer>
 
-  
-  <div id="hidden-offer-banner" style="display: none; background-color: #f0f8ec; border: 1px solid #c7e9a8; padding: 15px 20px; border-radius: 8px; font-size: 16px; color: #2e4b2e; margin: 30px auto; max-width: 600px; text-align: center;">
-  🎉 You found our hidden offer! Use code <strong>HIDDENFREE</strong> in your message when booking to get your first month free.
-</div>
+  <script>
+    (function () {
+      const header = document.querySelector('.site-header');
+      const toggle = header ? header.querySelector('.nav-toggle') : null;
+      const navMenu = header ? header.querySelector('.nav-menu') : null;
+      const mobileBreakpoint = window.matchMedia('(max-width: 959px)');
 
-  
-  <!-- Calendly Embed -->
-  <div class="calendly-wrapper">
-  <div class="calendly-box">
-    <div 
-      class="calendly-inline-widget" 
-      data-url="https://calendly.com/team-medspai/discovery-call" 
-      style="min-width:320px; height:750px;">
-    </div>
-    <script 
-      type="text/javascript" 
-      src="https://assets.calendly.com/assets/external/widget.js" async>
-    </script>
-  </div>
-</div>
+      if (!header || !toggle || !navMenu) {
+        return;
+      }
 
-  <!-- Trust Block (Optional) -->
-  <section class="testimonial-block">
-    <p class="quote">“We booked over $23,000 in revenue in just 60 days with MedspAI, and we didn’t spend a dime on ads.”</p>
-    <p class="attribution">— Owner, Pilot Med Spa</p>
-  </section>
+      const updateAriaHidden = () => {
+        if (mobileBreakpoint.matches) {
+          navMenu.setAttribute('aria-hidden', header.classList.contains('nav-open') ? 'false' : 'true');
+        } else {
+          navMenu.setAttribute('aria-hidden', 'false');
+        }
+      };
 
-<!-- Footer -->
-<footer class="site-footer" style="background-color: #f9f9f9; padding: 40px 20px;">
-  <div class="footer-container" style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px;">
+      const closeMenu = () => {
+        header.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-locked');
+        updateAriaHidden();
+      };
 
-    <div class="footer-logo" style="flex: 1 1 250px;">
-      <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI Logo" style="height: 100px; width: auto;" />
-    </div>
+      const openMenu = () => {
+        header.classList.add('nav-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-locked');
+        updateAriaHidden();
+      };
 
-    <div class="footer-links" style="flex: 1 1 200px;">
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        <li><a href="/">Home</a></li>
-        <li><a href="/features/">Features</a></li>
-        <li><a href="/case-study/">Case Study</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/demo/">Book Demo</a></li>
-      </ul>
-    </div>
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
 
-    <div class="footer-contact" style="flex: 1 1 200px;">
-      <p style="margin: 4px 0; font-size: 14px; color: #555;">team@medspai.com</p>
-      <p style="margin: 4px 0; font-size: 14px; color: #555;">Houston, TX</p>
-    </div>
+      header.querySelectorAll('.nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (mobileBreakpoint.matches) {
+            closeMenu();
+          }
+        });
+      });
 
-    <div class="footer-legal" style="flex: 1 1 200px; text-align: right;">
-      <p style="margin: 4px 0; font-size: 14px; color: #555;">© 2025 MedspAI</p>
-      <p style="margin: 4px 0; font-size: 13px; color: #4d6a3d;">
-        <a href="/privacy/" style="color: #4d6a3d; text-decoration: none;">Privacy Policy</a> |
-        <a href="/terms/" style="color: #4d6a3d; text-decoration: none;">Terms</a>
-      </p>
-    </div>
+      const handleBreakpointChange = () => {
+        closeMenu();
+      };
 
-  </div>
-</footer>
+      if (mobileBreakpoint.addEventListener) {
+        mobileBreakpoint.addEventListener('change', handleBreakpointChange);
+      } else if (mobileBreakpoint.addListener) {
+        mobileBreakpoint.addListener(handleBreakpointChange);
+      }
 
-<script>
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('offer') === 'hiddenfree') {
-    const banner = document.getElementById('hidden-offer-banner');
-    if (banner) banner.style.display = 'block';
-  }
-</script>
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      updateAriaHidden();
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('offer') === 'hiddenfree') {
+      const banner = document.getElementById('hidden-offer-banner');
+      if (banner) {
+        banner.hidden = false;
+      }
+    }
+
+    const faqButtons = document.querySelectorAll('.faq-question');
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        const answer = button.nextElementSibling;
+        if (answer) {
+          answer.hidden = expanded;
+        }
+      });
+    });
+  </script>
 
 
   
