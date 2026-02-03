@@ -15,11 +15,17 @@
       font-size: clamp(2.8rem, 6vw, 4.8rem);
       font-weight: 750;
       letter-spacing: -0.02em;
+      color: var(--color-forest-dark);
     }
 
     .landing-hero-card {
-      box-shadow: 0 32px 68px rgba(15, 42, 31, 0.16);
+      box-shadow: 0 34px 70px rgba(35, 178, 108, 0.35), 0 0 0 1px rgba(35, 178, 108, 0.2);
       border-color: rgba(35, 178, 108, 0.25);
+    }
+
+    .landing-hero-title .landing-hero-accent {
+      color: var(--color-highlight);
+      font-weight: 700;
     }
 
     @media (max-width: 640px) {
@@ -37,7 +43,7 @@
   <main>
     <section class="page-hero demo-hero">
       <div class="page-hero-inner demo-hero-inner">
-        <h1 class="demo-hero-title landing-hero-title">Never miss another med spa call.</h1>
+        <h1 class="demo-hero-title landing-hero-title"><span class="landing-hero-accent">Never miss</span> another med spa <span class="landing-hero-accent">call</span>.</h1>
         <p class="hero-reassurance">MedSpa AI answers calls 24/7, captures leads, books appointments, and texts missed callers automatically without hiring more staff.</p>
         <div class="hero-lower">
           <div class="hero-demo-card landing-hero-card">
