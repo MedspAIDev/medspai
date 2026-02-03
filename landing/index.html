@@ -82,6 +82,58 @@
         </div>
       </div>
     </section>
+
+    <section class="section-header">
+      <p>Most med spas lose revenue when calls go unanswered. MedSpy AI fixes that automatically.</p>
+    </section>
+
+    <section class="faq-section" aria-labelledby="objections-heading">
+      <div class="faq-inner">
+        <h2 id="objections-heading">Common objections, handled.</h2>
+        <div class="faq-list">
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>My front desk already answers calls.</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>MedSpy AI handles the calls your staff misses during lunch, after hours, weekends, and peak times.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>I don't want a robot hurting the patient experience.</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>The AI is trained specifically for med spas and sounds calm, professional, and natural to callers.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>This sounds complicated to set up.</span>
+              <span class="faq-icon" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>We handle setup, customization, and routing so your med spa can go live quickly and seamlessly.</p>
+            </div>
+          </article>
+        </div>
+        <div class="section-cta">
+          <a class="btn primary-btn" href="/demo/">Schedule your custom demo now</a>
+        </div>
+        <div class="hero-lower">
+          <div class="hero-demo-card">
+            <p class="demo-title">Try it for Yourself</p>
+            <p class="demo-subtitle">Call MedspAI’s receptionist right now or book a walkthrough.</p>
+            <p class="demo-call-label">Call MedspAI at</p>
+            <p class="demo-phone">+1 (281) 519-6219</p>
+            <p class="demo-or">or</p>
+            <a href="/demo/" class="btn secondary-btn demo-btn">Schedule Your Free Demo &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -190,6 +242,18 @@
     })();
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const faqButtons = document.querySelectorAll('.faq-question');
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        const answer = button.parentElement.querySelector('.faq-answer');
+        if (answer) {
+          answer.hidden = expanded;
+        }
+      });
+    });
   </script>
 </body>
 </html>
