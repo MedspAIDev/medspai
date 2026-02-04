@@ -664,13 +664,21 @@ main {
 .logo-banner-track {
   display: flex;
   align-items: center;
-  gap: 3.5rem;
-  animation: logo-banner-left 32s linear infinite;
+  animation: logo-banner-rtl 30s linear infinite;
   width: max-content;
 }
 
-.logo-banner-row--right .logo-banner-track {
-  animation-name: logo-banner-right;
+.logo-banner-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  min-width: 100vw;
+  padding: 0 2rem;
+}
+
+.logo-banner-row--ltr .logo-banner-track {
+  animation-name: logo-banner-ltr;
 }
 
 .logo-banner-track img {
@@ -680,7 +688,7 @@ main {
   filter: grayscale(100%);
 }
 
-@keyframes logo-banner-left {
+@keyframes logo-banner-rtl {
   0% {
     transform: translateX(0);
   }
@@ -690,7 +698,7 @@ main {
   }
 }
 
-@keyframes logo-banner-right {
+@keyframes logo-banner-ltr {
   0% {
     transform: translateX(-50%);
   }
@@ -717,8 +725,9 @@ main {
     margin-bottom: 1.25rem;
   }
 
-  .logo-banner-track {
-    gap: 2rem;
+  .logo-banner-group {
+    gap: 1.25rem;
+    padding: 0 1.25rem;
   }
 }
 
