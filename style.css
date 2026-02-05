@@ -665,7 +665,7 @@ main {
   display: flex;
   align-items: center;
   animation: logo-banner-rtl 30s linear infinite;
-  gap: 1.5rem;
+  gap: 3rem;
   width: max-content;
 }
 
@@ -687,6 +687,11 @@ main {
   padding: 1.2rem 2.2rem;
   background: #ffffff;
   border-radius: 16px;
+}
+
+.logo-banner-track img[src*="hello-patient"],
+.logo-banner-track img[src*="ringcentral"] {
+  height: 110px;
 }
 
 @keyframes logo-banner-rtl {
@@ -717,23 +722,7 @@ main {
 
 @media (max-width: 640px) {
   .logo-banner-section {
-    padding: 3rem 0 2rem;
-  }
-
-  .logo-banner-title {
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    margin-bottom: 1.25rem;
-  }
-
-  .logo-banner-group {
-    gap: 1rem;
-  }
-
-  .logo-banner-track img {
-    height: 44px;
-    padding: 0.5rem 0.8rem;
-    border-radius: 10px;
+    display: none;
   }
 }
 
