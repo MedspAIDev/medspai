@@ -665,14 +665,14 @@ main {
   display: flex;
   align-items: center;
   animation: logo-banner-rtl 30s linear infinite;
-  gap: 0;
+  gap: 1.5rem;
   width: max-content;
 }
 
 .logo-banner-group {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 3.75rem;
 }
 
 .logo-banner-row--ltr .logo-banner-track {
@@ -727,12 +727,13 @@ main {
   }
 
   .logo-banner-group {
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .logo-banner-track img {
-    height: 96px;
-    padding: 1rem 1.6rem;
+    height: 44px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
   }
 }
 
