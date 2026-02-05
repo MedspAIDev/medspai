@@ -114,6 +114,68 @@
         padding: 1.5rem 1.5rem 5.5rem;
       }
 
+      .landing-faq-space .faq-inner {
+        gap: 1.5rem;
+      }
+
+      .landing-faq-space .faq-list {
+        gap: 1rem;
+      }
+
+      .landing-faq-space .faq-question {
+        align-items: flex-start;
+        font-size: 1rem;
+        line-height: 1.45;
+        padding: 1.15rem 1.1rem;
+        gap: 0.8rem;
+      }
+
+      .landing-faq-space .faq-icon {
+        width: 1.7rem;
+        height: 1.7rem;
+        flex: 0 0 auto;
+        margin-top: 0.1rem;
+      }
+
+      .landing-faq-space .faq-answer {
+        padding: 0 1.1rem 1.2rem;
+      }
+
+      .landing-faq-space .faq-answer p {
+        font-size: 0.98rem;
+        line-height: 1.65;
+      }
+
+      .landing-faq-space .free-trial-review-slider[data-ready='true'] {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+      }
+
+      .landing-faq-space .free-trial-review-slider[data-ready='true'] .free-trial-review-viewport {
+        order: 1;
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+
+      .landing-faq-space .free-trial-review-slider[data-ready='true'] .free-trial-review-nav {
+        order: 2;
+      }
+
+      .landing-faq-space .free-trial-review-slider[data-ready='true'] .free-trial-review-nav--next {
+        order: 3;
+      }
+
+      .landing-faq-space .free-trial-review-card {
+        padding: 1.4rem 1.1rem;
+        gap: 0.75rem;
+      }
+
+      .landing-faq-space .free-trial-review-quote {
+        font-size: 0.97rem;
+        line-height: 1.6;
+      }
+
       .landing-social-proof {
         margin-top: 2.5rem;
       }
@@ -124,6 +186,30 @@
 
       .landing-review-cta {
         margin-top: 3rem;
+        width: 100%;
+      }
+
+      .landing-review-cta .hero-demo-card {
+        width: 100%;
+        padding: 1.4rem 1.2rem;
+        gap: 0.9rem;
+        border-radius: 20px;
+      }
+
+      .landing-review-cta .demo-title {
+        font-size: 1.15rem;
+      }
+
+      .landing-review-cta .demo-subtitle {
+        font-size: 0.94rem;
+      }
+
+      .landing-review-cta .demo-phone {
+        font-size: clamp(1.5rem, 8vw, 1.8rem);
+      }
+
+      .landing-review-cta .demo-btn {
+        width: 100%;
       }
 
       .landing-glow-cta {
@@ -135,6 +221,102 @@
       .landing-social-proof-large {
         font-size: 1rem;
         padding: 0.9rem 1.4rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .landing-faq-space {
+        padding-inline: 0.7rem;
+      }
+
+      .landing-faq-space .faq-inner {
+        gap: 1.25rem;
+      }
+
+      .landing-faq-space .faq-inner h2 {
+        font-size: clamp(1.65rem, 9.2vw, 2rem);
+      }
+
+      .landing-faq-space .faq-question {
+        padding: 0.95rem 0.8rem;
+        gap: 0.55rem;
+        font-size: 0.95rem;
+      }
+
+      .landing-faq-space .faq-question > span:first-child {
+        min-width: 0;
+        flex: 1 1 auto;
+      }
+
+      .landing-faq-space .faq-answer {
+        padding: 0 0.8rem 0.95rem;
+      }
+
+      .landing-faq-space .free-trial-social-proof {
+        padding: 0.78rem 0.85rem;
+      }
+
+      .landing-faq-space .free-trial-review-card {
+        padding: 1.05rem 0.8rem;
+      }
+
+      .landing-faq-space .free-trial-review-author {
+        font-size: 0.9rem;
+      }
+
+      .landing-faq-space .free-trial-review-slider[data-ready='true'] .free-trial-review-nav {
+        width: 40px;
+        height: 40px;
+      }
+
+      .landing-review-cta .hero-demo-card {
+        padding: 1.05rem 0.8rem;
+      }
+
+      .landing-review-cta .demo-phone {
+        font-size: clamp(1.22rem, 8vw, 1.5rem);
+        letter-spacing: -0.01em;
+      }
+
+      .landing-review-cta .demo-subtitle {
+        font-size: 0.88rem;
+      }
+
+      .landing-review-cta .demo-btn {
+        padding-inline: 0.72rem;
+        font-size: 0.88rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .landing-faq-space {
+        padding-inline: 0.55rem;
+      }
+
+      .landing-faq-space .faq-item {
+        border-radius: 16px;
+      }
+
+      .landing-faq-space .faq-question {
+        padding: 0.9rem 0.7rem;
+        font-size: 0.91rem;
+      }
+
+      .landing-faq-space .faq-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .landing-faq-space .free-trial-review-card {
+        padding: 0.95rem 0.72rem;
+      }
+
+      .landing-review-cta .hero-demo-card {
+        padding: 0.95rem 0.72rem;
+      }
+
+      .landing-review-cta .demo-phone {
+        font-size: 1.16rem;
       }
     }
 
