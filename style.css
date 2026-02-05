@@ -680,13 +680,13 @@ main {
 }
 
 .logo-banner-track img {
-  height: 42px;
+  height: 126px;
   width: auto;
   display: block;
   object-fit: contain;
-  padding: 0.65rem 1.25rem;
+  padding: 1.2rem 2.2rem;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 @keyframes logo-banner-rtl {
@@ -728,6 +728,11 @@ main {
 
   .logo-banner-group {
     gap: 1.5rem;
+  }
+
+  .logo-banner-track img {
+    height: 96px;
+    padding: 1rem 1.6rem;
   }
 }
 
