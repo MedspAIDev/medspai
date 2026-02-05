@@ -658,7 +658,7 @@ main {
 
 .logo-banner-row {
   overflow: hidden;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.25rem;
 }
 
 .logo-banner-track {
@@ -667,6 +667,8 @@ main {
   animation: logo-banner-rtl 30s linear infinite;
   gap: 3rem;
   width: max-content;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .logo-banner-group {
@@ -684,7 +686,8 @@ main {
   width: auto;
   display: block;
   object-fit: contain;
-  padding: 1.2rem 2.2rem;
+  box-sizing: content-box;
+  padding: 1.2rem 2.8rem;
   background: #ffffff;
   border-radius: 16px;
 }
