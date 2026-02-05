@@ -665,16 +665,14 @@ main {
   display: flex;
   align-items: center;
   animation: logo-banner-rtl 30s linear infinite;
+  gap: 0;
   width: max-content;
 }
 
 .logo-banner-group {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 2rem;
-  min-width: 100vw;
-  padding: 0 2rem;
+  gap: 3rem;
 }
 
 .logo-banner-row--ltr .logo-banner-track {
@@ -682,10 +680,13 @@ main {
 }
 
 .logo-banner-track img {
-  height: clamp(30px, 4vw, 46px);
+  height: 42px;
   width: auto;
-  opacity: 0.85;
-  filter: grayscale(100%);
+  display: block;
+  object-fit: contain;
+  padding: 0.65rem 1.25rem;
+  background: #ffffff;
+  border-radius: 12px;
 }
 
 @keyframes logo-banner-rtl {
@@ -726,8 +727,7 @@ main {
   }
 
   .logo-banner-group {
-    gap: 1.25rem;
-    padding: 0 1.25rem;
+    gap: 1.5rem;
   }
 }
 
