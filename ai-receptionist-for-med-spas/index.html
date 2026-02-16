@@ -1,396 +1,436 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Receptionist for Med Spas | 24/7 Call Answering &amp; Booking</title>
-  <meta name="description" content="MedspAI is an AI receptionist built for med spas to answer calls, capture leads, and book consultations 24/7. See how it works.">
-  <link rel="canonical" href="https://www.medspai.com/ai-receptionist-for-med-spas">
-  <link rel="stylesheet" href="/style.css?v=23">
-  <link rel="icon" href="/favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    .ai-hero {
-      padding: clamp(4rem, 7vw, 6.5rem) 1.5rem 3.5rem;
-      background: linear-gradient(140deg, rgba(27, 90, 64, 0.12), rgba(35, 178, 108, 0.08));
-    }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Receptionist for Med Spas | Capture Calls and Book More Consults</title>
+    <meta
+      name="description"
+      content="MedspAI gives med spas a 24/7 AI receptionist to answer calls, handle pricing and intake questions, and book consults without adding front-desk payroll."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://www.medspai.com/ai-receptionist-for-med-spas/" />
 
-    .ai-hero-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      display: grid;
-      gap: 1.75rem;
-      text-align: center;
-    }
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MedspAI" />
+    <meta property="og:title" content="AI Receptionist for Med Spas | Capture Calls and Book More Consults" />
+    <meta
+      property="og:description"
+      content="Convert missed calls into booked consults with a med spa-native AI receptionist that answers fast, qualifies intent, and routes conversations cleanly."
+    />
+    <meta property="og:url" content="https://www.medspai.com/ai-receptionist-for-med-spas/" />
+    <meta property="og:image" content="https://www.medspai.com/favicon.png" />
 
-    .ai-hero h1 {
-      font-size: clamp(2.6rem, 5vw, 3.4rem);
-      line-height: 1.1;
-      color: var(--color-forest-dark);
-    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI Receptionist for Med Spas | Capture Calls and Book More Consults" />
+    <meta
+      name="twitter:description"
+      content="Built for med spa workflows: 24/7 call handling, consult booking, lead capture, and smart handoff to staff."
+    />
+    <meta name="twitter:image" content="https://www.medspai.com/favicon.png" />
 
-    .ai-hero p {
-      margin: 0;
-      color: rgba(15, 42, 31, 0.78);
-      font-size: 1.1rem;
-    }
-
-    .ai-hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.9rem;
-    }
-
-    .ai-section {
-      padding: 4rem 2rem;
-    }
-
-    .ai-section.alt {
-      background: var(--color-mint);
-    }
-
-    .ai-highlight {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 2.5rem;
-      box-shadow: 0 24px 50px rgba(15, 42, 31, 0.08);
-      border: 1px solid rgba(15, 42, 31, 0.08);
-    }
-
-    .ai-highlight ul {
-      margin: 1rem 0 0;
-      display: grid;
-      gap: 0.55rem;
-      color: rgba(15, 42, 31, 0.78);
-    }
-
-    .ai-cta {
-      padding: 4rem 2rem 5rem;
-    }
-
-    .ai-cta-card {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 26px;
-      padding: 2.75rem;
-      text-align: center;
-      box-shadow: 0 26px 54px rgba(15, 42, 31, 0.12);
-      border: 1px solid rgba(15, 42, 31, 0.08);
-      display: grid;
-      gap: 1rem;
-    }
-
-    .ai-cta-card p {
-      margin: 0;
-      color: rgba(15, 42, 31, 0.7);
-    }
-
-    .ai-cta-card ul {
-      margin: 0 auto;
-      padding-left: 1.2rem;
-      max-width: 520px;
-      text-align: left;
-      color: rgba(15, 42, 31, 0.7);
-      display: grid;
-      gap: 0.4rem;
-    }
-
-    .ai-cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
-    }
-
-    @media (max-width: 700px) {
-      .ai-highlight,
-      .ai-cta-card {
-        padding: 2rem 1.5rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="/" class="logo" aria-label="MedspAI Home">
-        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="logo-img">
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="nav-toggle-bars" aria-hidden="true">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-        </span>
-      </button>
-      <div class="nav-menu" id="primary-navigation">
-        <nav class="site-nav" aria-label="Primary Navigation">
-          <a href="/#services" class="nav-link">Services</a>
-          <a href="/#approach" class="nav-link">How It Works</a>
-          <a href="/#results" class="nav-link">Results</a>
-          <a href="/#pricing" class="nav-link">Pricing</a>
-          <a href="/#cta" class="nav-link">Talk to Us</a>
+    <link rel="stylesheet" href="/assets/css/seo-page.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="MedspAI Home">MedspAI</a>
+        <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          ☰
+        </button>
+        <nav id="site-nav" class="primary-nav" data-nav-menu aria-label="Primary navigation">
+          <a href="/ai-receptionist">AI Receptionist</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact</a>
+          <a class="btn btn-primary" href="/demo/">Book a Demo</a>
         </nav>
-        <div class="header-cta">
-          <a href="https://dashboard.medspai.com" class="btn tertiary-btn header-portal">Client Portal</a>
-          <a href="/demo/" class="btn primary-btn">Schedule Custom Demo</a>
-        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <section class="ai-hero">
-      <div class="ai-hero-inner">
-        <p class="eyebrow">AI Receptionist for Med Spas</p>
-        <h1>AI Receptionist for Med Spas</h1>
-        <p>An AI receptionist for med spas answers inbound calls automatically, captures caller information, and helps book consultations — even after hours or during peak times. Instead of missed calls going to voicemail, an AI receptionist ensures every inquiry is handled in real time.</p>
-        <p>For med spas running paid ads, busy treatment schedules, or limited front-desk coverage, this solves one of the biggest operational gaps: unanswered phones.</p>
-      </div>
-    </section>
+    <main>
+      <section class="hero">
+        <div class="container reading-container">
+          <h1>AI Receptionist for Med Spas</h1>
+          <p class="hero-copy">
+            Capture every high-intent consult call with 24/7 coverage, structured intake, and booking support that protects front-desk time without adding staff.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/demo/">Book a Demo</a>
+            <a class="btn btn-secondary" href="#how-it-works">See How It Works</a>
+          </div>
+          <p class="trust-strip">Designed around real med spa consult workflows — not generic answering scripts.</p>
 
-    <section class="ai-section">
-      <div class="ai-highlight">
-        <div class="section-header">
-          <p class="eyebrow">Why it matters</p>
-          <h2>Why Med Spas Need an AI Receptionist</h2>
-          <p>Most med spas miss a meaningful percentage of inbound calls. This typically happens when:</p>
+          <div class="trust-row" aria-label="Core trust indicators">
+            <article class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              <div>
+                <strong>Instant Response</strong>
+                <span>Answers within ~1 second so callers are engaged immediately.</span>
+              </div>
+            </article>
+            <article class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="4" y="5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 3v4M16 3v4M8 11h8M8 15h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+              <div>
+                <strong>Books Consults</strong>
+                <span>Schedules into your calendar with your intake and routing rules.</span>
+              </div>
+            </article>
+            <article class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 6.5a2.5 2.5 0 0 1 2.5-2.5h9A2.5 2.5 0 0 1 19 6.5v11A2.5 2.5 0 0 1 16.5 20h-9A2.5 2.5 0 0 1 5 17.5v-11Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 8.5h8M8 12h8M8 15.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+              <div>
+                <strong>Missed-Call Text Back</strong>
+                <span>Automatically follows up when live transfer is unavailable.</span>
+              </div>
+            </article>
+          </div>
         </div>
-        <ul>
-          <li>Front desk staff are assisting in-clinic patients</li>
-          <li>Multiple calls come in at once</li>
-          <li>Calls come in after hours or on weekends</li>
-          <li>Staff are unavailable due to lunch breaks or shift changes</li>
-        </ul>
-        <p>Each missed call can represent a lost consultation, treatment, or long-term patient. Over time, this creates a revenue leak — especially for practices investing heavily in marketing.</p>
-        <p>For a deeper look at how med spas can recover revenue from <a href="/missed-call-ai-for-med-spas/">missed calls</a>, explore the strategies behind missed-call recovery.</p>
-        <p>An AI receptionist for med spas is designed to close that gap by answering every call, every time.</p>
-      </div>
-    </section>
+      </section>
 
-    <section class="services">
-      <div class="section-header">
-        <p class="eyebrow">Call handling realities</p>
-        <h2>Why Traditional Call Handling Falls Short</h2>
-        <p>Med spas typically rely on one of three options to manage inbound calls. Each has limitations.</p>
-      </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <h3>Voicemail</h3>
-          <p>Voicemail relies on callers leaving a message and staff following up later. Many callers don’t leave messages at all, and follow-ups often happen too late.</p>
-        </article>
-        <article class="service-card">
-          <h3>Front Desk Staff Alone</h3>
-          <p>Even the best front desk team can’t answer every call while managing check-ins, treatments, and in-person patients. High call volume creates unavoidable missed opportunities.</p>
-        </article>
-        <article class="service-card">
-          <h3>Human Answering Services</h3>
-          <p>Traditional answering services are expensive, limited by scripts, and often unable to handle booking logic or nuanced patient questions accurately.</p>
-        </article>
-      </div>
-      <div class="section-cta">
-        <p>These approaches weren’t designed for modern med spa workflows.</p>
-        <p>If you’re comparing options, see how <a href="/ai-phone-answering-for-aesthetic-clinics/">AI phone answering</a> stacks up against traditional call handling models.</p>
-      </div>
-    </section>
+      <section class="section section-muted" id="revenue-leak">
+        <div class="container reading-container">
+          <h2>The Revenue Leak Most Med Spas Don’t See</h2>
+          <p>
+            Most med spas don’t have a lead problem. They have a response-time problem. Calls during peak treatment blocks and after-hours windows still go to voicemail, and those consult-ready prospects often book with the first clinic that responds.
+          </p>
+          <p>
+            If your front desk is already overloaded, every missed first touch adds avoidable acquisition waste. That is why teams evaluating
+            <a class="context-link" href="/pricing">pricing</a> focus on consult recovery, not just software spend.
+          </p>
+        </div>
+      </section>
 
-    <section class="ai-section alt">
-      <div class="ai-highlight">
-        <div class="section-header">
-          <p class="eyebrow">Purpose-built</p>
-          <h2>AI Receptionist Built Specifically for Med Spas</h2>
-          <p>MedspAI is an AI receptionist designed specifically for med spas and aesthetic clinics. It answers calls instantly, engages callers naturally, and follows practice-specific rules for capturing leads and booking consultations.</p>
-          <p>Unlike generic call automation, this AI receptionist understands med spa environments and common patient inquiries.</p>
+      <section class="section" id="operations-fit">
+        <div class="container reading-container">
+          <h2>Built for the Way Med Spas Actually Operate</h2>
+          <p>
+            MedspAI is designed around real consult workflows: service routing by treatment category, handling pricing and membership questions, and collecting intake details with consistent structure.
+          </p>
+          <p>
+            Qualified opportunities move cleanly into your calendar + CRM + phone system process. Teams that start with our
+            <a class="context-link" href="/ai-receptionist">AI receptionist overview</a>
+            usually deploy with minimal disruption to existing front-desk SOPs.
+          </p>
         </div>
-        <p>Key capabilities include:</p>
-        <ul>
-          <li>Answering inbound calls 24/7</li>
-          <li>Capturing caller name, contact details, and intent</li>
-          <li>Qualifying leads before booking</li>
-          <li>Booking consultations or routing to staff</li>
-          <li>Handling overflow calls during busy hours</li>
-        </ul>
-        <p>The result is fewer missed calls and more captured opportunities.</p>
-      </div>
-    </section>
+      </section>
 
-    <section class="approach" id="how-it-works">
-      <div class="section-header">
-        <p class="eyebrow">How it works</p>
-        <h2>How an AI Receptionist for Med Spas Works</h2>
-      </div>
-      <div class="timeline" aria-label="AI receptionist workflow">
-        <div class="timeline-step">
-          <span class="step-number">01</span>
-          <h3>Incoming call</h3>
-          <p>A patient or prospect calls your med spa.</p>
+      <section class="section" id="what-it-handles">
+        <div class="container">
+          <div class="reading-container">
+            <h2>What Your AI Receptionist Handles</h2>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <h3>24/7 call answering + after-hours coverage</h3>
+              <p>Callers get a live response instead of voicemail, even outside business hours.</p>
+              <p>Calls forward by your rules, and the AI handles first-touch conversations immediately.</p>
+            </article>
+            <article class="card">
+              <h3>Books consults into your calendar</h3>
+              <p>Qualified leads move from inquiry to consult scheduling without delay.</p>
+              <p>Booking windows and service constraints are configured up front and applied automatically.</p>
+            </article>
+            <article class="card">
+              <h3>Captures lead details + intent</h3>
+              <p>Your team sees why someone called before follow-up, not just a missed number.</p>
+              <p>The AI captures treatment interest, urgency, and contact details in structured fields.</p>
+            </article>
+            <article class="card">
+              <h3>Texts missed callers back</h3>
+              <p>Prospects who cannot stay on hold still get immediate engagement.</p>
+              <p>Automated SMS follow-up is triggered when calls are missed or dropped.</p>
+            </article>
+            <article class="card">
+              <h3>Routes to staff when needed</h3>
+              <p>Escalations reach the right person fast without forcing every call through your front desk.</p>
+              <p>Transfer rules map by inquiry type, urgency, and clinic availability.</p>
+            </article>
+          </div>
         </div>
-        <div class="timeline-step">
-          <span class="step-number">02</span>
-          <h3>Immediate response</h3>
-          <p>The AI receptionist answers immediately.</p>
-        </div>
-        <div class="timeline-step">
-          <span class="step-number">03</span>
-          <h3>Capture details</h3>
-          <p>Caller information and intent are captured.</p>
-        </div>
-        <div class="timeline-step">
-          <span class="step-number">04</span>
-          <h3>Route or book</h3>
-          <p>The call is routed or a consultation is booked.</p>
-        </div>
-      </div>
-      <div class="section-cta">
-        <p>This process runs automatically in the background while your staff focuses on in-clinic patients.</p>
-      </div>
-    </section>
+      </section>
 
-    <section class="ai-section">
-      <div class="ai-highlight">
-        <div class="section-header">
-          <p class="eyebrow">Results</p>
-          <h2>Real-World Impact for Med Spas</h2>
-          <p>Med spas using an AI receptionist often see:</p>
+      <section class="section" id="how-it-works">
+        <div class="container reading-container">
+          <h2>How It Works</h2>
+          <ol class="steps">
+            <li>
+              <strong>1. Forward calls (after X rings / after hours)</strong>
+              Choose when the AI answers so your in-clinic team remains focused during peak treatment blocks.
+            </li>
+            <li>
+              <strong>2. Configure intake + booking rules</strong>
+              We set service categories, qualifying questions, and booking logic to match your consult flow.
+            </li>
+            <li>
+              <strong>3. Capture, qualify, and book</strong>
+              Leads are handled instantly, then scheduled or routed with clear context for your staff.
+            </li>
+          </ol>
+          <p class="setup-note">Setup is lightweight. We tailor it to your clinic.</p>
         </div>
-        <ul>
-          <li>Fewer missed calls</li>
-          <li>Higher consultation booking rates</li>
-          <li>Better return on ad spend</li>
-          <li>Reduced front desk pressure</li>
-        </ul>
-        <p>Even small improvements in call handling can translate into significant monthly revenue gains.</p>
-      </div>
-    </section>
+      </section>
 
-    <section class="ai-cta">
-      <div class="ai-cta-card">
-        <h2>See the AI Receptionist in Action</h2>
-        <p>If you’re evaluating whether an AI receptionist for your med spa makes sense, the best way to understand it is to see it live.</p>
-        <p>You can:</p>
-        <ul>
-          <li>Book a demo</li>
-          <li>Or call the AI receptionist demo number to experience it firsthand</li>
-        </ul>
-        <div class="ai-cta-actions">
-          <a href="/demo/" class="btn primary-btn">Book a Demo</a>
+      <section class="section section-muted" id="comparison">
+        <div class="container">
+          <div class="reading-container">
+            <h2>AI vs Traditional Options</h2>
+            <p>Use this as an operating model comparison—not just a staffing decision.</p>
+          </div>
+          <div class="table-wrap" role="region" aria-label="AI vs traditional options comparison">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col">In-house front desk</th>
+                  <th scope="col">Traditional answering service</th>
+                  <th scope="col">MedspAI (AI receptionist)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Coverage</td>
+                  <td>Business hours only</td>
+                  <td>Often limited scripts after hours</td>
+                  <td>24/7 based on your forwarding rules</td>
+                </tr>
+                <tr>
+                  <td>Booking</td>
+                  <td>Manual when available</td>
+                  <td>Usually message-taking</td>
+                  <td>Consult booking workflows built in</td>
+                </tr>
+                <tr>
+                  <td>Speed</td>
+                  <td>Variable during rush periods</td>
+                  <td>Queue-dependent</td>
+                  <td>Near-instant first response</td>
+                </tr>
+                <tr>
+                  <td>Consistency</td>
+                  <td>Depends on staffing and training</td>
+                  <td>Depends on agent quality</td>
+                  <td>Rule-based, consistent call handling</td>
+                </tr>
+                <tr>
+                  <td>Cost</td>
+                  <td>Payroll + training + coverage gaps</td>
+                  <td>Monthly service + limited outcomes</td>
+                  <td>Predictable platform investment</td>
+                </tr>
+                <tr>
+                  <td>Missed call text-back</td>
+                  <td>Inconsistent manual follow-up</td>
+                  <td>Rarely included</td>
+                  <td>Automated SMS follow-up available</td>
+                </tr>
+                <tr>
+                  <td>Reporting</td>
+                  <td>Manual call log review</td>
+                  <td>Basic summaries</td>
+                  <td>Structured lead and conversation visibility</td>
+                </tr>
+                <tr>
+                  <td>Best for</td>
+                  <td>Clinics with full in-house reception coverage</td>
+                  <td>Basic overflow message coverage</td>
+                  <td>Med spas prioritizing speed, consistency, and conversion</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="footer-logo">
-        <p>The AI receptionist built to help med spas capture every call, every day.</p>
-      </div>
-      <div class="footer-links">
+      <section class="section" id="social-proof">
+        <div class="container">
+          <div class="reading-container">
+            <h2>What Clinics Are Seeing</h2>
+            <p>Feedback from clinics using structured AI intake instead of voicemail or overflow coverage.</p>
+          </div>
+          <div class="testimonial-grid">
+            <article class="card testimonial">
+              <span class="quote-label">Single-location clinic</span>
+              <p>“Our evening and weekend inquiries stopped disappearing into voicemail. Now we open Monday with real consult conversations already in progress.”</p>
+              <p><strong>— Practice Manager, Single-Location Med Spa</strong></p>
+            </article>
+            <article class="card testimonial">
+              <span class="quote-label">Multi-clinic group</span>
+              <p>“We needed better lead consistency across locations. MedspAI gave us one intake standard while still letting each clinic keep its scheduling rules.”</p>
+              <p><strong>— Regional Ops Lead, Multi-Clinic Aesthetics Group</strong></p>
+            </article>
+            <article class="card testimonial">
+              <span class="quote-label">Injectables studio</span>
+              <p>“The biggest win was speed. Patients got answers right away, and our front desk wasn’t constantly playing callback catch-up.”</p>
+              <p><strong>— Owner, Boutique Injectables Studio</strong></p>
+            </article>
+          </div>
+          <ul class="outcomes">
+            <li>Captures leads you would have otherwise missed.</li>
+            <li>Improves response consistency across high-volume hours.</li>
+            <li>Gives staff cleaner context before follow-up calls.</li>
+          </ul>
+          <p>
+            Need implementation details for your team? Start a conversation on our
+            <a class="context-link" href="/contact">contact page</a>
+            and we can map this to your current workflow.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container reading-container">
+          <h2>FAQ</h2>
+          <p class="faq-intro">Common questions from med spa owners evaluating AI receptionists.</p>
+          <div class="faq-list">
+            <details>
+              <summary>Can an AI receptionist book med spa consultations?</summary>
+              <p>Yes. MedspAI can follow your availability, service categories, and consult rules to place qualified callers into booking-ready next steps.</p>
+            </details>
+            <details>
+              <summary>How does it handle pricing questions?</summary>
+              <p>It provides approved pricing guidance and package context based on your rules, then escalates to staff when a nuanced quote is needed.</p>
+            </details>
+            <details>
+              <summary>What happens if it can’t answer something?</summary>
+              <p>It captures the caller’s intent and routes the conversation to your team with context so staff can continue without restarting discovery.</p>
+            </details>
+            <details>
+              <summary>Can it transfer to my staff?</summary>
+              <p>Yes. Transfer rules can be configured by call type, urgency, or time of day so the right person gets involved when required.</p>
+            </details>
+            <details>
+              <summary>Does it work after hours?</summary>
+              <p>Yes. After-hours coverage is a core use case, including intake capture, qualification, and missed-call text-back workflows.</p>
+            </details>
+            <details>
+              <summary>How quickly can we get set up?</summary>
+              <p>Most clinics can launch quickly once call-forwarding and intake rules are finalized during onboarding.</p>
+            </details>
+            <details>
+              <summary>Will it fit our existing tools?</summary>
+              <p>It is designed to fit into existing calendar, CRM, and phone-system workflows so your staff can keep familiar processes.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-cta" id="final-cta">
+        <div class="container reading-container">
+          <h2>Stop Losing High-Intent Consult Calls</h2>
+          <p>
+            If your team is great at converting consults but stretched on first response, this is the bottleneck to fix first. Book a live walkthrough to see how MedspAI fits your call flow.
+          </p>
+          <a class="btn btn-primary" href="/demo/">Book a Demo</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
         <div>
-          <h4>Explore</h4>
-          <a href="/#services">Services</a>
-          <a href="/#approach">Approach</a>
-          <a href="/#results">Results</a>
-          <a href="/#pricing">Pricing</a>
+          <p class="authority-line">Built specifically for med spa call workflows.</p>
+          <p class="compliance-line">Privacy-first handling. Clear boundaries. Human handoff when needed.</p>
+          <p class="copyright">© <span data-current-year></span> MedspAI. Trusted by med spas that need reliable lead response.</p>
         </div>
-        <div>
-          <h4>Resources</h4>
-          <a href="/case-study/">Case Study</a>
-          <a href="/features/">Product Features</a>
-          <a href="/blog/">Insights</a>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <a href="/privacy/">Privacy</a>
-          <a href="/terms/">Terms</a>
-          <a href="mailto:team@medspai.com">team@medspai.com</a>
+        <div class="footer-links" aria-label="Footer sitemap links">
+          <div>
+            <strong>Product</strong>
+            <a href="/ai-receptionist">AI Receptionist</a>
+            <a href="/pricing">Pricing</a>
+          </div>
+          <div>
+            <strong>Use Cases</strong>
+            <a href="/ai-receptionist-for-med-spas/">Med Spas</a>
+            <a href="/missed-call-ai-for-med-spas/">Missed Calls</a>
+          </div>
+          <div>
+            <strong>Company</strong>
+            <a href="/contact">Contact</a>
+            <a href="/blog/">Blog</a>
+          </div>
+          <div>
+            <strong>Legal</strong>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </div>
         </div>
       </div>
-    </div>
-    <p class="footer-copy">© <span id="year"></span> MedspAI. All rights reserved.</p>
-  </footer>
+    </footer>
 
-  <script>
-    (function () {
-      const header = document.querySelector('.site-header');
-      const toggle = header ? header.querySelector('.nav-toggle') : null;
-      const navMenu = header ? header.querySelector('.nav-menu') : null;
-      const mobileBreakpoint = window.matchMedia('(max-width: 959px)');
-
-      if (!header || !toggle || !navMenu) {
-        return;
-      }
-
-      const updateAriaHidden = () => {
-        if (mobileBreakpoint.matches) {
-          navMenu.setAttribute('aria-hidden', header.classList.contains('nav-open') ? 'false' : 'true');
-        } else {
-          navMenu.setAttribute('aria-hidden', 'false');
-        }
-      };
-
-      const closeMenu = () => {
-        header.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('nav-locked');
-        updateAriaHidden();
-      };
-
-      const openMenu = () => {
-        header.classList.add('nav-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('nav-locked');
-        updateAriaHidden();
-      };
-
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        if (expanded) {
-          closeMenu();
-        } else {
-          openMenu();
-        }
-      });
-
-      header.querySelectorAll('.nav-link').forEach((link) => {
-        link.addEventListener('click', () => {
-          if (mobileBreakpoint.matches) {
-            closeMenu();
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can an AI receptionist book med spa consultations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. MedspAI can follow your availability, service categories, and consult rules to place qualified callers into booking-ready next steps."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does it handle pricing questions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It provides approved pricing guidance and package context based on your rules, then escalates to staff when a nuanced quote is needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if it can’t answer something?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It captures the caller’s intent and routes the conversation to your team with context so staff can continue without restarting discovery."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can it transfer to my staff?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Transfer rules can be configured by call type, urgency, or time of day so the right person gets involved when required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work after hours?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. After-hours coverage is a core use case, including intake capture, qualification, and missed-call text-back workflows."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How quickly can we get set up?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most clinics can launch quickly once call-forwarding and intake rules are finalized during onboarding."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will it fit our existing tools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is designed to fit into existing calendar, CRM, and phone-system workflows so your staff can keep familiar processes."
+            }
           }
-        });
-      });
-
-      const handleBreakpointChange = () => {
-        closeMenu();
-        updateAriaHidden();
-      };
-
-      if (mobileBreakpoint.addEventListener) {
-        mobileBreakpoint.addEventListener('change', handleBreakpointChange);
-      } else if (mobileBreakpoint.addListener) {
-        mobileBreakpoint.addListener(handleBreakpointChange);
+        ]
       }
+    </script>
 
-      document.addEventListener('keyup', (event) => {
-        if (event.key === 'Escape') {
-          closeMenu();
-        }
-      });
-
-      updateAriaHidden();
-    })();
-
-    const yearEl = document.getElementById('year');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-  </script>
-</body>
+    <script src="/assets/js/site.js" defer></script>
+  </body>
 </html>
