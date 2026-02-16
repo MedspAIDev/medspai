@@ -30,21 +30,37 @@
     />
     <meta name="twitter:image" content="https://www.medspai.com/favicon.png" />
 
+    <link rel="stylesheet" href="/style.css?v=23" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/seo-page.css" />
   </head>
   <body>
     <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="/" aria-label="MedspAI Home">MedspAI</a>
-        <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
-          ☰
+      <div class="nav-container">
+        <a href="/" class="logo" aria-label="MedspAI Home">
+          <img src="/horizontal-medspai-no-tagline.png" alt="MedspAI" class="logo-img" />
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="nav-toggle-bars" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
         </button>
-        <nav id="site-nav" class="primary-nav" data-nav-menu aria-label="Primary navigation">
-          <a href="/ai-receptionist">AI Receptionist</a>
-          <a href="/pricing">Pricing</a>
-          <a href="/contact">Contact</a>
-          <a class="btn btn-primary" href="/demo/">Book a Demo</a>
-        </nav>
+        <div class="nav-menu" id="primary-navigation">
+          <nav class="site-nav" aria-label="Primary Navigation">
+            <a href="/ai-receptionist" class="nav-link">AI Receptionist</a>
+            <a href="/pricing" class="nav-link">Pricing</a>
+            <a href="/contact" class="nav-link">Contact</a>
+          </nav>
+          <div class="header-cta">
+            <a href="/demo/" class="btn primary-btn">Book a Demo</a>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -335,35 +351,36 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="/MedspAI Transparent Horizontal White Letters.png" alt="MedspAI" class="footer-logo" />
           <p class="authority-line">Built specifically for med spa call workflows.</p>
-          <p class="compliance-line">Privacy-first handling. Clear boundaries. Human handoff when needed.</p>
-          <p class="copyright">© <span data-current-year></span> MedspAI. Trusted by med spas that need reliable lead response.</p>
+          <p>Privacy-first handling. Clear boundaries. Human handoff when needed.</p>
         </div>
-        <div class="footer-links" aria-label="Footer sitemap links">
+        <div class="footer-links" aria-label="Footer links">
           <div>
-            <strong>Product</strong>
+            <h4>Product</h4>
             <a href="/ai-receptionist">AI Receptionist</a>
             <a href="/pricing">Pricing</a>
           </div>
           <div>
-            <strong>Use Cases</strong>
+            <h4>Use Cases</h4>
             <a href="/ai-receptionist-for-med-spas/">Med Spas</a>
             <a href="/missed-call-ai-for-med-spas/">Missed Calls</a>
           </div>
           <div>
-            <strong>Company</strong>
+            <h4>Company</h4>
             <a href="/contact">Contact</a>
             <a href="/blog/">Blog</a>
           </div>
           <div>
-            <strong>Legal</strong>
+            <h4>Legal</h4>
             <a href="/privacy/">Privacy</a>
             <a href="/terms/">Terms</a>
           </div>
         </div>
       </div>
+      <p class="footer-copy">© <span id="year"></span> MedspAI. All rights reserved.</p>
     </footer>
 
     <script type="application/ld+json">
