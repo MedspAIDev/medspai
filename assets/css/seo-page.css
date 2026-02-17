@@ -103,11 +103,11 @@ tbody td {
   transform: translateY(-1px);
 }
 
-.trust-strip {
-  margin: 1.2rem 0 0;
-  font-weight: 650;
-  color: #254437;
-  font-size: clamp(1rem, 1.2vw, 1.05rem);
+.hero-divider {
+  width: min(68%, 640px);
+  height: 1px;
+  margin: 1.45rem 0 0;
+  background: linear-gradient(90deg, rgba(27, 90, 64, 0.22), rgba(27, 90, 64, 0.08));
 }
 
 .trust-row {
