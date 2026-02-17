@@ -54,6 +54,16 @@ tbody td {
   font-size: clamp(1rem, 1.3vw, 1.08rem);
 }
 
+.reading-container > p + p {
+  margin-top: 0.95rem;
+}
+
+.reading-container > ul + p,
+.reading-container > p + ul,
+.reading-container > p + .btn {
+  margin-top: 1.15rem;
+}
+
 .hero {
   padding-block: clamp(4.6rem, 11.2vw, 7.2rem) clamp(3.5rem, 8.1vw, 5.4rem);
   background:
@@ -394,6 +404,10 @@ tbody td {
   margin-top: clamp(1.25rem, 3.4vw, 2rem);
   text-align: center;
   border-top: 1px solid var(--border);
+}
+
+.final-cta .btn {
+  margin-top: 1.2rem;
 }
 
 .footer-brand .authority-line {
