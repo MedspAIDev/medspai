@@ -62,8 +62,6 @@
         gap: 0.55rem;
       }
 
-      .medical-answering-page .point-grid,
-      .medical-answering-page .capability-grid,
       .medical-answering-page .trend-grid {
         margin-top: 1.35rem;
         display: grid;
@@ -71,8 +69,6 @@
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
 
-      .medical-answering-page .point-item,
-      .medical-answering-page .capability-item,
       .medical-answering-page .trend-item {
         background: #fff;
         border: 1px solid rgba(16, 59, 42, 0.12);
@@ -80,10 +76,51 @@
         padding: 1rem 1.1rem;
       }
 
-      .medical-answering-page .point-item strong,
-      .medical-answering-page .capability-item strong,
       .medical-answering-page .trend-item strong {
         color: #133a29;
+      }
+
+      .medical-answering-page .use-case-rail,
+      .medical-answering-page .capability-rail,
+      .medical-answering-page .benefit-rail {
+        margin: 1.2rem 0 0;
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      .medical-answering-page .use-case-item,
+      .medical-answering-page .capability-row,
+      .medical-answering-page .benefit-item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.7rem;
+        align-items: start;
+        padding: 0.4rem 0;
+      }
+
+      .medical-answering-page .use-case-item + .use-case-item,
+      .medical-answering-page .capability-row + .capability-row,
+      .medical-answering-page .benefit-item + .benefit-item {
+        border-top: 1px dashed rgba(16, 59, 42, 0.22);
+      }
+
+      .medical-answering-page .row-token {
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 999px;
+        background: rgba(27, 90, 64, 0.12);
+        color: #1b5a40;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.86rem;
+        line-height: 1;
+        margin-top: 0.08rem;
+      }
+
+      .medical-answering-page .row-copy p {
+        margin: 0.28rem 0 0;
       }
 
       .medical-answering-page .flow-list {
@@ -258,11 +295,19 @@
         <div class="container reading-container">
           <h2>Why Med Spas Use Medical Answering Services</h2>
           <p>Med spas and aesthetic clinics typically use answering services for:</p>
-          <div class="point-grid" role="list" aria-label="Common answering service use cases">
-            <article class="point-item reveal-on-scroll" role="listitem"><strong>After-hours call coverage</strong></article>
-            <article class="point-item reveal-on-scroll" role="listitem"><strong>Overflow during peak treatment blocks</strong></article>
-            <article class="point-item reveal-on-scroll" role="listitem"><strong>Weekend inquiries</strong></article>
-            <article class="point-item reveal-on-scroll" role="listitem"><strong>Holiday coverage</strong></article>
+          <div class="use-case-rail" role="list" aria-label="Common answering service use cases">
+            <article class="use-case-item reveal-on-scroll" role="listitem">
+              <span class="row-token">1</span>
+              <div class="row-copy"><strong>After-hours call coverage</strong><p>Calls are handled when staff is offline so new consult intent doesn’t disappear overnight.</p></div>
+            </article>
+            <article class="use-case-item reveal-on-scroll" role="listitem">
+              <span class="row-token">2</span>
+              <div class="row-copy"><strong>Overflow during peak treatment blocks</strong><p>Coverage protects high-intent inquiries while your team is occupied with in-clinic client flow.</p></div>
+            </article>
+            <article class="use-case-item reveal-on-scroll" role="listitem">
+              <span class="row-token">3</span>
+              <div class="row-copy"><strong>Weekend and holiday inquiries</strong><p>Demand often spikes outside normal business windows, especially from comparison shoppers.</p></div>
+            </article>
           </div>
           <p>The goal is simple: never miss a call.</p>
           <p>However, most answering services take a message, forward it by email or dashboard, and rely on staff to call back later. That delay is where consults are lost.</p>
@@ -308,11 +353,19 @@
         <div class="container reading-container">
           <h2>AI as a Medical Answering Service Alternative</h2>
           <p>An AI receptionist configured for med spas does more than answer calls.</p>
-          <div class="capability-grid" role="list" aria-label="AI reception capabilities">
-            <article class="capability-item reveal-on-scroll" role="listitem"><strong>Instant call response</strong><p>Answers immediately during after-hours or overflow windows.</p></article>
-            <article class="capability-item reveal-on-scroll" role="listitem"><strong>Treatment-aware intake</strong><p>Identifies treatment category and captures the right details.</p></article>
-            <article class="capability-item reveal-on-scroll" role="listitem"><strong>Rule-based routing</strong><p>Applies booking rules and routes urgent concerns appropriately.</p></article>
-            <article class="capability-item reveal-on-scroll" role="listitem"><strong>Structured follow-up</strong><p>Triggers consistent next-step workflows instead of message handoffs.</p></article>
+          <div class="capability-rail" role="list" aria-label="AI reception capabilities">
+            <article class="capability-row reveal-on-scroll" role="listitem">
+              <span class="row-token">✓</span>
+              <div class="row-copy"><strong>Instant call response</strong><p>Answers immediately during after-hours or overflow windows.</p></div>
+            </article>
+            <article class="capability-row reveal-on-scroll" role="listitem">
+              <span class="row-token">✓</span>
+              <div class="row-copy"><strong>Treatment-aware intake</strong><p>Identifies treatment category and captures the right details for qualification.</p></div>
+            </article>
+            <article class="capability-row reveal-on-scroll" role="listitem">
+              <span class="row-token">✓</span>
+              <div class="row-copy"><strong>Rule-based routing + follow-up</strong><p>Applies your booking rules, routes urgent concerns correctly, and triggers structured next steps.</p></div>
+            </article>
           </div>
           <p>Instead of only capturing a message, it advances the conversation.</p>
         </div>
@@ -381,11 +434,19 @@
           <p>Extending front desk hours increases payroll costs and scheduling complexity.</p>
           <p>Traditional answering services reduce staffing strain but do not increase booking consistency.</p>
           <p><strong>AI-based systems provide:</strong></p>
-          <div class="point-grid" role="list" aria-label="After-hours benefits">
-            <article class="point-item reveal-on-scroll" role="listitem"><strong>24/7 structured coverage</strong></article>
-            <article class="point-item reveal-on-scroll" role="listitem"><strong>Predictable intake logic</strong></article>
-            <article class="point-item reveal-on-scroll" role="listitem"><strong>Booking continuity</strong></article>
-            <article class="point-item reveal-on-scroll" role="listitem"><strong>Consistent experience across all hours</strong></article>
+          <div class="benefit-rail" role="list" aria-label="After-hours benefits">
+            <article class="benefit-item reveal-on-scroll" role="listitem">
+              <span class="row-token">A</span>
+              <div class="row-copy"><strong>24/7 structured coverage</strong><p>Every inbound call gets the same structured intake quality, no matter the hour.</p></div>
+            </article>
+            <article class="benefit-item reveal-on-scroll" role="listitem">
+              <span class="row-token">B</span>
+              <div class="row-copy"><strong>Predictable booking continuity</strong><p>Consult momentum is preserved with consistent next-step handling and routing.</p></div>
+            </article>
+            <article class="benefit-item reveal-on-scroll" role="listitem">
+              <span class="row-token">C</span>
+              <div class="row-copy"><strong>Consistent client experience</strong><p>Call handling quality remains stable across business hours, evenings, and weekends.</p></div>
+            </article>
           </div>
           <p>Whether your clinic receives 100 calls per month or 1,000, coverage remains stable.</p>
         </div>
